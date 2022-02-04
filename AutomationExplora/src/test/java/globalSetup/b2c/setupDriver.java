@@ -1,4 +1,4 @@
-package setup;
+package globalSetup.b2c;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

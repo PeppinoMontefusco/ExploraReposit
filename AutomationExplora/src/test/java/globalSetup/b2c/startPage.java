@@ -1,4 +1,4 @@
-package setup;
+package globalSetup.b2c;
 
 public class startPage {
 	

@@ -1,4 +1,4 @@
-package setup;
+package globalSetup.b2c;
 
 import java.util.ResourceBundle;
 
