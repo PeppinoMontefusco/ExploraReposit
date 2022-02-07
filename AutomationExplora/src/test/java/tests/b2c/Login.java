@@ -14,6 +14,8 @@ public class Login extends setupDriver  {
 	public static void login() {
 		startPage.startPage();
 		LoginAction.clickOnMyAccount();
+		LoginAction.insertLoginUsername();
+		LoginAction.insertLoginPassword();
 		
 		
 	}

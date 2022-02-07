@@ -26,9 +26,15 @@ public class WebWrapper extends setupDriver {
     public static void clickOn(WebElement element) {
 	        WebDriverWait wait = new WebDriverWait(driver, 60);    
     	    wait.until(ExpectedConditions.elementToBeClickable(element));
-	        scrollToElement(element);
-	        wait.until(ExpectedConditions.visibilityOf(element));
-	        double startTime = System.currentTimeMillis();
+    	    if (element.isDisplayed()){
+    	    	wait.until(ExpectedConditions.visibilityOf(element));
+    	    }
+    	    else {
+    	    	scrollToElement(element);
+    	    	wait.until(ExpectedConditions.visibilityOf(element));
+    	    	
+    	    }
+	         double startTime = System.currentTimeMillis();
 	        RuntimeException exception = null;
 	        while (System.currentTimeMillis() < startTime + 20000) {
 	            try {
@@ -61,5 +67,13 @@ public class WebWrapper extends setupDriver {
         ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
 		
 	}
+	
+	 public static void typeInField(WebElement element, String value) {
+		 WebDriverWait wait = new WebDriverWait(driver, 60);
+		 wait.until(ExpectedConditions.elementToBeClickable(element));
+		 wait.until(ExpectedConditions.visibilityOf(element));
+		 //scrollToElement(element);
+	     element.sendKeys(value);
+	    }
 
 }
