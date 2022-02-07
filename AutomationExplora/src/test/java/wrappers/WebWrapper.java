@@ -15,7 +15,7 @@ public class WebWrapper extends setupDriver {
 	
 	
 	
-	 @SuppressWarnings("deprecation")
+	 
 		public WebWrapper() {
 	    	//WebWrapper.webDriverWait = new WebDriverWait(driver, 60);
 	    	this.javascriptExecutor = (JavascriptExecutor) driver;
