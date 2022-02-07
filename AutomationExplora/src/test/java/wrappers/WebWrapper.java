@@ -15,20 +15,19 @@ public class WebWrapper extends setupDriver {
 	
 	
 	
-	
-    
-    @SuppressWarnings("deprecation")
-	public WebWrapper() {
-    	WebWrapper.webDriverWait = new WebDriverWait(driver, 60);
-    	this.javascriptExecutor = (JavascriptExecutor) driver;
-    	
-    }
+	 @SuppressWarnings("deprecation")
+		public WebWrapper() {
+	    	//WebWrapper.webDriverWait = new WebDriverWait(driver, 60);
+	    	this.javascriptExecutor = (JavascriptExecutor) driver;
+	    	
+	    }
 
-	
-	 public static void clickOn(WebElement element) {
-	       webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
-	       scrollToElement(element);
-	        webDriverWait.until(ExpectedConditions.visibilityOf(element));
+    
+    public static void clickOn(WebElement element) {
+	        WebDriverWait wait = new WebDriverWait(driver, 60);    
+    	    wait.until(ExpectedConditions.elementToBeClickable(element));
+	        scrollToElement(element);
+	        wait.until(ExpectedConditions.visibilityOf(element));
 	        double startTime = System.currentTimeMillis();
 	        RuntimeException exception = null;
 	        while (System.currentTimeMillis() < startTime + 20000) {
