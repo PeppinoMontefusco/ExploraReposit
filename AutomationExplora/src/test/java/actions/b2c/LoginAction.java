@@ -9,14 +9,14 @@ public class LoginAction extends setupDriver {
 	
 	public static void clickOnMyAccount() {
 		
-		HomePage.getMyAccountButton().click();
+		WebWrapper.clickOn(HomePage.getMyAccountButton());
+		
 	}
 	
     public static void clickOnMyAccountLogged() {
     	
     	WebWrapper.clickOn(HomePage.getMyAccountLoggedButton());
 		
-		//HomePage.getMyAccountLoggedButton().click();
 	}
 	
 	

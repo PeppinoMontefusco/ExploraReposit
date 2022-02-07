@@ -26,8 +26,8 @@ public class WebWrapper extends setupDriver {
 
 	
 	 public static void clickOn(WebElement element) {
-	        webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
-	        scrollToElement(element);
+	       webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
+	       scrollToElement(element);
 	        webDriverWait.until(ExpectedConditions.visibilityOf(element));
 	        double startTime = System.currentTimeMillis();
 	        RuntimeException exception = null;

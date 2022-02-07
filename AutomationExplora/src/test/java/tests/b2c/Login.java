@@ -13,8 +13,6 @@ public class Login extends setupDriver  {
 	@Test
 	public static void login() {
 		startPage.startPage();
-		//WebWrapper.clickOn(driver.findElement(By.id("didomi-notice-agree-button")));
-		driver.findElement(By.id("didomi-notice-agree-button")).click();
 		LoginAction.clickOnMyAccount();
 		
 		
