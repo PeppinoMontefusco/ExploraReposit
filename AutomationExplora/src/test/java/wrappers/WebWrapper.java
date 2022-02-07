@@ -35,6 +35,7 @@ public class WebWrapper extends setupDriver {
     	    	
     	    }
 	         double startTime = System.currentTimeMillis();
+	         
 	        RuntimeException exception = null;
 	        while (System.currentTimeMillis() < startTime + 20000) {
 	            try {
