@@ -13,16 +13,14 @@ import globalSetup.b2c.startPage;
 import pages.b2c.HomePage;
 import wrappers.WebWrapper;
 
-public class Login extends setupDriver  {
+public class LoginAndLogout extends setupDriver  {
 
 	@Test
-	public static void login() throws InterruptedException {
+	public static void loginAndLogout(){
 		startPage.startPage();
-		LoginAction.clickOnMyAccount();
-		LoginAction.insertLoginUsername();
-		LoginAction.insertLoginPassword();
-		LoginAction.clickOnSignInButton();
-		
+		LoginAction.loginBase();
+		LoginAction.logOutBase();
+		driver.quit();
 		
 	}
 

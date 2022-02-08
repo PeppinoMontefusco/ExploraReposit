@@ -31,10 +31,21 @@ public class LoginAction extends setupDriver {
     }
     
     public static void clickOnSignInButton() {
-    	WebWrapper.clickOn(HomePage.getSignInButtom());
+    	WebWrapper.clickOn(HomePage.getSignInButton());
     }
 	
-	
+    public static void clickOnSignOutButton() {
+    	WebWrapper.clickOn(HomePage.getSignOutButton());
+    }
+    
+    public static void clickOnCreateAccountButton() {
+    	WebWrapper.clickOn(HomePage.getCreateAccountButton());
+    }
+    
+    public static void insertCreateAccountEmail() {
+    	
+    }
+    
 	public static void loginBase() {
 		clickOnMyAccount();
 		insertLoginUsername();
@@ -42,7 +53,11 @@ public class LoginAction extends setupDriver {
 		clickOnSignInButton();
 	}
 	
-	
+	public static void logOutBase() {
+		clickOnMyAccountLogged();
+		clickOnSignOutButton();
+		
+	}
 	
 
 }

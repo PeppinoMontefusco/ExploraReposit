@@ -19,6 +19,8 @@ public class HomePage extends setupDriver {
 		}
 	
 	public static WebElement getMyAccountLoggedButton() {
+		 WebWrapper.wait.until(ExpectedConditions.elementToBeClickable(By.className("myAccountLogged")));
+		 WebWrapper.wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("myAccountLogged")));
 		return driver.findElements(By.className("myAccountLogged")).get(0);
 		}
 	public static WebElement getLoginUsername() {
@@ -29,10 +31,20 @@ public class HomePage extends setupDriver {
 	public static WebElement getLoginPassword() {
 		return driver.findElement(By.id("okta-signin-password"));
 		}
-	public static WebElement getSignInButtom() {
+	public static WebElement getSignInButton() {
+		
 		return driver.findElement(By.id("okta-signin-submit"));
 		}
+	public static WebElement getSignOutButton() {
+		return driver.findElement(By.xpath("//a[@title='Sign out']"));
+	}
 	
+	public static WebElement getCreateAccountButton() {
+		return driver.findElements(By.className("oktaWidget__tab")).get(0);
+	}
 	
+	public static WebElement getCreateAccountEmail() {
+		return driver.findElements(By.name("email")).get(0);
+	}
 	
 }

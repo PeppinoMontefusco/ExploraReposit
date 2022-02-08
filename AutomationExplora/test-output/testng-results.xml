@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15727" started-at="2022-02-08T09:34:45 CET" finished-at="2022-02-08T09:35:01 CET">
+  <suite started-at="2022-02-08T10:38:04 CET" name="Default suite" finished-at="2022-02-08T10:38:21 CET" duration-ms="17791">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15727" started-at="2022-02-08T09:34:45 CET" finished-at="2022-02-08T09:35:01 CET">
+    <test started-at="2022-02-08T10:38:04 CET" name="Default test" finished-at="2022-02-08T10:38:21 CET" duration-ms="17791">
       <class name="tests.b2c.Login">
-        <test-method status="PASS" signature="login()[pri:0, instance:tests.b2c.Login@37052337]" name="login" duration-ms="15667" started-at="2022-02-08T09:34:45 CET" finished-at="2022-02-08T09:35:01 CET">
+        <test-method signature="login()[pri:0, instance:tests.b2c.Login@11a82d0f]" started-at="2022-02-08T10:38:04 CET" name="login" finished-at="2022-02-08T10:38:21 CET" duration-ms="17731" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
