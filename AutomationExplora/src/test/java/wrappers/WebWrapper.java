@@ -10,21 +10,21 @@ import globalSetup.b2c.setupDriver;
 
 public class WebWrapper extends setupDriver {
 	
-	private static  WebDriverWait webDriverWait;
-	private final JavascriptExecutor javascriptExecutor;
+	public static  WebDriverWait wait;
+	private final static JavascriptExecutor javascriptExecutor;
 	
 	
 	
 	 
-		public WebWrapper() {
-	    	//WebWrapper.webDriverWait = new WebDriverWait(driver, 60);
-	    	this.javascriptExecutor = (JavascriptExecutor) driver;
+		static {
+	    	WebWrapper.wait = new WebDriverWait(driver, 60);
+	    	javascriptExecutor = (JavascriptExecutor) driver;
 	    	
 	    }
 
     
     public static void clickOn(WebElement element) {
-	        WebDriverWait wait = new WebDriverWait(driver, 60);    
+	           
     	    wait.until(ExpectedConditions.elementToBeClickable(element));
     	    if (element.isDisplayed()){
     	    	wait.until(ExpectedConditions.visibilityOf(element));
@@ -65,12 +65,12 @@ public class WebWrapper extends setupDriver {
 		String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
                 + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
-        ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
+        javascriptExecutor.executeScript(scrollElementIntoMiddle, element);
 		
 	}
 	
 	 public static void typeInField(WebElement element, String value) {
-		 WebDriverWait wait = new WebDriverWait(driver, 60);
+		 
 		 wait.until(ExpectedConditions.elementToBeClickable(element));
 		 wait.until(ExpectedConditions.visibilityOf(element));
 		 //scrollToElement(element);

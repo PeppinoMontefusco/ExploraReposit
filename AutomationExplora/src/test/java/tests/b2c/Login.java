@@ -1,6 +1,10 @@
 package tests.b2c;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import actions.b2c.LoginAction;
@@ -15,10 +19,9 @@ public class Login extends setupDriver  {
 	public static void login() throws InterruptedException {
 		startPage.startPage();
 		LoginAction.clickOnMyAccount();
-		Thread.sleep(5000);
-		WebWrapper.clickOn(HomePage.getLoginUsername());
 		LoginAction.insertLoginUsername();
 		LoginAction.insertLoginPassword();
+		LoginAction.clickOnSignInButton();
 		
 		
 	}
