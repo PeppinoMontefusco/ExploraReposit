@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-02-08T10:38:04 CET" name="Default suite" finished-at="2022-02-08T10:38:21 CET" duration-ms="17791">
+  <suite started-at="2022-02-09T12:17:15 CET" name="Default suite" finished-at="2022-02-09T12:17:20 CET" duration-ms="5338">
     <groups>
     </groups>
-    <test started-at="2022-02-08T10:38:04 CET" name="Default test" finished-at="2022-02-08T10:38:21 CET" duration-ms="17791">
-      <class name="tests.b2c.Login">
-        <test-method signature="login()[pri:0, instance:tests.b2c.Login@11a82d0f]" started-at="2022-02-08T10:38:04 CET" name="login" finished-at="2022-02-08T10:38:21 CET" duration-ms="17731" status="PASS">
+    <test started-at="2022-02-09T12:17:15 CET" name="Default test" finished-at="2022-02-09T12:17:20 CET" duration-ms="5338">
+      <class name="tests.b2c.CreateUser">
+        <test-method signature="createUser()[pri:0, instance:tests.b2c.CreateUser@11a82d0f]" started-at="2022-02-09T12:17:15 CET" name="createUser" finished-at="2022-02-09T12:17:20 CET" duration-ms="5267" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login -->
-      </class> <!-- tests.b2c.Login -->
+        </test-method> <!-- createUser -->
+      </class> <!-- tests.b2c.CreateUser -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
