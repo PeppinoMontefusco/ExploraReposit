@@ -2,6 +2,8 @@ package tests.b2c;
 
 import org.testng.annotations.Test;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
+
 import actions.b2c.LoginAction;
 import actions.b2c.RegistrationAction;
 import globalSetup.b2c.ExternalFunction;
@@ -12,11 +14,11 @@ public class CreateUser extends setupDriver {
 	
 	
 	@Test
-	public static void createUser() throws InterruptedException{
+	public static void createUser() throws InterruptedException, UnirestException{
 		startPage.startPage();
 		LoginAction.clickOnMyAccount();
-	/*	RegistrationAction.clickOnCreateAccountButton();
-		RegistrationAction.insertCreateAccountEmail();
+		RegistrationAction.clickOnCreateAccountButton();
+		String email =RegistrationAction.insertCreateAccountEmail();
 		RegistrationAction.insertCreateAccountPassword();
 		RegistrationAction.insertCreateAccountConfirmPassword();
 		RegistrationAction.insertCreateAccountFirstName();
@@ -26,9 +28,11 @@ public class CreateUser extends setupDriver {
 		RegistrationAction.insertCreateAccountDOBYear();
 		RegistrationAction.setCreateAccountPrivacy1();
 		RegistrationAction.setCreateAccountPrivacy2();
-		//RegistrationAction.clickCreateAccountSubmitButton();*/
-		String ciao=ExternalFunction.getMd5Hash("ciaociao@mailkept.com");
-		System.out.println(ciao);
+		RegistrationAction.clickCreateAccountSubmitButton();
+		String md5=ExternalFunction.getMd5Hash(email);
+		ExternalFunction.getEmails(md5);
+		
+
 		
 		
 }

@@ -15,7 +15,7 @@ public class RegistrationAction extends setupDriver{
 	    }
 	    
 	    public static String insertCreateAccountEmail() throws InterruptedException {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
             String email = "Automation"+ ExternalFunction.getRandomString(4)+"@mailkept.com";
 	    	WebWrapper.typeInField(RegistrationPage.getCreateAccountEmail(), email );
 	    	return email;
