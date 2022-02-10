@@ -22,7 +22,7 @@ public class RecoveryPassword extends setupDriver {
 		RecoveryAction.clickOnRecoveryPasswordLink();
 		RecoveryAction.insertRecoveryPasswordEmail();
 		RecoveryAction.clickOnRecoveryPasswordResetButton();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecovery());
 		ExternalFunction.getRecoveryEmails(md5);
 		

@@ -72,7 +72,7 @@ public class ExternalFunction extends setupDriver{
     }
 	
 	
-	public static String getRecoveryEmails(String md5) throws UnirestException, InterruptedException {
+	public static void getRecoveryEmails(String md5) throws UnirestException, InterruptedException {
 		HttpResponse<JsonNode> response = Unirest.get("https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/"+md5+"/") 
 				             .header("x-rapidapi-host", "privatix-temp-mail-v1.p.rapidapi.com") 
 				             .header("x-rapidapi-key", "ae7a697843msh7aed4952885c1cfp1170cbjsn5ac0900804e1") 
@@ -103,19 +103,56 @@ public class ExternalFunction extends setupDriver{
                 .filter(x -> ChronoUnit.MINUTES.between(x.timestamp, LocalDateTime.now()) < 2)
                 .max(Comparator.comparing(Email::getTimestamp)).orElse(null);
 		
-		//var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/idpb2c.*?)\\1");
+		
 		var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/stage\\.mscnextgenlux\\.com\\/it\\/en\\/reset-password.*?)\\1");
 		
 		var match = pattern.matcher(email.body);
 		if (match.find()) {
 		    String url = match.group(2);
-		    driver.get(url);
-		    System.out.println(url); 
+		    driver.get(url); 
 		    }
+		
+	}
 	
+	public static void getRegistrationEmails(String md5) throws UnirestException, InterruptedException {
+		HttpResponse<JsonNode> response = Unirest.get("https://privatix-temp-mail-v1.p.rapidapi.com/request/mail/id/"+md5+"/") 
+				             .header("x-rapidapi-host", "privatix-temp-mail-v1.p.rapidapi.com") 
+				             .header("x-rapidapi-key", "ae7a697843msh7aed4952885c1cfp1170cbjsn5ac0900804e1") 
+				             .asJson();
+		
+		List<Email> emailsWithTimestamp = new ArrayList<>();
+		
+            
+            var emails = response.getBody().getArray();
+            
+            
+            
+            
+            for (int i = 0; i < emails.length(); i++) {
+                var jsonObject = emails.getJSONObject(i);
+                Email email = new Email();
+                email.body = jsonObject.getString("mail_text_only");
+                email.subject = jsonObject.getString("mail_subject");
+                email.timestamp =
+                        LocalDateTime.ofInstant(Instant.ofEpochMilli(jsonObject.getLong("mail_timestamp") * 1000),
+                                TimeZone.getDefault().toZoneId());
+                emailsWithTimestamp.add(email);
+            }
+
+        
+        
+             Email email=emailsWithTimestamp.stream()
+                .filter(x -> ChronoUnit.MINUTES.between(x.timestamp, LocalDateTime.now()) < 2)
+                .max(Comparator.comparing(Email::getTimestamp)).orElse(null);
+		
+		var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/idpb2c.*?)\\1");
 		
 		
-	return "";
+		var match = pattern.matcher(email.body);
+		if (match.find()) {
+		    String url = match.group(2);
+		    driver.get(url);
+		    }
 		
 	}
 	

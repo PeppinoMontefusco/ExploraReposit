@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.b2c.CreateUser">
+      <class name="tests.b2c.RecoveryPassword">
         <methods>
-          <include name="createUser"/>
+          <include name="recoveryPassword"/>
         </methods>
-      </class> <!-- tests.b2c.CreateUser -->
+      </class> <!-- tests.b2c.RecoveryPassword -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
