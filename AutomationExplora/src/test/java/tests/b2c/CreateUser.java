@@ -29,7 +29,9 @@ public class CreateUser extends setupDriver {
 		RegistrationAction.setCreateAccountPrivacy1();
 		RegistrationAction.setCreateAccountPrivacy2();
 		RegistrationAction.clickCreateAccountSubmitButton();
+		System.out.println(email);
 		String md5=ExternalFunction.getMd5Hash(email);
+		System.out.println(md5);
 		ExternalFunction.getEmails(md5);
 		
 
