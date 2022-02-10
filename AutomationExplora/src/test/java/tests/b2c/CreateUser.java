@@ -34,7 +34,7 @@ public class CreateUser extends setupDriver {
 		RegistrationAction.clickCreateAccountSubmitButton();
 		RegistrationAction.clickCreateAccountCloseButton();
 		String md5=ExternalFunction.getMd5Hash(email);
-		ExternalFunction.getEmails(md5);
+		ExternalFunction.getRecoveryEmails(md5);
 		RegistrationAction.clickCreateAccountSuccessClose();
 		
 		//Login after registration

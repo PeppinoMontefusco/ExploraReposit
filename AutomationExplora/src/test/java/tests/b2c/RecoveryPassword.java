@@ -16,14 +16,15 @@ public class RecoveryPassword extends setupDriver {
 	
 	
 	@Test
-	public static void recoveryPassword() throws UnirestException {
+	public static void recoveryPassword() throws UnirestException, InterruptedException {
 		startPage.startPage();
 		LoginAction.clickOnMyAccount();
 		RecoveryAction.clickOnRecoveryPasswordLink();
 		RecoveryAction.insertRecoveryPasswordEmail();
 		RecoveryAction.clickOnRecoveryPasswordResetButton();
+		Thread.sleep(5000);
 		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecovery());
-		ExternalFunction.getEmails(md5);
+		ExternalFunction.getRecoveryEmails(md5);
 		
 	}
 
