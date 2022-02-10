@@ -65,10 +65,20 @@ public class RegistrationPage extends setupDriver {
   		return driver.findElements(By.name("privacyCheckbox1")).get(0);
   	}
     
-public static WebElement getCreateAccountSubmitButton() {
+    public static WebElement getCreateAccountSubmitButton() {
 		
   		return driver.findElements(By.className("button-primary")).get(0);
   	}
+
+    public static WebElement getCreateAccountClosePopup() {
+	
+		return driver.findElement(By.xpath("//*[text()='Close']"));
+	}
+    
+    public static WebElement getCreateAccountSuccessClose() {
+    	
+		return driver.findElement(By.xpath("//*[text()='Close']"));
+	}
 
 
 

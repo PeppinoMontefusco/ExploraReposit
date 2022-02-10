@@ -17,6 +17,7 @@ public class RegistrationAction extends setupDriver{
 	    public static String insertCreateAccountEmail() throws InterruptedException {
 			Thread.sleep(3000);
             String email = "automation"+ ExternalFunction.getRandomString(4)+"@folllo.com";
+            
 	    	WebWrapper.typeInField(RegistrationPage.getCreateAccountEmail(), email );
 	    	return email;
 	    	
@@ -51,7 +52,7 @@ public class RegistrationAction extends setupDriver{
 	    }
 	    
 	    public static void insertCreateAccountDOBMonth() {
-	    	int DOBMonth= Integer.valueOf(ExternalFunction.getRandomInt(1, 12));
+	    	int DOBMonth= Integer.valueOf(ExternalFunction.getRandomInt(0, 11));
 	    	
 	    	Select month =new Select(RegistrationPage.getCreateAccountDOBMonth());
 	    	month.selectByIndex(DOBMonth);
@@ -74,5 +75,12 @@ public class RegistrationAction extends setupDriver{
 	    public static void clickCreateAccountSubmitButton() {
 	    	WebWrapper.clickOn(RegistrationPage.getCreateAccountSubmitButton());
 	    }
+	    public static void clickCreateAccountCloseButton() {
+	    	WebWrapper.clickOn(RegistrationPage.getCreateAccountClosePopup());
+	    }
+	    public static void clickCreateAccountSuccessClose() {
+	    	WebWrapper.clickOn(RegistrationPage.getCreateAccountSuccessClose());
+	    }
+	    
 	
 }

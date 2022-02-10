@@ -61,16 +61,16 @@ public class ExternalFunction extends setupDriver{
 		JSONArray emails= response.getBody().getArray();
 		JSONObject email = emails.getJSONObject(0);
 		
-		System.out.println(email);
 		
 		var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/idpb2c.*?)\\1");
+		//var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/stage.mscnextgenlux.com\\/it\\/en\\/reset-password.*?)\\1");
+		
 		var match = pattern.matcher(email.getString("mail_text_only"));
 		if (match.find()) {
 		    String url = match.group(2);
 		    driver.get(url);
-		    System.out.println(url);
-		    System.out.println(email);
-		}
+		    }
+	
 		
 		
 	return "";

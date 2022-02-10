@@ -6,9 +6,12 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import actions.b2c.LoginAction;
 import actions.b2c.RegistrationAction;
+import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
+import pages.b2c.HomePage;
+import wrappers.WebWrapper;
 
 public class CreateUser extends setupDriver {
 	
@@ -29,10 +32,24 @@ public class CreateUser extends setupDriver {
 		RegistrationAction.setCreateAccountPrivacy1();
 		RegistrationAction.setCreateAccountPrivacy2();
 		RegistrationAction.clickCreateAccountSubmitButton();
-		System.out.println(email);
+		RegistrationAction.clickCreateAccountCloseButton();
 		String md5=ExternalFunction.getMd5Hash(email);
-		System.out.println(md5);
 		ExternalFunction.getEmails(md5);
+		RegistrationAction.clickCreateAccountSuccessClose();
+		
+		//Login after registration
+		
+		LoginAction.clickOnMyAccount();
+		WebWrapper.typeInField(HomePage.getLoginUsername(), email);
+		LoginAction.insertLoginPassword();
+		LoginAction.clickOnSignInButton();
+		
+		LoginAction.logOutBase();
+		driver.quit();
+		
+		
+		
+		
 		
 
 		
