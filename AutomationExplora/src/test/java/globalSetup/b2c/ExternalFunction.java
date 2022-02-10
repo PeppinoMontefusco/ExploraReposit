@@ -69,6 +69,7 @@ public class ExternalFunction extends setupDriver{
 		    String url = match.group(2);
 		    driver.get(url);
 		    System.out.println(url);
+		    System.out.println(email);
 		}
 		
 		
