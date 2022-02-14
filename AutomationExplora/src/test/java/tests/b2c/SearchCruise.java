@@ -21,6 +21,8 @@ public class SearchCruise extends setupDriver{
 		//WebElement web=findByShadowButton();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		var WebElement = (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('canvas')[11];");
+		
+		
 		WebWrapper.clickOn(WebElement);            
 		
 		
