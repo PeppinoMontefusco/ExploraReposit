@@ -77,4 +77,25 @@ public class WebWrapper extends setupDriver {
 	     element.sendKeys(value);
 	    }
 
+	 public static void waitForJavascript(int maxWaitMillis, int pollDelimiter) {
+		    double startTime = System.currentTimeMillis();
+		    while (System.currentTimeMillis() < startTime + maxWaitMillis) {
+		        String prevState = driver.getPageSource();
+		        try {
+					Thread.sleep(pollDelimiter);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} // <-- would need to wrap in a try catch
+		        if (prevState.equals(driver.getPageSource())) {
+		            return;
+		        }
+		    }
+		}
+	 public static WebElement getElementInShadowRoot(String tag, String index) {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		return	  (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+index+"];");
+		
+		 
+	 }
 }

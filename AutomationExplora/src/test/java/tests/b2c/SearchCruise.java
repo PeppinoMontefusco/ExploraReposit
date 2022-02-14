@@ -18,8 +18,11 @@ public class SearchCruise extends setupDriver{
 	public static void createUser() throws InterruptedException {
 		startPage.startPage();
 		LoginAction.clickOnBookAJourney();
+		SearchCruiseAction.clickOnDestination();
+		SearchCruiseAction.clickOnSelectAndClose();
 		SearchCruiseAction.clickSearchCruise();
 		SearchCruiseAction.clickOnFirstBookButton();
+		SearchCruiseAction.clickOnCategorySuiteButton();
 		        
 		
 		
