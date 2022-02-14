@@ -38,8 +38,8 @@ public class LoginAction extends setupDriver {
     	WebWrapper.clickOn(HomePage.getSignOutButton());
     }
     
-    public static void clickOnSearchAndBook() {
-    	WebWrapper.clickOn(HomePage.getSearchAndBookButton());
+    public static void clickOnBookAJourney() {
+    	WebWrapper.clickOn(HomePage.getBookAJourneyButton());
     }
     
     

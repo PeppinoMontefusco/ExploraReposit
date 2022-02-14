@@ -15,15 +15,12 @@ import wrappers.WebWrapper;
 public class SearchCruise extends setupDriver{
 	
 	@Test
-	public static void createUser() {
+	public static void createUser() throws InterruptedException {
 		startPage.startPage();
-		LoginAction.clickOnSearchAndBook();
-		//WebElement web=findByShadowButton();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		var WebElement = (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('canvas')[11];");
-		
-		
-		WebWrapper.clickOn(WebElement);            
+		LoginAction.clickOnBookAJourney();
+		SearchCruiseAction.clickSearchCruise();
+		SearchCruiseAction.clickOnFirstBookButton();
+		        
 		
 		
 		
@@ -31,7 +28,7 @@ public class SearchCruise extends setupDriver{
 
 	}
 	
-	private static WebElement shadowDom;
+	/*private static WebElement shadowDom;
 
 	private static WebElement expandRootElement(WebElement element) {
 	    WebElement ele = (WebElement) ((JavascriptExecutor) driver)
@@ -47,6 +44,6 @@ public class SearchCruise extends setupDriver{
 	private static WebElement findByShadowButton() {
 	    findByShadowRoot(driver);
 	    return shadowDom.findElement(By.tagName("canvas"));
-	}
+	}*/
 
 }

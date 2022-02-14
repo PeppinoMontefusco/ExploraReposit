@@ -39,8 +39,8 @@ public class HomePage extends setupDriver {
 		return driver.findElement(By.xpath("//a[@title='Sign out']"));
 	}
 	
-	public static WebElement getSearchAndBookButton() {
-		return driver.findElements(By.className("quickBooking__btn")).get(0);
+	public static WebElement getBookAJourneyButton() {
+		return driver.findElements(By.className("cta")).get(0);
 	}
 	
 	

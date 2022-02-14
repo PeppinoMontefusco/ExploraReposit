@@ -22,6 +22,8 @@ public class CreateUser extends setupDriver {
 		LoginAction.clickOnMyAccount();
 		RegistrationAction.clickOnCreateAccountButton();
 		String email =RegistrationAction.insertCreateAccountEmail();
+		//Gestire la pausa all'interno del metodo insertCreateAccountEmail() in quando rosulta la form non formattata correttamente
+		
 		RegistrationAction.insertCreateAccountPassword();
 		RegistrationAction.insertCreateAccountConfirmPassword();
 		RegistrationAction.insertCreateAccountFirstName();
