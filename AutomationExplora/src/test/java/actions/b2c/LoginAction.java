@@ -37,6 +37,12 @@ public class LoginAction extends setupDriver {
     public static void clickOnSignOutButton() {
     	WebWrapper.clickOn(HomePage.getSignOutButton());
     }
+    
+    public static void clickOnSearchAndBook() {
+    	WebWrapper.clickOn(HomePage.getSearchAndBookButton());
+    }
+    
+    
    
 	public static void loginBase() {
 		clickOnMyAccount();

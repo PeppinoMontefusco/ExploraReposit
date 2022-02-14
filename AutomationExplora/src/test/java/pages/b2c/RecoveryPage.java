@@ -18,5 +18,23 @@ public class RecoveryPage extends setupDriver{
 	public static WebElement getRecoveryPasswordResetButton() {
 		return driver.findElement(By.xpath("//*[text()='RESET PASSWORD']"));
 	}
+	
+	public static WebElement getRecoveryPasswordNewPassword() {
+		return driver.findElement(By.name("newPassword"));
+	}
+	
+	public static WebElement getRecoveryPasswordConfirmNewPassword() {
+		return driver.findElement(By.name("confirmPassword"));
+	}
+	
+	public static WebElement getRecoveryPasswordUpdatePasswordButton() {
+		return driver.findElements(By.className("button-primary")).get(0);
+	}
+	
+	public static WebElement getRecoveryPasswordUpdateSignInButton() {
+		return driver.findElements(By.className("go-to-signin")).get(0);
+	}
+	
+	
 
 }
