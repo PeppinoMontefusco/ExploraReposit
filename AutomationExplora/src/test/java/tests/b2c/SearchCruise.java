@@ -23,6 +23,8 @@ public class SearchCruise extends setupDriver{
 		SearchCruiseAction.clickSearchCruise();
 		SearchCruiseAction.clickOnFirstBookButton();
 		SearchCruiseAction.clickOnCategorySuiteButton();
+		Thread.sleep(2000);
+		SearchCruiseAction.clickOnSubCategorySuiteButton();
 		        
 		
 		

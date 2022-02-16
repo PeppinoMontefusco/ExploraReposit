@@ -3,6 +3,7 @@ package actions.b2c;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import globalSetup.b2c.ExternalFunction;
@@ -32,16 +33,17 @@ public class SearchCruiseAction extends setupDriver {
 	
 	public static void clickOnFirstBookButton() throws InterruptedException {
 		WebWrapper.waitForJavascript(30000, 3000);
-		Thread.sleep(2000);
-	    WebWrapper.clickOn(WebWrapper.getElementInShadowRoot("canvas", "14"));  
+		
+		WebWrapper.clickOn(WebWrapper.getElementInShadowRoot("flt-clip", "11"));  
     }
 	
 	public static void clickOnCategorySuiteButton() throws InterruptedException {
-		//WebWrapper.waitForJavascript(30000, 3000);
-		Thread.sleep(2000);
-	    WebWrapper.clickOn(WebWrapper.getElementInShadowRoot("canvas", "9"));  
-    }
+		 
+		WebWrapper.clickOnElementNotClickable(WebWrapper.getElementInShadowRoot("flt-clip", "12"));
+	}
 	
-	
+	public static void clickOnSubCategorySuiteButton() throws InterruptedException {
+		WebWrapper.clickOnElementNotClickable(WebWrapper.getElementInShadowRoot("flt-clip", "18"));
+	}
 
 }
