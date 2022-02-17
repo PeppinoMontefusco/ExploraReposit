@@ -34,7 +34,7 @@ public class BookingFlowNotLogged extends setupDriver{
 		
 		SearchCruiseAction.clickOnFirstBookButton();
 		
-		WebWrapper.zoomOut();
+		//WebWrapper.zoomOut();
 		Thread.sleep(2000);
 		SearchCruiseAction.clickOnCategorySuiteButton();
 		
@@ -43,8 +43,7 @@ public class BookingFlowNotLogged extends setupDriver{
 		GuestAction.clickOnFirstName();
 		Thread.sleep(2000);
 		GuestAction.setFirstName();
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_V);
+		
 		        
 		
 		
