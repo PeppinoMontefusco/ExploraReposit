@@ -118,7 +118,7 @@ public class WebWrapper extends setupDriver {
 
 	 public static void zoomOut() throws AWTException, InterruptedException {
 		 Robot robot = new Robot();
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < 2; i++) {
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_SUBTRACT);
 			robot.keyRelease(KeyEvent.VK_SUBTRACT);

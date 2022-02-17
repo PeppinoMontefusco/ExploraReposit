@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import actions.b2c.GuestAction;
 import actions.b2c.LoginAction;
 import actions.b2c.SearchCruiseAction;
 import globalSetup.b2c.setupDriver;
@@ -32,11 +33,16 @@ public class BookingFlowNotLogged extends setupDriver{
 		//WebWrapper.zoomOut();
 		
 		SearchCruiseAction.clickOnFirstBookButton();
-		Thread.sleep(2000);
+		
 		WebWrapper.zoomOut();
+		Thread.sleep(2000);
 		SearchCruiseAction.clickOnCategorySuiteButton();
 		
 		SearchCruiseAction.clickOnSubCategorySuiteButton();
+		Thread.sleep(2000);
+		GuestAction.clickOnFirstName();
+		Thread.sleep(2000);
+		GuestAction.setFirstName();
 		        
 		
 		
@@ -45,22 +51,5 @@ public class BookingFlowNotLogged extends setupDriver{
 
 	}
 	
-	/*private static WebElement shadowDom;
-
-	private static WebElement expandRootElement(WebElement element) {
-	    WebElement ele = (WebElement) ((JavascriptExecutor) driver)
-	        .executeScript("return arguments[0].shadowRoot",element);
-	    return ele;
-	}
-	private static void findByShadowRoot(WebDriver driver) {
-	    shadowDom = expandRootElement(
-	        driver.findElement(By.tagName("flt-glass-pane")));
-	}
-	
-
-	private static WebElement findByShadowButton() {
-	    findByShadowRoot(driver);
-	    return shadowDom.findElement(By.tagName("canvas"));
-	}*/
 
 }
