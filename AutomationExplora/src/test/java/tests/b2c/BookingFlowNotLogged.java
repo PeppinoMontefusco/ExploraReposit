@@ -35,14 +35,39 @@ public class BookingFlowNotLogged extends setupDriver{
 		SearchCruiseAction.clickOnFirstBookButton();
 		
 		//WebWrapper.zoomOut();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		SearchCruiseAction.clickOnCategorySuiteButton();
 		
 		SearchCruiseAction.clickOnSubCategorySuiteButton();
-		Thread.sleep(2000);
-		GuestAction.clickOnFirstName();
-		Thread.sleep(2000);
+		//WebWrapper.waitForJavascript(30000, 2000);
+		Thread.sleep(6000);
+		
+		WebWrapper.findSpanName("First","Claudia");
+		WebWrapper.findSpanName("Last","Sorrentino");
+		
+		/*GuestAction.clickOnFirstName("11");
 		GuestAction.setFirstName();
+		GuestAction.clickOnLastName("13");
+		GuestAction.setLastName();
+		GuestAction.clickOnGender("16");
+		GuestAction.clickOnDateOfBirth("18");
+		GuestAction.setDOB();
+		GuestAction.clickOnEmail("20");
+		GuestAction.setEmail();
+		GuestAction.clickOnContinue("14");
+		
+		Thread.sleep(4000);
+		
+		GuestAction.clickOnFirstName("10");
+		GuestAction.setFirstName();
+		GuestAction.clickOnLastName("12");
+		GuestAction.setLastName();
+		GuestAction.clickOnGender("15");
+		GuestAction.clickOnDateOfBirth("17");
+		GuestAction.setDOB();
+		GuestAction.clickOnContinue("13");*/
+		
+
 		
 		        
 		

@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import actions.b2c.GuestAction;
 import globalSetup.b2c.setupDriver;
 
 public class WebWrapper extends setupDriver {
@@ -126,6 +127,23 @@ public class WebWrapper extends setupDriver {
             
 		
           }
+	 }
+	 
+	 public static void findSpanName(String nameOfField,String value) throws InterruptedException {
+		 
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span').length;");
+		 System.out.println(indexAll);
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span')["+i+"].innerText;");
+			 if (text.startsWith(nameOfField)) {
+				 String index =i+"";
+				 GuestAction.clickOnFirstName(index);
+				 GuestAction.setFirstName(value);
+			 }
+		 }
+		 
+		 
 	 }
 }
 		

@@ -1,6 +1,8 @@
 package actions.b2c;
 
 
+import org.openqa.selenium.interactions.Actions;
+
 import globalSetup.b2c.setupDriver;
 import pages.b2c.SearchCruisePage;
 import wrappers.WebWrapper;
@@ -37,6 +39,7 @@ public class SearchCruiseAction extends setupDriver {
 	}
 	
 	public static void clickOnSubCategorySuiteButton() throws InterruptedException {
+		
 		WebWrapper.clickOnElementNotClickable(WebWrapper.getElementInShadowRoot("flt-clip", "18"));
 	}
 
