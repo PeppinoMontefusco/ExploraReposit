@@ -1,7 +1,12 @@
 package wrappers;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,7 +65,10 @@ public class WebWrapper extends setupDriver {
 	    }
 		
 	
-
+	
+	
+	
+	
 
 	private static void scrollToElement(WebElement element) {
 		String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
@@ -101,11 +109,27 @@ public class WebWrapper extends setupDriver {
 	 } 
 	 
 
-	 public static void clickOnElementNotClickable(WebElement element){
+	 public static void clickOnElementNotClickable(WebElement element) throws InterruptedException{
+		 
 		 Actions actions = new Actions(driver);
-		 actions.moveToElement(element).click().build().perform();
+		actions.moveToElement(element).click().build().perform();
+		
 	 }
-} 
+
+	 public static void zoomOut() throws AWTException, InterruptedException {
+		 Robot robot = new Robot();
+			for (int i = 0; i < 3; i++) {
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_SUBTRACT);
+			robot.keyRelease(KeyEvent.VK_SUBTRACT);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+		
+          }
+	 }
+}
+		
+
+
    
 
 

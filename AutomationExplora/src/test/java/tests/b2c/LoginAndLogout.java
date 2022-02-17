@@ -1,5 +1,7 @@
 package tests.b2c;
 
+import java.awt.AWTException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,7 +18,7 @@ import wrappers.WebWrapper;
 public class LoginAndLogout extends setupDriver  {
 
 	@Test
-	public static void loginAndLogout(){
+	public static void loginAndLogout() throws AWTException, InterruptedException{
 		startPage.startPage();
 		LoginAction.loginBase();
 		LoginAction.logOutBase();

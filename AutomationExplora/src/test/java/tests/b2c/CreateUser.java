@@ -1,5 +1,7 @@
 package tests.b2c;
 
+import java.awt.AWTException;
+
 import org.testng.annotations.Test;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -17,7 +19,7 @@ public class CreateUser extends setupDriver {
 	
 	
 	@Test
-	public static void createUser() throws InterruptedException, UnirestException{
+	public static void createUser() throws InterruptedException, UnirestException, AWTException{
 		startPage.startPage();
 		LoginAction.clickOnMyAccount();
 		RegistrationAction.clickOnCreateAccountButton();

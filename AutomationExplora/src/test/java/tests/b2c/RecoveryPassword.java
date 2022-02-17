@@ -1,5 +1,7 @@
 package tests.b2c;
 
+import java.awt.AWTException;
+
 import org.testng.annotations.Test;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -18,7 +20,7 @@ public class RecoveryPassword extends setupDriver {
 	
 	
 	@Test
-	public static void recoveryPassword() throws UnirestException, InterruptedException {
+	public static void recoveryPassword() throws UnirestException, InterruptedException, AWTException {
 		startPage.startPage();
 		LoginAction.clickOnMyAccount();
 		RecoveryAction.clickOnRecoveryPasswordLink();

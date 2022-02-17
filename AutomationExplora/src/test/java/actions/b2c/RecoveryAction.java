@@ -4,7 +4,6 @@ package actions.b2c;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
-import pages.b2c.HomePage;
 import pages.b2c.RecoveryPage;
 import wrappers.WebWrapper;
 

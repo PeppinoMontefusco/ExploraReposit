@@ -1,7 +1,12 @@
 package tests.b2c;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -12,18 +17,25 @@ import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.WebWrapper;
 
-public class SearchCruise extends setupDriver{
+public class BookingFlowNotLogged extends setupDriver{
 	
 	@Test
-	public static void createUser() throws InterruptedException {
+	public static void bookingFlowNotLogged() throws InterruptedException, AWTException {
 		startPage.startPage();
+		
+		
 		LoginAction.clickOnBookAJourney();
 		SearchCruiseAction.clickOnDestination();
 		SearchCruiseAction.clickOnSelectAndClose();
 		SearchCruiseAction.clickSearchCruise();
+		
+		//WebWrapper.zoomOut();
+		
 		SearchCruiseAction.clickOnFirstBookButton();
-		SearchCruiseAction.clickOnCategorySuiteButton();
 		Thread.sleep(2000);
+		WebWrapper.zoomOut();
+		SearchCruiseAction.clickOnCategorySuiteButton();
+		
 		SearchCruiseAction.clickOnSubCategorySuiteButton();
 		        
 		

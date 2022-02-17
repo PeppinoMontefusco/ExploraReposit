@@ -38,7 +38,7 @@ public class LoginAction extends setupDriver {
     	WebWrapper.clickOn(HomePage.getSignOutButton());
     }
     
-    public static void clickOnBookAJourney() {
+    public static void clickOnBookAJourney() throws InterruptedException {
     	WebWrapper.clickOn(HomePage.getBookAJourneyButton());
     }
     
