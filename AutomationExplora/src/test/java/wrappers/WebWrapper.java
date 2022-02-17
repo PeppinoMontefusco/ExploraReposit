@@ -123,6 +123,7 @@ public class WebWrapper extends setupDriver {
 			robot.keyPress(KeyEvent.VK_SUBTRACT);
 			robot.keyRelease(KeyEvent.VK_SUBTRACT);
             robot.keyRelease(KeyEvent.VK_CONTROL);
+            
 		
           }
 	 }
