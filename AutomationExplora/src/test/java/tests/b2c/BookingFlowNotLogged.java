@@ -35,15 +35,25 @@ public class BookingFlowNotLogged extends setupDriver{
 		SearchCruiseAction.clickOnFirstBookButton();
 		
 		//WebWrapper.zoomOut();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		SearchCruiseAction.clickOnCategorySuiteButton();
+		Thread.sleep(3000);
+		WebWrapper.flpClipBookButton();
 		
-		SearchCruiseAction.clickOnSubCategorySuiteButton();
+		//SearchCruiseAction.clickOnSubCategorySuiteButton();
 		//WebWrapper.waitForJavascript(30000, 2000);
 		Thread.sleep(6000);
 		
 		WebWrapper.findSpanName("First","Claudia");
 		WebWrapper.findSpanName("Last","Sorrentino");
+		WebWrapper.findSpanName("Date", "01011990");
+		WebWrapper.findSpanName("Email", "mario@yopmail.com");
+		GuestAction.clickOnContinue("14");
+		
+		WebWrapper.findSpanName("First","Claudia");
+		WebWrapper.findSpanName("Last","Sorrentino");
+		WebWrapper.findSpanName("Date", "01011990");
+		GuestAction.clickOnContinue("13");
 		
 		/*GuestAction.clickOnFirstName("11");
 		GuestAction.setFirstName();
@@ -54,7 +64,7 @@ public class BookingFlowNotLogged extends setupDriver{
 		GuestAction.setDOB();
 		GuestAction.clickOnEmail("20");
 		GuestAction.setEmail();
-		GuestAction.clickOnContinue("14");
+	    GuestAction.clickOnContinue("14");
 		
 		Thread.sleep(4000);
 		

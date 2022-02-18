@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import actions.b2c.GuestAction;
+import actions.b2c.SearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 
 public class WebWrapper extends setupDriver {
@@ -133,17 +134,35 @@ public class WebWrapper extends setupDriver {
 		 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span').length;");
-		 System.out.println(indexAll);
 		 for(int i=0;i<indexAll;i++) {
 			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span')["+i+"].innerText;");
 			 if (text.startsWith(nameOfField)) {
 				 String index =i+"";
 				 GuestAction.clickOnFirstName(index);
 				 GuestAction.setFirstName(value);
+				 break;
 			 }
 		 }
 		 
 		 
+	 }
+	 
+	 public static void flpClipBookButton() throws InterruptedException {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('flt-clip').length;");
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('flt-clip')["+i+"].getAttribute('Style');");
+			 if (text.contains("width: 106.8px")) {
+				 String index =i+"";
+				 SearchCruiseAction.clickOnSubCategorySuiteButton(index);
+				 System.out.println(text);
+				 break;
+				 
+			 }
+				 //String index =i+"";
+				 //GuestAction.clickOnFirstName(index);
+				 //GuestAction.setFirstName(value);
+			 }
 	 }
 }
 		
