@@ -118,19 +118,17 @@ public class WebWrapper extends setupDriver {
 		
 	 }
 
-	 public static void zoomOut() throws AWTException, InterruptedException {
-		 Robot robot = new Robot();
-			for (int i = 0; i < 2; i++) {
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_SUBTRACT);
-			robot.keyRelease(KeyEvent.VK_SUBTRACT);
-            robot.keyRelease(KeyEvent.VK_CONTROL);
-            
-		
-          }
+	 
+	 public static void clickOnAttributeNotClickable (String tag, String index  ) {
+		 Actions actions = new Actions(driver);
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 WebElement element=(WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+index+"];");
+		   
+			actions.moveToElement(element).click().build().perform();
+		 
 	 }
 	 
-	 public static void findSpanName(String nameOfField,String value) throws InterruptedException {
+	 public static void findSpanCompile(String nameOfField,String value) throws InterruptedException {
 		 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
 		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span').length;");
@@ -146,25 +144,74 @@ public class WebWrapper extends setupDriver {
 		 
 		 
 	 }
-	 
-	 public static void flpClipBookButton() throws InterruptedException {
+ public static void findSpanClick(String nameOfField) throws InterruptedException {
+		 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('flt-clip').length;");
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span').length;");
 		 for(int i=0;i<indexAll;i++) {
-			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('flt-clip')["+i+"].getAttribute('Style');");
-			 if (text.contains("width: 106.8px")) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span')["+i+"].innerText;");
+			 if (text.startsWith(nameOfField)) {
+				 String index =i+"";
+				 WebWrapper.clickOnAttributeNotClickable("span", index);
+				 break;
+			 }}
+		 
+		 
+		 
+	 }
+	 
+	 public static void flpClipSearchClick(String attribute, String tag) throws InterruptedException {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"').length;");
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].getAttribute('Style');");
+			 if (text.contains(attribute)) {
 				 String index =i+"";
 				 SearchCruiseAction.clickOnSubCategorySuiteButton(index);
 				 System.out.println(text);
 				 break;
 				 
 			 }
-				 //String index =i+"";
-				 //GuestAction.clickOnFirstName(index);
-				 //GuestAction.setFirstName(value);
 			 }
 	 }
-}
+	 
+	 public static void flpClipSearchClickNotClickable(String attribute, String tag) throws InterruptedException {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"').length;");
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].getAttribute('Style');");
+			 if (text.contains(attribute)) {
+				 String index =i+"";
+				 WebWrapper.clickOnAttributeNotClickable(tag, index);
+				 System.out.println(text);
+				 break;
+				 
+			 }
+			 }
+		 
+	 }
+	 
+		 public static void clickOnCheckBox(String attribute, String tag) throws InterruptedException {
+			 JavascriptExecutor js = (JavascriptExecutor) driver;
+			 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"').length;");
+			 for(int i=0;i<indexAll;i++) {
+				 indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"').length;");
+				 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].getAttribute('width');");
+				 if (text.contains(attribute)) {
+					 String index =i+"";
+					 WebWrapper.clickOnAttributeNotClickable("svg", index);
+					 
+					 indexAll=0;
+				 }
+				 }
+		 }
+		 
+		 
+	 }
+	 
+	 
+	 
+
 		
 
 

@@ -38,45 +38,38 @@ public class BookingFlowNotLogged extends setupDriver{
 		Thread.sleep(3000);
 		SearchCruiseAction.clickOnCategorySuiteButton();
 		Thread.sleep(3000);
-		WebWrapper.flpClipBookButton();
+		WebWrapper.flpClipSearchClick("width: 106.8px", "flt-clip");
 		
 		//SearchCruiseAction.clickOnSubCategorySuiteButton();
 		//WebWrapper.waitForJavascript(30000, 2000);
 		Thread.sleep(6000);
 		
-		WebWrapper.findSpanName("First","Claudia");
-		WebWrapper.findSpanName("Last","Sorrentino");
-		WebWrapper.findSpanName("Date", "01011990");
-		WebWrapper.findSpanName("Email", "mario@yopmail.com");
-		GuestAction.clickOnContinue("14");
+		WebWrapper.findSpanCompile("First","Test");
+		WebWrapper.findSpanCompile("Last","Automation");
+		WebWrapper.findSpanCompile("Date", "01011990");
+		WebWrapper.findSpanCompile("Email", "test@yopmail.com");
+		Thread.sleep(2000);
+		//GuestAction.clickOnContinue("14");
+		WebWrapper.flpClipSearchClick("height: 48px", "flt-clip");
 		
-		WebWrapper.findSpanName("First","Claudia");
-		WebWrapper.findSpanName("Last","Sorrentino");
-		WebWrapper.findSpanName("Date", "01011990");
-		GuestAction.clickOnContinue("13");
+		WebWrapper.findSpanCompile("First","test");
+		WebWrapper.findSpanCompile("Last","Automationdue");
+		WebWrapper.findSpanCompile("Date", "01011990");
+		//GuestAction.clickOnContinue("13");
+		WebWrapper.flpClipSearchClick("height: 48px", "flt-clip");
+		Thread.sleep(3000);
 		
-		/*GuestAction.clickOnFirstName("11");
-		GuestAction.setFirstName();
-		GuestAction.clickOnLastName("13");
-		GuestAction.setLastName();
-		GuestAction.clickOnGender("16");
-		GuestAction.clickOnDateOfBirth("18");
-		GuestAction.setDOB();
-		GuestAction.clickOnEmail("20");
-		GuestAction.setEmail();
-	    GuestAction.clickOnContinue("14");
+		WebWrapper.flpClipSearchClickNotClickable("width: 111.8px","flt-clip");
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		
-		GuestAction.clickOnFirstName("10");
-		GuestAction.setFirstName();
-		GuestAction.clickOnLastName("12");
-		GuestAction.setLastName();
-		GuestAction.clickOnGender("15");
-		GuestAction.clickOnDateOfBirth("17");
-		GuestAction.setDOB();
-		GuestAction.clickOnContinue("13");*/
+		WebWrapper.findSpanClick("FREE");	
 		
+		WebWrapper.clickOnCheckBox("25", "svg");
+		WebWrapper.clickOnCheckBox("25", "svg");
+		WebWrapper.flpClipSearchClickNotClickable("rgb(10, 34, 64)","flt-clip");
+		
+		WebWrapper.flpClipSearchClickNotClickable("width: 86.8px","flt-clip");
 
 		
 		        
