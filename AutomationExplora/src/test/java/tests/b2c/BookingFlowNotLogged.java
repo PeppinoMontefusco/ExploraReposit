@@ -55,7 +55,7 @@ public class BookingFlowNotLogged extends setupDriver{
 		WebWrapper.flpClipSearchClickNotClickable("width: 111.8px","flt-clip");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
-		//Create Option
+		//Create Option sdasdawdad
 		
 		WebWrapper.findSpanClick("FREE");	
 		WebWrapper.clickOnCheckBox("25", "svg");
