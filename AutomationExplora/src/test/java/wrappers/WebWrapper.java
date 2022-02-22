@@ -104,7 +104,7 @@ public class WebWrapper extends setupDriver {
 		    }
 		}
 	 public static WebElement getElementInShadowRoot(String tag, String index) throws InterruptedException {
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 		return	  (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+index+"];");
 		
