@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import globalSetup.b2c.setupDriver;
 import pages.b2c.SearchCruisePage;
+import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
 
@@ -25,27 +26,5 @@ public class SearchCruiseAction extends setupDriver {
 	public static void clickSearchCruise() {
     	WebWrapper.clickOn(SearchCruisePage.getSearchCruiseButton());
     }
-	
-	
-	public static void clickOnFirstBookButton() throws InterruptedException {
-		WebWrapper.waitForJavascript(30000, 3000);
-		Thread.sleep(3000);
-		
-		WebWrapper.clickOn(WebWrapper.getElementInShadowRoot("flt-clip", "11"));  
-    }
-	
-	public static void clickOnCategorySuiteButton() throws InterruptedException {
-		 
-		WebWrapper.clickOnElementNotClickable(WebWrapper.getElementInShadowRoot("flt-clip", "12"));
-	}
-	
-	//public static void clickOnSubCategorySuiteButton() throws InterruptedException {
-		
-		//WebWrapper.clickOnElementNotClickable(WebWrapper.getElementInShadowRoot("flt-clip", "18"));
-	//}
-	
-	public static void clickOnSubCategorySuiteButton(String index) throws InterruptedException {
-		WebWrapper.clickOn(WebWrapper.getElementInShadowRoot("flt-clip", index));
-	}
 
 }

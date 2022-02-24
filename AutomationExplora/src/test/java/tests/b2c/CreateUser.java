@@ -6,13 +6,14 @@ import org.testng.annotations.Test;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+import actions.b2c.HomePageAction;
 import actions.b2c.LoginAction;
 import actions.b2c.RegistrationAction;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
-import pages.b2c.HomePage;
+import pages.b2c.LoginPage;
 import wrappers.WebWrapper;
 
 public class CreateUser extends setupDriver {
@@ -21,7 +22,7 @@ public class CreateUser extends setupDriver {
 	@Test
 	public static void createUser() throws InterruptedException, UnirestException, AWTException{
 		startPage.startPage();
-		LoginAction.clickOnMyAccount();
+		HomePageAction.clickOnMyAccount();
 		RegistrationAction.clickOnCreateAccountButton();
 		String email =RegistrationAction.insertCreateAccountEmail();
 		//Gestire la pausa all'interno del metodo insertCreateAccountEmail() in quando risulta la form non formattata correttamente
@@ -43,8 +44,8 @@ public class CreateUser extends setupDriver {
 		
 		//Login after registration
 		
-		LoginAction.clickOnMyAccount();
-		WebWrapper.typeInField(HomePage.getLoginUsername(), email);
+		HomePageAction.clickOnMyAccount();
+		WebWrapper.typeInField(LoginPage.getLoginUsername(), email);
 		LoginAction.insertLoginPassword();
 		LoginAction.clickOnSignInButton();
 		

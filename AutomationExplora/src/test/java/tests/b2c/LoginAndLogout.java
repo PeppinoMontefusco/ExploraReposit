@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import actions.b2c.LoginAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
-import pages.b2c.HomePage;
+import pages.b2c.LoginPage;
 import wrappers.WebWrapper;
 
 public class LoginAndLogout extends setupDriver  {

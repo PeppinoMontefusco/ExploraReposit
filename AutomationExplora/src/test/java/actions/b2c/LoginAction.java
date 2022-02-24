@@ -1,58 +1,39 @@
 package actions.b2c;
 
 import globalSetup.b2c.Configuration;
-import globalSetup.b2c.setupDriver;
-import pages.b2c.HomePage;
+import pages.b2c.LoginPage;
 import wrappers.WebWrapper;
 
-public class LoginAction extends setupDriver {
+public class LoginAction  {
 
 	
-	public static void clickOnMyAccount() {
-		
-		WebWrapper.clickOn(HomePage.getMyAccountButton());
-		
-	}
-	
-    public static void clickOnMyAccountLogged() {
-    	
-    	WebWrapper.clickOn(HomePage.getMyAccountLoggedButton());
-		
-	}
-    
-    public static void insertLoginUsername() {
-    	WebWrapper.typeInField(HomePage.getLoginUsername(), new Configuration().username());
+	public static void insertLoginUsername() {
+    	WebWrapper.typeInField(LoginPage.getLoginUsername(), new Configuration().username());
     	
     }
     
     public static void insertLoginPassword() {
-    	WebWrapper.typeInField(HomePage.getLoginPassword(), new Configuration().password());
+    	WebWrapper.typeInField(LoginPage.getLoginPassword(), new Configuration().password());
     	
     }
     
     public static void clickOnSignInButton() {
-    	WebWrapper.clickOn(HomePage.getSignInButton());
+    	WebWrapper.clickOn(LoginPage.getSignInButton());
     }
 	
     public static void clickOnSignOutButton() {
-    	WebWrapper.clickOn(HomePage.getSignOutButton());
+    	WebWrapper.clickOn(LoginPage.getSignOutButton());
     }
     
-    public static void clickOnBookAJourney() throws InterruptedException {
-    	WebWrapper.clickOn(HomePage.getBookAJourneyButton());
-    }
-    
-    
-   
-	public static void loginBase() {
-		clickOnMyAccount();
+    public static void loginBase() {
+		HomePageAction.clickOnMyAccount();
 		insertLoginUsername();
 		insertLoginPassword();
 		clickOnSignInButton();
 	}
 	
 	public static void logOutBase() {
-		clickOnMyAccountLogged();
+		HomePageAction.clickOnMyAccountLogged();
 		clickOnSignOutButton();
 		
 	}
