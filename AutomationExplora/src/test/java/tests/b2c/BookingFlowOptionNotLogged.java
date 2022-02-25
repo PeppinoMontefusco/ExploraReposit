@@ -13,7 +13,7 @@ import wrappers.WebWrapper;
 public class BookingFlowOptionNotLogged extends setupDriver{
 	
 	@Test
-	public static void bookingFlowNotLogged() throws InterruptedException, AWTException {
+	public static void bookingFlowOptionNotLogged() throws InterruptedException, AWTException {
 		startPage.startPage();
 		
 		

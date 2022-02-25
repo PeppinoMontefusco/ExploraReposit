@@ -14,7 +14,7 @@ import wrappers.WebWrapper;
 public class BookingFlowDepositNotLogged extends setupDriver{
 	
 	@Test
-	public static void bookingFlowNotLogged() throws InterruptedException, AWTException {
+	public static void bookingFlowDepositNotLogged() throws InterruptedException, AWTException {
 		startPage.startPage();
 		
 		
@@ -67,10 +67,28 @@ public class BookingFlowDepositNotLogged extends setupDriver{
 		WebWrapper.waitForJavascript(30000, 2000);
 		
 		//Close Option Created Pop Up return in Summary
-		
+		driver.switchTo().frame(1);
+		driver.switchTo().frame(0);
+		Thread.sleep(2000);
 		AdyenAction.setCardNumber("4111111111111111");
 		
-		//VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		driver.switchTo().defaultContent(); // Ritornare al document di default
+		driver.switchTo().frame(1);
+		driver.switchTo().frame(1);
+		AdyenAction.setExpiryDate("0330");
+		
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(1);
+		driver.switchTo().frame(2);
+		AdyenAction.setCVV("737");
+		
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(1);
+		AdyenAction.clickOnPayButton();
+		Thread.sleep(3000);
+		driver.switchTo().defaultContent();
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		
 
 		}
 	}
