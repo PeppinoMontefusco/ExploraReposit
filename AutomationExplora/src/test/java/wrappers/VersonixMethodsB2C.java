@@ -35,6 +35,8 @@ public class VersonixMethodsB2C extends setupDriver {
 				 WebWrapper.clickOn(getElementInShadowRoot("span", index));
 				 WebWrapper.typeInField(getElementInShadowRoot("input", "0"), value);
 				 break;
+				 
+		     
 			 }
 		 }
 		 

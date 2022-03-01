@@ -1,7 +1,11 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.Status;
 
 import globalSetup.b2c.Configuration;
 import actions.b2c.AdyenAction;
@@ -9,18 +13,24 @@ import actions.b2c.HomePageAction;
 import actions.b2c.SearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
+import wrappers.ExtentManager;
+import wrappers.TestListener;
+import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
+@Listeners(TestListener.class)
 public class BookingFlowDepositNotLogged extends setupDriver{
 	
 	@Test
 	public static void bookingFlowDepositNotLogged() throws InterruptedException, AWTException {
+		test=TestManager.startTest("Book_01", "Booking Flow Deposit Not Logged", "E2E");
 		startPage.startPage();
-		
+		test.log(Status.INFO, "Open page"); 
 		
 		HomePageAction.clickOnBookAJourney();
-		SearchCruiseAction.clickOnDestination();
+		test.log(Status.INFO, "Click on book a journey");
+		SearchCruiseAction.clickOnDestination(); 
 		SearchCruiseAction.clickOnSelectAndClose();
 		SearchCruiseAction.clickSearchCruise();
 		
@@ -76,7 +86,7 @@ public class BookingFlowDepositNotLogged extends setupDriver{
 		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		
-
+	
 		}
 	}
 

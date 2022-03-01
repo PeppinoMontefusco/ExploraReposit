@@ -78,6 +78,7 @@ public class WebWrapper extends setupDriver {
 		 
 		 wait.until(ExpectedConditions.elementToBeClickable(element));
 		 wait.until(ExpectedConditions.visibilityOf(element));
+		 
 		 //scrollToElement(element)s;
 	     element.sendKeys(value);
 	    }
