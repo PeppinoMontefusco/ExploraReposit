@@ -7,6 +7,9 @@ public class Configuration {
     String Username;
 	String Password;
 	String EmailRecovery;
+	String CardNumber;
+	String ExpireDate;
+	String Cvv;
 	
 	public Configuration(){
 		ResourceBundle configuration= ResourceBundle.getBundle("configurations");
@@ -14,6 +17,10 @@ public class Configuration {
 		Username = configuration.getString("Username");
 		Password = configuration.getString("Password");
 		EmailRecovery = configuration.getString("EmailRecovery");
+		CardNumber = configuration.getString("CardNumber");
+		ExpireDate = configuration.getString("ExpireDate");
+		Cvv = configuration.getString("Cvv");
+		
 		
 	}
 	
@@ -27,6 +34,17 @@ public class Configuration {
 	
 	public String emailRecovery() {
 		return EmailRecovery;
+	}
+	public String cardNumber() {
+		return CardNumber;
+	}
+	
+	public String expireDate() {
+		return ExpireDate;
+	}
+	
+	public String cvv() {
+		return Cvv;
 	}
 
 }

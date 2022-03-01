@@ -3,6 +3,7 @@ package tests.b2c;
 import java.awt.AWTException;
 import org.testng.annotations.Test;
 
+import globalSetup.b2c.Configuration;
 import actions.b2c.AdyenAction;
 import actions.b2c.HomePageAction;
 import actions.b2c.SearchCruiseAction;
@@ -67,26 +68,12 @@ public class BookingFlowDepositNotLogged extends setupDriver{
 		WebWrapper.waitForJavascript(30000, 2000);
 		
 		//Close Option Created Pop Up return in Summary
-		driver.switchTo().frame(1);
-		driver.switchTo().frame(0);
-		Thread.sleep(2000);
-		AdyenAction.setCardNumber("4111111111111111");
-		
-		driver.switchTo().defaultContent(); // Ritornare al document di default
-		driver.switchTo().frame(1);
-		driver.switchTo().frame(1);
-		AdyenAction.setExpiryDate("0330");
-		
-		driver.switchTo().defaultContent();
-		driver.switchTo().frame(1);
-		driver.switchTo().frame(2);
-		AdyenAction.setCVV("737");
-		
-		driver.switchTo().defaultContent();
-		driver.switchTo().frame(1);
+		AdyenAction.setCardNumber(new Configuration().cardNumber());
+		AdyenAction.setExpiryDate(new Configuration().expireDate());
+		AdyenAction.setCVV(new Configuration().cvv());
 		AdyenAction.clickOnPayButton();
 		Thread.sleep(3000);
-		driver.switchTo().defaultContent();
+		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		
 
