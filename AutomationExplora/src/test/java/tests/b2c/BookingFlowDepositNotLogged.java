@@ -36,7 +36,7 @@ public class BookingFlowDepositNotLogged extends setupDriver{
 		
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
-	WebWrapper.waitForJavascript(30000, 2000);
+	    WebWrapper.waitForJavascript(30000, 2000);
 		
 		
 		//Select Cabin Category
@@ -85,6 +85,7 @@ public class BookingFlowDepositNotLogged extends setupDriver{
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		
 		
 	
 		}

@@ -7,7 +7,7 @@ import com.aventstack.extentreports.reporter.configuration.ViewName;
 
 public class ExtentManager {
 
-    private static ExtentReports extent;
+    public static ExtentReports extent;
     private static ExtentSparkReporter spark;
 
     public synchronized static ExtentReports getReporter() {
