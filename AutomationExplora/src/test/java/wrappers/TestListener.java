@@ -43,10 +43,10 @@ public class TestListener implements ITestListener {
 
 	    @Override
 	    public void onTestFailure(ITestResult iTestResult) {
-	    	setupDriver.test.log(Status.FAIL, iTestResult.getThrowable().getMessage());
+	    	//setupDriver.test.log(Status.FAIL, iTestResult.getThrowable().getMessage());
 	    	try {
 	    		
-	    		setupDriver.test.addScreenCaptureFromPath(GetScreenShot.capture(setupDriver.driver, "TestFailed"));
+	    		setupDriver.test.fail(iTestResult.getThrowable().getMessage(),MediaEntityBuilder.createScreenCaptureFromPath(GetScreenShot.capture(setupDriver.driver, "TestFailed")).build());
 			} catch (IOException e) {
 				
 				e.printStackTrace();

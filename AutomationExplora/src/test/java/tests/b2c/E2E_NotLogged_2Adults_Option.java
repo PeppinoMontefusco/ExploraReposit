@@ -20,71 +20,71 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 	public static void bookingFlow2adultsOptionNotLogged() throws InterruptedException, AWTException {
 		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
 		startPage.startPage();
-		Report.infoStep("Open Homepage");
+		Report.passStep("Open Homepage");
 		
 		HomePageAction.clickOnBookAJourney();
-		Report.infoStep("Click On Book a Journey");
+		Report.passStep("Click On Book a Journey");
 		SearchCruiseAction.clickOnDestination();
-		Report.infoStep("Select One Destination");
+		Report.passStep("Select One Destination");
 		SearchCruiseAction.clickOnSelectAndClose();
-		Report.infoStep("Click On Select And Close");
+		Report.passStep("Click On Select And Close");
 		SearchCruiseAction.clickSearchCruise();
-		Report.infoStep("Click On Search Cruise");
+		Report.passStep("Click On Search Cruise");
 		
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
-		Report.infoStep("Click On Book");
+		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript(30000, 2000);
 		
 	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
-	    Report.infoStep("Click On Cabin Category");
+	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript(30000, 2000);
 	
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
-		Report.infoStep("Click On Cabin Subcategory");
+		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript(30000, 2000);
 	
 		VersonixMethodsB2C.findSpanAndCompile("First","Test");
-		Report.infoStep("First Adult - Insert First Name");
+		Report.passStep("First Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
-		Report.infoStep("First Adult - Insert Last Name");
+		Report.passStep("First Adult - Insert Last Name");
 		VersonixMethodsB2C.findSpanAndCompile("Date", "01011990");
-		Report.infoStep("First Adult - Insert Date Of Birth");
+		Report.passStep("First Adult - Insert Date Of Birth");
 		VersonixMethodsB2C.findSpanAndCompile("Email", "test@yopmail.com");
-		Report.infoStep("First Adult - Insert Email");
+		Report.passStep("First Adult - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.infoStep("Click On Continue");
+		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
 		//Guest Page Second Pax Adult
 		
 		VersonixMethodsB2C.findSpanAndCompile("First","test");
-		Report.infoStep("Second Adult - Insert First Name");
+		Report.passStep("Second Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automationdue");
-		Report.infoStep("Second Adult - Insert Last Name");
+		Report.passStep("Second Adult - Insert Last Name");
 		VersonixMethodsB2C.findSpanAndCompile("Date", "01011990");
-		Report.infoStep("Second Adult - Insert Date Of Birth");
+		Report.passStep("Second Adult - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.infoStep("Click On Continue");
+		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
-		Report.infoStep("Click On Confirm");
+		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
 		VersonixMethodsB2C.findSpanAndClick("FREE");
-		Report.infoStep("Select Create Option 72h");
+		Report.passStep("Select Create Option 72h");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.infoStep("Click On First Privacy Checkbox");
+		Report.passStep("Click On First Privacy Checkbox");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.infoStep("Click On Second Privacy Checkbox");
+		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.infoStep("Click On Apply");
+		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
 		//Close Option Created Pop Up return in Summary
 		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
-		Report.infoStep("Close Confirm Option Pop Up");
+		Report.passStep("Close Confirm Option Pop Up");
 		
 
 		}
