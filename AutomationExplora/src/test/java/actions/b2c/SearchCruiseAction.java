@@ -17,6 +17,17 @@ public class SearchCruiseAction extends setupDriver {
 		
 	}
 	
+	public static void clickOnGuest() {
+		WebWrapper.clickOn(SearchCruisePage.getGuestSelection());
+		
+	}
+	
+	public static void increaseChild() {
+		WebWrapper.clickOn(SearchCruisePage.getIncreaseChild());
+		
+	}
+	
+	
 	public static void clickOnSelectAndClose() {
 		WebWrapper.clickOn(SearchCruisePage.getSelectAndCloseButton());
 		

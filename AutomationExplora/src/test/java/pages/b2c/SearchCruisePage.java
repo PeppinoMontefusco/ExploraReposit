@@ -13,6 +13,17 @@ public class SearchCruisePage extends setupDriver {
 		return driver.findElements(By.className("destinationName")).get(destination);
 		}
 	
+	public static WebElement getGuestSelection() {
+		return driver.findElements(By.className("quickBooking__main")).get(2);
+		
+	}
+	
+	public static WebElement getIncreaseChild() {
+		return driver.findElements(By.className("increment")).get(1);
+		
+	}
+	
+	
 	public static WebElement getSelectAndCloseButton() {
 		return driver.findElements(By.className("cta-gold-btn")).get(0);
 		}
@@ -21,4 +32,5 @@ public class SearchCruisePage extends setupDriver {
 		return driver.findElements(By.className("quickBooking__guestBtn")).get(0);
 		}
     
+	
 }
