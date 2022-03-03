@@ -16,7 +16,7 @@ import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
-public class E2E_2Adult1ChildOptionNotLogged extends setupDriver{
+public class E2E_NotLogged_2Adults_1Child_Option extends setupDriver{
 	
 	@Test
 	public static void bookingFlow2adults1childOptionNotLogged() throws InterruptedException, AWTException {

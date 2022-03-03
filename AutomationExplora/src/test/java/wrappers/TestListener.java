@@ -48,7 +48,7 @@ public class TestListener implements ITestListener {
 	    		
 	    		setupDriver.test.addScreenCaptureFromPath(GetScreenShot.capture(setupDriver.driver, "TestFailed"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 	    	

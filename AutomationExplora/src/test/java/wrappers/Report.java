@@ -9,7 +9,7 @@ public class Report {
 	
 	public static void infoStep(String info) {
 		
-		setupDriver.test.log(Status.INFO, info); 
+		setupDriver.test.log(Status.PASS, info); 
 	}
 
 }

@@ -17,7 +17,7 @@ public class ExtentManager {
 
         if (extent == null) {
             extent = new ExtentReports();
-            spark = new ExtentSparkReporter("Report.html")
+            spark = new ExtentSparkReporter("Reports/Report.html")
 
             		
                     .viewConfigurer()

@@ -1,24 +1,32 @@
 package tests.b2c;
 
+
 import java.awt.AWTException;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 
+import globalSetup.b2c.Configuration;
+import actions.b2c.AdyenAction;
 import actions.b2c.HomePageAction;
 import actions.b2c.SearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
+import wrappers.ExtentManager;
 import wrappers.Report;
+import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
-public class E2E_2AdultsOptionNotLogged extends setupDriver{
+@Listeners(TestListener.class)
+public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 	
 	@Test
-	public static void bookingFlow2adultsOptionNotLogged() throws InterruptedException, AWTException {
-		test=TestManager.startTest("E2E_01", "Booking Flow 2 adult - Create Option Not Logged", "E2E");
+	public static void bookingFlow2adultsCompletePaymentNotLogged() throws InterruptedException, AWTException {
+		test=TestManager.startTest("E2E_03", "Booking Flow 2 adult - Complete Payment Not Logged", "E2E");
 		startPage.startPage();
 		Report.infoStep("Open page");
 		
@@ -71,8 +79,8 @@ public class E2E_2AdultsOptionNotLogged extends setupDriver{
 		Report.infoStep("Click on confirm");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
-		VersonixMethodsB2C.findSpanAndClick("FREE");
-		Report.infoStep("Click on option 72h");
+		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
+		Report.infoStep("Click on pay total");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.infoStep("Click on first privacy checkbox");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
@@ -81,11 +89,22 @@ public class E2E_2AdultsOptionNotLogged extends setupDriver{
 		Report.infoStep("Click on apply");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
-		//Close Option Created Pop Up return in Summary
+		AdyenAction.setCardNumber(new Configuration().cardNumber());
+		Report.infoStep("Insert card number");
+		AdyenAction.setExpiryDate(new Configuration().expireDate());
+		Report.infoStep("Insert expiry date");
+		AdyenAction.setCVV(new Configuration().cvv());
+		Report.infoStep("Insert CVV");
+		AdyenAction.clickOnPayButton();
+		Report.infoStep("Click on pay");
+		Thread.sleep(3000);
+		driver.switchTo().defaultContent();   
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		Report.infoStep("Click on confirmation popup");
 		
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
-		Report.infoStep("Close confirm popup");
 		
-
+	
 		}
 	}
+
+

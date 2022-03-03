@@ -1,108 +1,91 @@
 package tests.b2c;
 
 import java.awt.AWTException;
-
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 
-import globalSetup.b2c.Configuration;
-import actions.b2c.AdyenAction;
 import actions.b2c.HomePageAction;
 import actions.b2c.SearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
-import wrappers.ExtentManager;
 import wrappers.Report;
-import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
-@Listeners(TestListener.class)
-public class E2E_2AdultsDepositNotLogged extends setupDriver{
+public class E2E_NotLogged_2Adults_Option extends setupDriver{
 	
 	@Test
-	public static void bookingFlow2adultsDepositPaymentNotLogged() throws InterruptedException, AWTException {
-		test=TestManager.startTest("E2E_02", "Booking Flow 2 adult - Deposit Payment Not Logged", "E2E");
+	public static void bookingFlow2adultsOptionNotLogged() throws InterruptedException, AWTException {
+		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
 		startPage.startPage();
-		Report.infoStep("Open page");
+		Report.infoStep("Open Homepage");
 		
 		HomePageAction.clickOnBookAJourney();
-		Report.infoStep("Click on book a journey");
+		Report.infoStep("Click On Book a Journey");
 		SearchCruiseAction.clickOnDestination();
-		Report.infoStep("Select one destination");
+		Report.infoStep("Select One Destination");
 		SearchCruiseAction.clickOnSelectAndClose();
-		Report.infoStep("Click on Select and Close");
+		Report.infoStep("Click On Select And Close");
 		SearchCruiseAction.clickSearchCruise();
-		Report.infoStep("Click on Search Cruise");
+		Report.infoStep("Click On Search Cruise");
 		
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
-		Report.infoStep("Click on Book");
+		Report.infoStep("Click On Book");
 	    WebWrapper.waitForJavascript(30000, 2000);
 		
 	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
-	    Report.infoStep("Click on category cabin");
+	    Report.infoStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript(30000, 2000);
 	
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
-		Report.infoStep("Click on subcategory cabin");
+		Report.infoStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript(30000, 2000);
 	
 		VersonixMethodsB2C.findSpanAndCompile("First","Test");
-		Report.infoStep("Adult 1 - insert first name ");
+		Report.infoStep("First Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
-		Report.infoStep("Adult 1 - insert last name");
+		Report.infoStep("First Adult - Insert Last Name");
 		VersonixMethodsB2C.findSpanAndCompile("Date", "01011990");
-		Report.infoStep("Adult 1 - insert date of birth ");
+		Report.infoStep("First Adult - Insert Date Of Birth");
 		VersonixMethodsB2C.findSpanAndCompile("Email", "test@yopmail.com");
-		Report.infoStep("Adult 1 - insert email");
+		Report.infoStep("First Adult - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.infoStep("Click on continue");
+		Report.infoStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
 		//Guest Page Second Pax Adult
 		
 		VersonixMethodsB2C.findSpanAndCompile("First","test");
-		Report.infoStep("Adult 2 - insert first name ");
+		Report.infoStep("Second Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automationdue");
-		Report.infoStep("Adult 2 - insert last name");
+		Report.infoStep("Second Adult - Insert Last Name");
 		VersonixMethodsB2C.findSpanAndCompile("Date", "01011990");
-		Report.infoStep("Adult 2 - insert date of birth ");
+		Report.infoStep("Second Adult - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.infoStep("Click on continue");
+		Report.infoStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
-		Report.infoStep("Click on confirm");
+		Report.infoStep("Click On Confirm");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
-		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
-		Report.infoStep("Click on deposit");
+		VersonixMethodsB2C.findSpanAndClick("FREE");
+		Report.infoStep("Select Create Option 72h");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.infoStep("Click on first privacy checkbox");
+		Report.infoStep("Click On First Privacy Checkbox");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.infoStep("Click on second privacy checkbox");
+		Report.infoStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.infoStep("Click on apply");
+		Report.infoStep("Click On Apply");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
-		AdyenAction.setCardNumber(new Configuration().cardNumber());
-		Report.infoStep("Insert card number");
-		AdyenAction.setExpiryDate(new Configuration().expireDate());
-		Report.infoStep("Insert expiry date");
-		AdyenAction.setCVV(new Configuration().cvv());
-		Report.infoStep("Insert CVV");
-		AdyenAction.clickOnPayButton();
-		Report.infoStep("Click on pay");
-		Thread.sleep(3000);
-		driver.switchTo().defaultContent();   
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
-		Report.infoStep("Click on confirmation popup");
+		//Close Option Created Pop Up return in Summary
 		
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		Report.infoStep("Close Confirm Option Pop Up");
 		
-	
+
 		}
 	}
-
