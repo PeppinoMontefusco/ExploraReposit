@@ -1,6 +1,8 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
@@ -10,10 +12,13 @@ import actions.b2c.SearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.Report;
+import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
+
+@Listeners(TestListener.class)
 public class E2E_NotLogged_2Adults_Option extends setupDriver{
 	
 	@Test
@@ -21,7 +26,6 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		
 		HomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
 		SearchCruiseAction.clickOnDestination();
@@ -30,21 +34,17 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Click On Select And Close");
 		SearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
-		
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript(30000, 2000);
-		
-	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript(30000, 2000);
-	
-		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
+	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript(30000, 2000);
-	
-		VersonixMethodsB2C.findSpanAndCompile("First","Test");
+	    VersonixMethodsB2C.findSpanAndCompile("First","Test");
 		Report.passStep("First Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
 		Report.passStep("First Adult - Insert Last Name");
@@ -55,8 +55,6 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
-		//Guest Page Second Pax Adult
-		
 		VersonixMethodsB2C.findSpanAndCompile("First","test");
 		Report.passStep("Second Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automationdue");
@@ -66,11 +64,9 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
-		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript(30000, 2000);
-		
 		VersonixMethodsB2C.findSpanAndClick("FREE");
 		Report.passStep("Select Create Option 72h");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
@@ -80,9 +76,6 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript(30000, 2000);
-		
-		//Close Option Created Pop Up return in Summary
-		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Option Pop Up");
 		

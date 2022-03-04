@@ -1,6 +1,5 @@
 package wrappers;
 
-import java.io.File;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -32,8 +31,15 @@ public class ExtentManager {
                             ViewName.LOG
                     })
                     .apply();
-            spark.config().setTheme(Theme.DARK);
+            spark.config().setTheme(Theme.STANDARD);
             extent.attachReporter(spark);
+            spark.config().setReportName("Explora Automation Report");
+            spark.config().setTimeStampFormat("dd MMMM , yyyy, HH:mm");
+            extent.setSystemInfo("Creation By", "Montefusco - Paolino");
+            extent.setSystemInfo("Company", "Nexsoft SPA");
+            extent.setSystemInfo("Client", "Explora SA");
+            
+            
 
         }
         return extent;

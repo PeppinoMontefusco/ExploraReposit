@@ -28,7 +28,6 @@ public class E2E_NotLogged_2Adults_Deposit extends setupDriver{
 		test=TestManager.startTest("E2E_02", "E2E Not Logged: Scenario 2 Adults - Only Deposit Payment", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		
 		HomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
 		SearchCruiseAction.clickOnDestination();
@@ -37,21 +36,17 @@ public class E2E_NotLogged_2Adults_Deposit extends setupDriver{
 		Report.passStep("Click On Select And Close");
 		SearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
-		
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript(30000, 2000);
-		
-	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript(30000, 2000);
-	
-		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
+	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript(30000, 2000);
-	
-		VersonixMethodsB2C.findSpanAndCompile("First","Test");
+	    VersonixMethodsB2C.findSpanAndCompile("First","Test");
 		Report.passStep("First Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
 		Report.passStep("First Adult - Insert Last Name");
@@ -71,13 +66,11 @@ public class E2E_NotLogged_2Adults_Deposit extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript(30000, 2000);
-		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript(30000, 2000);
-		
 		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
-		Report.passStep("Select Create Option 72h");
+		Report.passStep("Pay Deposit");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
@@ -85,7 +78,6 @@ public class E2E_NotLogged_2Adults_Deposit extends setupDriver{
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript(30000, 2000);
-		
 		AdyenAction.setCardNumber(new Configuration().cardNumber());
 		Report.passStep("Insert Card Number");
 		AdyenAction.setExpiryDate(new Configuration().expireDate());

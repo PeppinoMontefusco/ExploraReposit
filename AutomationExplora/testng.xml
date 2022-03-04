@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="tests.b2c.MYACC_Login_And_Logout"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_Option"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_Deposit"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_Complete_Payment"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_1Child_Option"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_1Child_Deposit"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_1Child_Complete_Payment"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
