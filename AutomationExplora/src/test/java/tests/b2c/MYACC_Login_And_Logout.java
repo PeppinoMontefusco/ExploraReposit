@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import actions.b2c.LoginAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
-
+import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
 
@@ -19,8 +19,9 @@ public class MYACC_Login_And_Logout extends setupDriver  {
 
 	@Test
 	public static void loginAndLogout() throws AWTException, InterruptedException{
-		test=TestManager.startTest("Log_01", "Booking Flow 2 adult 1 child - Create Option Not Logged", "MyAccount");
+		test=TestManager.startTest("MYACC_01", "Login and Logout", "MyAccount");
 		startPage.startPage();
+		Report.passStep("Open Homepage");
 		LoginAction.loginBase();
 		LoginAction.logOutBase();
 		

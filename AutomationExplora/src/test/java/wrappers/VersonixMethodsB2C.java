@@ -139,7 +139,31 @@ public class VersonixMethodsB2C extends setupDriver {
 			
 		 
 	 }
+	}
+	public static String storevalue(String tag , String value) throws InterruptedException {
+		 
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"').length;");
+		 boolean click =false;
+		 String digit = null;
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].innerText;");
+			 if (text.contains(value)) {
+				 String index =i+"";
+				 digit=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+index+"].innerText;");
+				 click=true;
+				 break;
+			 }
+			
+			 }
+		 if(click==false) {
+			 throw new RuntimeException("Impossible to store");
+			
+		 
+	 }
+		return digit;
+		 
+		 
 	 }
 	
-
 }

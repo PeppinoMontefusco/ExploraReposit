@@ -1,6 +1,7 @@
 package actions.b2c;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
 import globalSetup.b2c.setupDriver;
@@ -25,6 +26,11 @@ public class SearchCruiseAction extends setupDriver {
 	public static void increaseChild() {
 		WebWrapper.clickOn(SearchCruisePage.getIncreaseChild());
 		
+	}
+	
+	public static void decreaseAdult() {
+		WebWrapper.clickOn(SearchCruisePage.getDecreaseAdult());
+			
 	}
 	
 	

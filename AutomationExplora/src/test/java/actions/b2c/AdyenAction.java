@@ -32,8 +32,13 @@ public class AdyenAction extends setupDriver {
       public static void clickOnPayButton() {
     	   driver.switchTo().defaultContent();
   		   driver.switchTo().frame(1);
+  		   String Amount=AdyenAction.storeAmount().substring(5);
     		WebWrapper.clickOn(AdyenPage.getPayButton());
   		}
+      
+      public static String storeAmount() {
+    	  return AdyenPage.getAmount().getText();
+      }
       
 
 }

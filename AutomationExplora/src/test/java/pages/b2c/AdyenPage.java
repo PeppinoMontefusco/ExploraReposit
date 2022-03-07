@@ -22,5 +22,9 @@ public class AdyenPage extends setupDriver {
 	public static WebElement getPayButton() {
 		return driver.findElements(By.className("adyen-checkout__button--pay")).get(0);
 		}
+	
+	public static WebElement getAmount() {
+		return driver.findElements(By.className("adyen-checkout__button__text")).get(0);
+	}
 
 }

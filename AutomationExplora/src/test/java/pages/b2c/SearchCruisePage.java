@@ -23,6 +23,11 @@ public class SearchCruisePage extends setupDriver {
 		
 	}
 	
+	public static WebElement getDecreaseAdult() {
+		return driver.findElements(By.className("decrement")).get(0);
+		
+	}
+	
 	
 	public static WebElement getSelectAndCloseButton() {
 		return driver.findElements(By.className("cta-gold-btn")).get(0);
