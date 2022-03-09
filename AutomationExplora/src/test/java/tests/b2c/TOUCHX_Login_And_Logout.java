@@ -41,25 +41,25 @@ public class TOUCHX_Login_And_Logout extends setupDriver {
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("height: 28px","flt-clip");
+		Report.passStep("Click On Sign In ");
 		WebWrapper.waitForJavascript(30000, 2000);
-		driver.switchTo().frame(1);
 		TouchXLoginAction.setUsername();
+		Report.passStep("Insert Username");
 		TouchXLoginAction.setPassword();
+		Report.passStep("Insert Password");
 		TouchXLoginAction.clickOnSignIn();
-		driver.switchTo().defaultContent();
+		Report.passStep("Click On Sign In Button");
 		WebWrapper.waitForJavascript(30000, 2000);
 		Thread.sleep(3000);
 		VersonixMethodsB2C.searchTagAndClick("VersonixIcons","span");
+		Report.passStep("Click On My Profile Icon");
 		Thread.sleep(3000);
-		//VersonixMethodsB2C.searchTagAndClick("translate(15px, 11px)", "flt-canvas");
+		VersonixMethodsB2C.searchTagAndClickByOffset("width: 168px", "flt-clip", 80, 10);
+		Report.passStep("Click On Sign Out");
+		WebWrapper.waitForJavascript(30000, 2000);
+		VersonixMethodsB2C.searchTagAndClick("width: 92.8px","flt-clip");
+		Report.passStep("Close Sign Out Pop Up");
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement element = (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('flt-clip')[10];");
-		
-		//WebWrapper.clickOn(element);
-		
-		new Actions(driver).moveToElement(element).moveByOffset( 60, 80).click().build().perform();
-		//new Actions(driver).moveToElement(element, 60, 80).click().build().perform();
 		
 		
 }

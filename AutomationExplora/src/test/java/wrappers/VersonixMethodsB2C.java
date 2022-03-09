@@ -82,7 +82,6 @@ public class VersonixMethodsB2C extends setupDriver {
 			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].getAttribute('style');");
 			 
 			 if (text.contains(attribute)) {
-				 System.out.println(text);
 				 String index =i+"";
 				 WebWrapper.clickOn(getElementInShadowRoot(tag, index));
 				 click=true;
@@ -168,4 +167,27 @@ public class VersonixMethodsB2C extends setupDriver {
 		 
 	 }
 	
+	public static void searchTagAndClickByOffset(String attribute, String tag, int x , int y) throws InterruptedException {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"').length;");
+		 boolean click =false;
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].getAttribute('style');");
+			 if (text.contains(attribute)) {
+				 String index =i+"";
+				 WebElement element = (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+index+"];");
+				 new Actions(driver).moveToElement(element).moveByOffset(x,y).click().build().perform();
+				 click=true;
+				 break;
+				 
+			 }
+			
+			 }
+		 if(click==false) {
+			 throw new RuntimeException("Impossible to click");
+			
+		 
+	 }
+	
+	}
 }

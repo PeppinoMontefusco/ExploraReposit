@@ -48,6 +48,7 @@ public class E2E_NotLogged_1Adult_Option extends setupDriver {
 	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript(30000, 2000);
+		Thread.sleep(10000);
 	    VersonixMethodsB2C.findSpanAndCompile("First","Test");
 		Report.passStep("Adult 1 - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
