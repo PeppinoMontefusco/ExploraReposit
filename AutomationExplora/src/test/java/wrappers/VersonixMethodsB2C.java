@@ -94,7 +94,7 @@ public class VersonixMethodsB2C extends setupDriver {
 			 throw new RuntimeException("Impossible to click");
 			
 		 
-			  
+			   
 	 }
 	 }
 

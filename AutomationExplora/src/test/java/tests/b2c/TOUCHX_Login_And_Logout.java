@@ -60,7 +60,7 @@ public class TOUCHX_Login_And_Logout extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("width: 92.8px","flt-clip");
 		Report.passStep("Close Sign Out Pop Up");
 		
-		 
+		  
 		
 		
 }
