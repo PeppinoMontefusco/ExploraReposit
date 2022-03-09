@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import globalSetup.b2c.setupDriver;
 
-public class AdyenPage extends setupDriver {
+public class TouchXAdyenPage extends setupDriver {
 	
 	public static WebElement getCardNumber() {
 		return driver.findElement(By.id("encryptedCardNumber"));

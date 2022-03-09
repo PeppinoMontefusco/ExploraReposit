@@ -5,8 +5,8 @@ import java.awt.AWTException;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import actions.b2c.HomePageAction;
-import actions.b2c.SearchCruiseAction;
+import actions.b2c.AdobeHomePageAction;
+import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.Report;
@@ -24,17 +24,17 @@ public class E2E_NotLogged_2Adults_1Child_Option extends setupDriver{
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		
-		HomePageAction.clickOnBookAJourney();
+		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
-		SearchCruiseAction.clickOnDestination();
+		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		SearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndClose();
 		Report.passStep("Click On Select and Close");
-		SearchCruiseAction.clickOnGuest();
+		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");
-		SearchCruiseAction.increaseChild();
+		AdobeSearchCruiseAction.increaseChild();
 		Report.passStep("Set 1 Child");
-		SearchCruiseAction.clickSearchCruise();
+		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");

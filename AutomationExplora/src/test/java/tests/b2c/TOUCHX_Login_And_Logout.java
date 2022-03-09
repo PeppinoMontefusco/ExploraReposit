@@ -1,0 +1,66 @@
+package tests.b2c;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import actions.b2c.AdobeHomePageAction;
+import actions.b2c.AdobeSearchCruiseAction;
+import actions.b2c.TouchXLoginAction;
+import globalSetup.b2c.setupDriver;
+import globalSetup.b2c.startPage;
+import wrappers.Report;
+import wrappers.TestListener;
+import wrappers.TestManager;
+import wrappers.VersonixMethodsB2C;
+import wrappers.WebWrapper;
+
+@Listeners(TestListener.class)
+
+public class TOUCHX_Login_And_Logout extends setupDriver {
+	
+	
+	@Test
+	public static void loginAndLogout() throws InterruptedException, AWTException {
+		test=TestManager.startTest("TOUCHX_01",  "Login and Logout", "TouchX - My Account");
+		startPage.startPage();
+		Report.passStep("Open Homepage");
+		AdobeHomePageAction.clickOnBookAJourney();
+		Report.passStep("Click On Book a Journey");
+		AdobeSearchCruiseAction.clickOnDestination();
+		Report.passStep("Select One Destination");
+		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		Report.passStep("Click On Select And Close");
+		AdobeSearchCruiseAction.clickSearchCruise();
+		Report.passStep("Click On Search Cruise");
+		WebWrapper.waitForJavascript(30000, 2000);
+		VersonixMethodsB2C.searchTagNotClickableAndClick("height: 28px","flt-clip");
+		WebWrapper.waitForJavascript(30000, 2000);
+		driver.switchTo().frame(1);
+		TouchXLoginAction.setUsername();
+		TouchXLoginAction.setPassword();
+		TouchXLoginAction.clickOnSignIn();
+		driver.switchTo().defaultContent();
+		WebWrapper.waitForJavascript(30000, 2000);
+		Thread.sleep(3000);
+		VersonixMethodsB2C.searchTagAndClick("VersonixIcons","span");
+		Thread.sleep(3000);
+		//VersonixMethodsB2C.searchTagAndClick("translate(15px, 11px)", "flt-canvas");
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement element = (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('flt-clip')[10];");
+		
+		//WebWrapper.clickOn(element);
+		
+		new Actions(driver).moveToElement(element).moveByOffset( 60, 80).click().build().perform();
+		//new Actions(driver).moveToElement(element, 60, 80).click().build().perform();
+		
+		
+}
+}

@@ -53,6 +53,6 @@ public class setupDriver {
 	@AfterMethod
 	public void after_method()  
 	{  
-	driver.quit(); 
+	//driver.quit(); 
 	}  
 }

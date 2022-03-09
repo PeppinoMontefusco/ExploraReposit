@@ -80,7 +80,9 @@ public class VersonixMethodsB2C extends setupDriver {
 		 boolean click =false;
 		 for(int i=0;i<indexAll;i++) {
 			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+i+"].getAttribute('style');");
+			 
 			 if (text.contains(attribute)) {
+				 System.out.println(text);
 				 String index =i+"";
 				 WebWrapper.clickOn(getElementInShadowRoot(tag, index));
 				 click=true;

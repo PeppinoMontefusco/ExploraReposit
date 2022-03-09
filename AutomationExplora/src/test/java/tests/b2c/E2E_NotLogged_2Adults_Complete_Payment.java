@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import globalSetup.b2c.Configuration;
-import actions.b2c.AdyenAction;
-import actions.b2c.HomePageAction;
-import actions.b2c.SearchCruiseAction;
+import actions.b2c.TouchXAdyenAction;
+import actions.b2c.AdobeHomePageAction;
+import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.ExtentManager;
@@ -30,13 +30,13 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		
-		HomePageAction.clickOnBookAJourney();
+		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
-		SearchCruiseAction.clickOnDestination();
+		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		SearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndClose();
 		Report.passStep("Click On Select and Close");
-		SearchCruiseAction.clickSearchCruise();
+		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		
 		WebWrapper.waitForJavascript(30000, 2000);
@@ -87,13 +87,13 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript(30000, 2000);
 		
-		AdyenAction.setCardNumber(new Configuration().cardNumber());
+		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber());
 		Report.passStep("Insert Card Number");
-		AdyenAction.setExpiryDate(new Configuration().expireDate());
+		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());
 		Report.passStep("Insert Expiry Date");
-		AdyenAction.setCVV(new Configuration().cvv());
+		TouchXAdyenAction.setCVV(new Configuration().cvv());
 		Report.passStep("Insert Cvv");
-		AdyenAction.clickOnPayButton();
+		TouchXAdyenAction.clickOnPayButton();
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();   

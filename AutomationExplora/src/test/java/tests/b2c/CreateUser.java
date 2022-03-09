@@ -6,14 +6,14 @@ import org.testng.annotations.Test;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-import actions.b2c.HomePageAction;
-import actions.b2c.LoginAction;
-import actions.b2c.RegistrationAction;
+import actions.b2c.AdobeHomePageAction;
+import actions.b2c.AdobeLoginAction;
+import actions.b2c.AdobeRegistrationAction;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
-import pages.b2c.LoginPage;
+import pages.b2c.AdobeLoginPage;
 import wrappers.WebWrapper;
 
 public class CreateUser extends setupDriver {
@@ -22,34 +22,34 @@ public class CreateUser extends setupDriver {
 	@Test
 	public static void createUser() throws InterruptedException, UnirestException, AWTException{
 		startPage.startPage();
-		HomePageAction.clickOnMyAccount();
-		RegistrationAction.clickOnCreateAccountButton();
-		String email =RegistrationAction.insertCreateAccountEmail();
+		AdobeHomePageAction.clickOnMyAccount();
+		AdobeRegistrationAction.clickOnCreateAccountButton();
+		String email =AdobeRegistrationAction.insertCreateAccountEmail();
 		//Gestire la pausa all'interno del metodo insertCreateAccountEmail() in quando risulta la form non formattata correttamente
 		
-		RegistrationAction.insertCreateAccountPassword();
-		RegistrationAction.insertCreateAccountConfirmPassword();
-		RegistrationAction.insertCreateAccountFirstName();
-		RegistrationAction.insertCreateAccountLastName();
-		RegistrationAction.insertCreateAccountDOBDay();
-		RegistrationAction.insertCreateAccountDOBMonth();
-		RegistrationAction.insertCreateAccountDOBYear();
-		RegistrationAction.setCreateAccountPrivacy1();
-		RegistrationAction.setCreateAccountPrivacy2();
-		RegistrationAction.clickCreateAccountSubmitButton();
-		RegistrationAction.clickCreateAccountCloseButton();
+		AdobeRegistrationAction.insertCreateAccountPassword();
+		AdobeRegistrationAction.insertCreateAccountConfirmPassword();
+		AdobeRegistrationAction.insertCreateAccountFirstName();
+		AdobeRegistrationAction.insertCreateAccountLastName();
+		AdobeRegistrationAction.insertCreateAccountDOBDay();
+		AdobeRegistrationAction.insertCreateAccountDOBMonth();
+		AdobeRegistrationAction.insertCreateAccountDOBYear();
+		AdobeRegistrationAction.setCreateAccountPrivacy1();
+		AdobeRegistrationAction.setCreateAccountPrivacy2();
+		AdobeRegistrationAction.clickCreateAccountSubmitButton();
+		AdobeRegistrationAction.clickCreateAccountCloseButton();
 		String md5=ExternalFunction.getMd5Hash(email);
 		ExternalFunction.getRegistrationEmails(md5);
-		RegistrationAction.clickCreateAccountSuccessClose();
+		AdobeRegistrationAction.clickCreateAccountSuccessClose();
 		
 		//Login after registration
 		
-		HomePageAction.clickOnMyAccount();
-		WebWrapper.typeInField(LoginPage.getLoginUsername(), email);
-		LoginAction.insertLoginPassword();
-		LoginAction.clickOnSignInButton();
+		AdobeHomePageAction.clickOnMyAccount();
+		WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), email);
+		AdobeLoginAction.insertLoginPassword();
+		AdobeLoginAction.clickOnSignInButton();
 		
-		LoginAction.logOutBase();
+		AdobeLoginAction.logOutBase();
 		driver.quit();
 		
 		}

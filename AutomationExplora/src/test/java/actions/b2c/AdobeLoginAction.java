@@ -1,33 +1,33 @@
 package actions.b2c;
 
 import globalSetup.b2c.Configuration;
-import pages.b2c.LoginPage;
+import pages.b2c.AdobeLoginPage;
 import wrappers.Report;
 import wrappers.WebWrapper;
 
-public class LoginAction  {
+public class AdobeLoginAction  {
 
 	
 	public static void insertLoginUsername() {
-    	WebWrapper.typeInField(LoginPage.getLoginUsername(), new Configuration().username());
+    	WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), new Configuration().username());
     	
     }
     
     public static void insertLoginPassword() {
-    	WebWrapper.typeInField(LoginPage.getLoginPassword(), new Configuration().password());
+    	WebWrapper.typeInField(AdobeLoginPage.getLoginPassword(), new Configuration().password());
     	
     }
     
     public static void clickOnSignInButton() {
-    	WebWrapper.clickOn(LoginPage.getSignInButton());
+    	WebWrapper.clickOn(AdobeLoginPage.getSignInButton());
     }
 	
     public static void clickOnSignOutButton() {
-    	WebWrapper.clickOn(LoginPage.getSignOutButton());
+    	WebWrapper.clickOn(AdobeLoginPage.getSignOutButton());
     }
     
     public static void loginBase() {
-		HomePageAction.clickOnMyAccount();
+		AdobeHomePageAction.clickOnMyAccount();
 		Report.passStep("Click On MyAccount");
 		insertLoginUsername();
 		Report.passStep("Insert Email");
@@ -38,7 +38,7 @@ public class LoginAction  {
 	}
 	
 	public static void logOutBase() {
-		HomePageAction.clickOnMyAccountLogged();
+		AdobeHomePageAction.clickOnMyAccountLogged();
 		Report.passStep("Click On MyAccount");
 		clickOnSignOutButton();
 		Report.passStep("Click On SignOut");

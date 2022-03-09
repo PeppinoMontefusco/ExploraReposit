@@ -4,48 +4,48 @@ package actions.b2c;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
-import pages.b2c.RecoveryPage;
+import pages.b2c.AdobeRecoveryPage;
 import wrappers.WebWrapper;
 
-public class RecoveryAction extends setupDriver {
+public class AdobeRecoveryAction extends setupDriver {
 	
 	public static void clickOnRecoveryPasswordLink() {
 		
-		WebWrapper.clickOn(RecoveryPage.getRecoveryPasswordLink());
+		WebWrapper.clickOn(AdobeRecoveryPage.getRecoveryPasswordLink());
 	}
 	
    public static void insertRecoveryPasswordEmail() {
 		
-	   WebWrapper.typeInField(RecoveryPage.getRecoveryPasswordEmail(), new Configuration().emailRecovery());
+	   WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordEmail(), new Configuration().emailRecovery());
 	}
    
 	public static void clickOnRecoveryPasswordResetButton() {
 		
-		WebWrapper.clickOn(RecoveryPage.getRecoveryPasswordResetButton());
+		WebWrapper.clickOn(AdobeRecoveryPage.getRecoveryPasswordResetButton());
    
    }
 	
 	 public static String insertRecoveryPasswordNewPassword() {
 		 String pass = "A1"+ ExternalFunction.getRandomString(7)+"!";
-		 WebWrapper.typeInField(RecoveryPage.getRecoveryPasswordNewPassword(), pass);
+		 WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordNewPassword(), pass);
 		 return pass;
 			
 	 }
 	 
 	 public static void insertRecoveryPasswordConfirmPassword(String pass) {
 		 
-		 WebWrapper.typeInField(RecoveryPage.getRecoveryPasswordConfirmNewPassword(), pass);
+		 WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordConfirmNewPassword(), pass);
 		  }
 	 
 	 public static void clickOnRecoveryPasswordUpdateButton() {
 			
-			WebWrapper.clickOn(RecoveryPage.getRecoveryPasswordUpdatePasswordButton());
+			WebWrapper.clickOn(AdobeRecoveryPage.getRecoveryPasswordUpdatePasswordButton());
 	   
 	   }
 	 
 	 public static void clickOnRecoveryPasswordUpdateSignInButton() {
 			
-			WebWrapper.clickOn(RecoveryPage.getRecoveryPasswordUpdateSignInButton());
+			WebWrapper.clickOn(AdobeRecoveryPage.getRecoveryPasswordUpdateSignInButton());
 	   
 	   }
 	 

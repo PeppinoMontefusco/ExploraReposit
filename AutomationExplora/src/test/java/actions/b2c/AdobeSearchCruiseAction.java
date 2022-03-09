@@ -5,43 +5,43 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
 import globalSetup.b2c.setupDriver;
-import pages.b2c.SearchCruisePage;
+import pages.b2c.AdobeSearchCruisePage;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
 
-public class SearchCruiseAction extends setupDriver {
+public class AdobeSearchCruiseAction extends setupDriver {
 	
 	
 	public static void clickOnDestination() {
-		WebWrapper.clickOn(SearchCruisePage.getDestinationSelect());
+		WebWrapper.clickOn(AdobeSearchCruisePage.getDestinationSelect());
 		
 	}
 	
 	public static void clickOnGuest() {
-		WebWrapper.clickOn(SearchCruisePage.getGuestSelection());
+		WebWrapper.clickOn(AdobeSearchCruisePage.getGuestSelection());
 		
 	}
 	
 	public static void increaseChild() {
-		WebWrapper.clickOn(SearchCruisePage.getIncreaseChild());
+		WebWrapper.clickOn(AdobeSearchCruisePage.getIncreaseChild());
 		
 	}
 	
 	public static void decreaseAdult() {
-		WebWrapper.clickOn(SearchCruisePage.getDecreaseAdult());
+		WebWrapper.clickOn(AdobeSearchCruisePage.getDecreaseAdult());
 			
 	}
 	
 	
 	public static void clickOnSelectAndClose() {
-		WebWrapper.clickOn(SearchCruisePage.getSelectAndCloseButton());
+		WebWrapper.clickOn(AdobeSearchCruisePage.getSelectAndCloseButton());
 		
 	}
 	
 
 	public static void clickSearchCruise() {
-    	WebWrapper.clickOn(SearchCruisePage.getSearchCruiseButton());
+    	WebWrapper.clickOn(AdobeSearchCruisePage.getSearchCruiseButton());
     }
 
 }

@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import globalSetup.b2c.setupDriver;
 import wrappers.WebWrapper;
 
-public class LoginPage extends setupDriver {
+public class AdobeLoginPage extends setupDriver {
 
-	public LoginPage() {
+	public AdobeLoginPage() {
 		
 	}
 

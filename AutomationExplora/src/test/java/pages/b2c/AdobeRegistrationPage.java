@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import globalSetup.b2c.setupDriver;
 import wrappers.WebWrapper;
 
-public class RegistrationPage extends setupDriver {
+public class AdobeRegistrationPage extends setupDriver {
 	
 	public static WebElement getCreateAccountButton() {
 		return driver.findElements(By.className("oktaWidget__tab")).get(0);

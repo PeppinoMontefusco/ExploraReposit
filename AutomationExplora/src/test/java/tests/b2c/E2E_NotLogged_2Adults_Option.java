@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 
-import actions.b2c.HomePageAction;
-import actions.b2c.SearchCruiseAction;
+import actions.b2c.AdobeHomePageAction;
+import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.Report;
@@ -26,13 +26,13 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		HomePageAction.clickOnBookAJourney();
+		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
-		SearchCruiseAction.clickOnDestination();
+		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		SearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndClose();
 		Report.passStep("Click On Select And Close");
-		SearchCruiseAction.clickSearchCruise();
+		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript(30000, 2000);
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");

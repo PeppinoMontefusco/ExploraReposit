@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import globalSetup.b2c.setupDriver;
 
-public class RecoveryPage extends setupDriver{
+public class AdobeRecoveryPage extends setupDriver{
 	
 	public static WebElement getRecoveryPasswordLink() {
 		return driver.findElements(By.className("js-forgot-password")).get(0);

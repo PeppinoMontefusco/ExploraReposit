@@ -7,7 +7,7 @@ import java.awt.AWTException;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import actions.b2c.LoginAction;
+import actions.b2c.AdobeLoginAction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.Report;
@@ -22,8 +22,8 @@ public class MYACC_Login_And_Logout extends setupDriver  {
 		test=TestManager.startTest("MYACC_01", "Login and Logout", "MyAccount");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		LoginAction.loginBase();
-		LoginAction.logOutBase();
+		AdobeLoginAction.loginBase();
+		AdobeLoginAction.logOutBase();
 		
 		
 	}

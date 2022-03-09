@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 
-public class SearchCruisePage extends setupDriver {
+public class AdobeSearchCruisePage extends setupDriver {
 	
 	public static WebElement getDestinationSelect() {
 		int destination= Integer.valueOf(ExternalFunction.getRandomInt(0, 7));

@@ -1,24 +1,24 @@
 package actions.b2c;
 
-import pages.b2c.HomePage;
+import pages.b2c.AdobeHomePage;
 import wrappers.WebWrapper;
 
-public class HomePageAction {
+public class AdobeHomePageAction {
 
 	public static void clickOnMyAccount() {
 		
-		WebWrapper.clickOn(HomePage.getMyAccountButton());
+		WebWrapper.clickOn(AdobeHomePage.getMyAccountButton());
 		
 	}
 
 	public static void clickOnMyAccountLogged() {
 		
-		WebWrapper.clickOn(HomePage.getMyAccountLoggedButton());
+		WebWrapper.clickOn(AdobeHomePage.getMyAccountLoggedButton());
 		
 	}
 
 	public static void clickOnBookAJourney() throws InterruptedException {
-		WebWrapper.clickOn(HomePage.getBookAJourneyButton());
+		WebWrapper.clickOn(AdobeHomePage.getBookAJourneyButton());
 	}
 
 }

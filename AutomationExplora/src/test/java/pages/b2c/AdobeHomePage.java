@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import globalSetup.b2c.setupDriver;
 import wrappers.WebWrapper;
 
-public class HomePage extends setupDriver {
+public class AdobeHomePage extends setupDriver {
 
 	public static WebElement getMyAccountButton() {
 	return driver.findElements(By.className("myAccount")).get(0);
