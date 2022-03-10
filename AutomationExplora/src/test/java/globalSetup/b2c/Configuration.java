@@ -10,6 +10,7 @@ public class Configuration {
 	String CardNumber;
 	String ExpireDate;
 	String Cvv;
+	String Name;
 	
 	public Configuration(){
 		ResourceBundle configuration= ResourceBundle.getBundle("configurations");
@@ -20,6 +21,7 @@ public class Configuration {
 		CardNumber = configuration.getString("CardNumber");
 		ExpireDate = configuration.getString("ExpireDate");
 		Cvv = configuration.getString("Cvv");
+		Name= configuration.getString("Name");
 		
 		
 	}
@@ -45,6 +47,10 @@ public class Configuration {
 	
 	public String cvv() {
 		return Cvv;
+	}
+	
+	public String name() {
+		return Name;
 	}
 
 }

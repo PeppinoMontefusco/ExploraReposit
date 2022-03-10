@@ -191,4 +191,27 @@ public class VersonixMethodsB2C extends setupDriver {
 	 }
 	
 	}
+	public static void searchTextFromSpan(String nameOfField) throws InterruptedException {
+		 
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span').length;");
+		 boolean content =false;
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('span')["+i+"].innerText;");
+			 if (text.equalsIgnoreCase(nameOfField)) {
+				 String index =i+"";
+				 content=true;
+				 break;
+			 }
+			
+			 }
+		 if(content==false) {
+			 throw new RuntimeException("Text search failed");
+			
+		 
+	 }
+		
+		 
+		 
+	 }
 }

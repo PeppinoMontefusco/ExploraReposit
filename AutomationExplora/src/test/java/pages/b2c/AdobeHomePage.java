@@ -22,5 +22,9 @@ public class AdobeHomePage extends setupDriver {
 	public static WebElement getBookAJourneyButton() {
 		return driver.findElements(By.className("cta")).get(0);
 	}
+	
+	public static WebElement getQuickSearchButton() {
+		return driver.findElements(By.className("quickBooking__btn")).get(0);
+	}
 
 }

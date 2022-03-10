@@ -20,5 +20,9 @@ public class AdobeHomePageAction {
 	public static void clickOnBookAJourney() throws InterruptedException {
 		WebWrapper.clickOn(AdobeHomePage.getBookAJourneyButton());
 	}
+	
+	public static void clickOnQuickSearch() {
+		WebWrapper.clickOn(AdobeHomePage.getQuickSearchButton());
+	}
 
 }
