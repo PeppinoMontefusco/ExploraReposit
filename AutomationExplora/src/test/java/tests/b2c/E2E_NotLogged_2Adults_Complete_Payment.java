@@ -39,18 +39,18 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
-	    WebWrapper.waitForJavascript(30000, 2000);
+	    WebWrapper.waitForJavascript();
 		
 	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 	
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 	
 		VersonixMethodsB2C.findSpanAndCompile("First","Test");
 		Report.passStep("Adult 1 - Insert First Name ");
@@ -62,7 +62,7 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		Report.passStep("Adult 1 - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndCompile("First","test");
 		Report.passStep("Adult 2 - Insert First Name ");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automationdue");
@@ -71,11 +71,11 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		Report.passStep("Adult 2 - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		
 		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
 		Report.passStep("Click On Pay Total");
@@ -85,7 +85,7 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		
 		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber());
 		Report.passStep("Insert Card Number");

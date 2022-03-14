@@ -34,16 +34,16 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Click On Select And Close");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
-	    WebWrapper.waitForJavascript(30000, 2000);
+	    WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 	    VersonixMethodsB2C.findSpanAndCompile("First","Test");
 		Report.passStep("First Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
@@ -54,7 +54,7 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("First Adult - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndCompile("First","test");
 		Report.passStep("Second Adult - Insert First Name");
 		VersonixMethodsB2C.findSpanAndCompile("Last","Automationdue");
@@ -63,10 +63,10 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Second Adult - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("FREE");
 		Report.passStep("Select Create Option 72h");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
@@ -75,7 +75,7 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Option Pop Up");
 		

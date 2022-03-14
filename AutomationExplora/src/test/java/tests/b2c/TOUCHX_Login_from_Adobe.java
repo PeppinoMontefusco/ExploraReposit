@@ -27,7 +27,7 @@ public class TOUCHX_Login_from_Adobe extends setupDriver {
 		AdobeLoginAction.loginBase();
 		Thread.sleep(2000);
 		AdobeHomePageAction.clickOnQuickSearch();
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		Thread.sleep(2000);
 		VersonixMethodsB2C.searchTextFromSpan(new Configuration().name());
 		

@@ -2,6 +2,8 @@ package tests.b2c;
 
 import java.awt.AWTException;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -39,34 +41,38 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		Report.passStep("Set 1 Adult");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.startVersonixPage();
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
-	    WebWrapper.waitForJavascript(30000, 2000);
+	    WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
-		WebWrapper.waitForJavascript(30000, 2000);
-	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("Book");
+	    //VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
+		
 		String FirstName ="test"+ExternalFunction.getRandomString(5);
-	    VersonixMethodsB2C.findSpanAndCompile("First",FirstName);
+	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 		Report.passStep("Adult 1 - Insert First Name");
+		Thread.sleep(2000);
 		String LastName ="test"+ExternalFunction.getRandomString(5);
-		VersonixMethodsB2C.findSpanAndCompile("Last",LastName);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Adult 1 - Insert Last Name");
-		VersonixMethodsB2C.findSpanAndCompile("Date", "01011990");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
 		Report.passStep("Adult 1 - Insert Date Of Birth");
 		String Email=FirstName+"@yopmail.com";
-		VersonixMethodsB2C.findSpanAndCompile("Email", Email);
+		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
 		Report.passStep("Adult 1 - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		
 		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
 		Report.passStep("Click On Pay Total");
@@ -76,7 +82,7 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript(30000, 2000);
+		WebWrapper.waitForJavascript();
 		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber());
 		Report.passStep("Insert Card Number");
 		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());

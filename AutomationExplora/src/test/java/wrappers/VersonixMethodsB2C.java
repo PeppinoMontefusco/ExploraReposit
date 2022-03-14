@@ -38,7 +38,7 @@ public class VersonixMethodsB2C extends setupDriver {
 				 click=true;
 				 break;
 				}
-			 
+			
 		 }
 		 if(click==false) {
 				 throw new RuntimeException("Impossible to compile the field");
@@ -49,6 +49,33 @@ public class VersonixMethodsB2C extends setupDriver {
 		 
 		 
 	 }
+	
+	public static void searchInputAndCompile(String attribute, String value) throws InterruptedException {
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 long indexAll =(long) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('input').length;");
+		 boolean click =false;
+		 for(int i=0;i<indexAll;i++) {
+			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('input')["+i+"].getAttribute('aria-label');");
+			 if (text.contains(attribute)) {
+				 String index =i+"";
+				 //WebWrapper.clickOn(getElementInShadowRoot("input", index));
+				 Thread.sleep(1000);
+				 WebWrapper.typeInField(getElementInShadowRoot("input", index), value);
+				 click=true;
+				 break;
+				 
+			 }
+			
+			 }
+		 if(click==false) {
+			 throw new RuntimeException("Impossible to compile field");
+			
+		 
+			     
+	 }
+	 }
+	
+	
 
 	public static void findSpanAndClick(String nameOfField) throws InterruptedException {
 		 
@@ -214,4 +241,16 @@ public class VersonixMethodsB2C extends setupDriver {
 		 
 		 
 	 }
+	
+	public static void startVersonixPage() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('flt-semantics-placeholder').click({force: true});");
+		
+	}
+	
+	public static void clickOnLabel(String label) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('[aria-label="+label+"]').click();");
+	}
+	
 }
