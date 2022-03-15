@@ -85,7 +85,7 @@ public class WebWrapper extends setupDriver {
 
 	 public static void waitForJavascript() {
 		    int maxWaitMillis=30000;
-		    int pollDelimiter=2000;
+		    int pollDelimiter=3000;
 		    double startTime = System.currentTimeMillis();
 		    while (System.currentTimeMillis() < startTime + maxWaitMillis) {
 		        String prevState = driver.getPageSource();

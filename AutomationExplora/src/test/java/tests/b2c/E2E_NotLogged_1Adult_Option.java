@@ -39,6 +39,7 @@ public class E2E_NotLogged_1Adult_Option extends setupDriver {
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.startVersonixPage();
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
@@ -49,13 +50,13 @@ public class E2E_NotLogged_1Adult_Option extends setupDriver {
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
 		Thread.sleep(10000);
-	    VersonixMethodsB2C.findSpanAndCompile("First","Test");
+	    VersonixMethodsB2C.searchInputAndCompile("First","Test");
 		Report.passStep("Adult 1 - Insert First Name");
-		VersonixMethodsB2C.findSpanAndCompile("Last","Automation");
+		VersonixMethodsB2C.searchInputAndCompile("Last","Automation");
 		Report.passStep("Adult 1 - Insert Last Name");
-		VersonixMethodsB2C.findSpanAndCompile("Date", "01011990");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
 		Report.passStep("Adult 1 - Insert Date Of Birth");
-		VersonixMethodsB2C.findSpanAndCompile("Email", "test@yopmail.com");
+		VersonixMethodsB2C.searchInputAndCompile("Email", "test@yopmail.com");
 		Report.passStep("Adult 1 - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");

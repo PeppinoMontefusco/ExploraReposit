@@ -2,8 +2,12 @@ package tests.b2c;
 
 import java.awt.AWTException;
 
+import javax.lang.model.element.Element;
+
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -43,21 +47,22 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
+		//VersonixMethodsB2C.clickOnLabel("Book");
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
+	    
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.clickOnLabel("Book");
-	    //VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
+		//VersonixMethodsB2C.clickOnLabel("Book");
+	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
 		
 		String FirstName ="test"+ExternalFunction.getRandomString(5);
 	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 		Report.passStep("Adult 1 - Insert First Name");
-		Thread.sleep(2000);
 		String LastName ="test"+ExternalFunction.getRandomString(5);
 		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Adult 1 - Insert Last Name");

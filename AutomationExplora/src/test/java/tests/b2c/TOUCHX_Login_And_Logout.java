@@ -51,7 +51,7 @@ public class TOUCHX_Login_And_Logout extends setupDriver {
 		Report.passStep("Click On Sign In Button");
 		WebWrapper.waitForJavascript();
 		Thread.sleep(3000);
-		VersonixMethodsB2C.searchTagAndClick("VersonixIcons","span");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("VersonixIcons","span");
 		Report.passStep("Click On My Profile Icon");
 		Thread.sleep(3000);
 		VersonixMethodsB2C.searchTagAndClickByOffset("width: 168px", "flt-clip", 80, 10);
