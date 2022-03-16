@@ -32,13 +32,34 @@ public class TouchXAdyenAction extends setupDriver {
       public static void clickOnPayButton() {
     	   driver.switchTo().defaultContent();
   		   driver.switchTo().frame(1);
-  		   String Amount=TouchXAdyenAction.storeAmount().substring(5);
+  		   
     		WebWrapper.clickOn(TouchXAdyenPage.getPayButton());
+    		driver.switchTo().defaultContent();
   		}
       
       public static String storeAmount() {
     	  return TouchXAdyenPage.getAmount().getText();
       }
       
+      public static void setUsername3DS1(String username) {
+   	      driver.switchTo().frame(1);
+   	     WebWrapper.typeInField(TouchXAdyenPage.getUsername3DS1(), username);
+      }
+   	  public static void setPassword3DS1(String password) {
+   	      WebWrapper.typeInField(TouchXAdyenPage.getPassword3DS1(), password);
+   	  }
+   	  public static void clickOnSubmitButton3DS1(){
+   		WebWrapper.clickOn(TouchXAdyenPage.getPayButton3DS1());
+   		driver.switchTo().defaultContent();
+   	  }
+   	public static void setPassword3DS2(String password) {
+   		  driver.switchTo().frame(1);
+ 	      driver.switchTo().frame(0);
+ 	      WebWrapper.waitForJavascript();
+ 	      WebWrapper.typeInField(TouchXAdyenPage.getPassword3DS2(), password);
+ 	  }
+   	public static void clickOnSubmitButton3DS2() {
+   		WebWrapper.clickOn(TouchXAdyenPage.getSubmitButton3DS2());
+ 	  }
 
 }

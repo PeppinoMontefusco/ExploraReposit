@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import globalSetup.b2c.Configuration;
+import globalSetup.b2c.ExternalFunction;
 import actions.b2c.TouchXAdyenAction;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
@@ -26,10 +27,9 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 	
 	@Test
 	public static void bookingFlow2adultsCompletePaymentNotLogged() throws InterruptedException, AWTException {
-		test=TestManager.startTest("E2E_03", "E2E Not Logged: Scenario 2 Adults - Pay Total", "E2E");
+		test=TestManager.startTest("E2E_09", "E2E Not Logged: Scenario 2 Adults - Pay Total", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		
 		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
@@ -43,40 +43,40 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-		
-	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-	
-		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
+        VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-	
-		VersonixMethodsB2C.searchInputAndCompile("First","Test");
-		Report.passStep("Adult 1 - Insert First Name ");
-		VersonixMethodsB2C.searchInputAndCompile("Last","Automation");
+		String FirstName ="test"+ExternalFunction.getRandomString(5);
+		VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
+		Report.passStep("Adult 1 - Insert First Name");
+		String LastName ="test"+ExternalFunction.getRandomString(5);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Adult 1 - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "01011974");
 		Report.passStep("Adult 1 - Insert Date Of Birth");
-		VersonixMethodsB2C.searchInputAndCompile("Email", "test@yopmail.com");
+		String Email=FirstName+"@yopmail.com";
+		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
 		Report.passStep("Adult 1 - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchInputAndCompile("First","test");
-		Report.passStep("Adult 2 - Insert First Name ");
-		VersonixMethodsB2C.searchInputAndCompile("Last","Automationdue");
+		String FirstNameAdult2 ="test"+ExternalFunction.getRandomString(5);
+	    VersonixMethodsB2C.searchInputAndCompile("First",FirstNameAdult2);
+		Report.passStep("Adult 2 - Insert First Name");
+		String LastNameAdult2 ="test"+ExternalFunction.getRandomString(5);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastNameAdult2);
 		Report.passStep("Adult 2 - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "04061971");
 		Report.passStep("Adult 2 - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		
 		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
 		Report.passStep("Click On Pay Total");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
@@ -86,7 +86,6 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript();
-		
 		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber());
 		Report.passStep("Insert Card Number");
 		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());

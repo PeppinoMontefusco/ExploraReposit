@@ -28,7 +28,7 @@ public class AdobeLoginAction  {
     
     public static void loginBase() {
 		AdobeHomePageAction.clickOnMyAccount();
-		Report.passStep("Click On MyAccount");
+		Report.passStep("Click On Adobe MyAccount");
 		insertLoginUsername();
 		Report.passStep("Insert Email");
 		insertLoginPassword();

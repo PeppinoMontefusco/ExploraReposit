@@ -26,5 +26,23 @@ public class TouchXAdyenPage extends setupDriver {
 	public static WebElement getAmount() {
 		return driver.findElements(By.className("adyen-checkout__button__text")).get(0);
 	}
-
+	public static WebElement getUsername3DS1() {
+		return driver.findElement(By.id("username"));
+	}
+	
+	public static WebElement getPassword3DS1() {
+		return driver.findElement(By.id("password"));
+	}
+	public static WebElement getPayButton3DS1() {
+		return driver.findElements(By.className("paySubmit")).get(0);
+		}
+	
+	public static WebElement getPassword3DS2() {
+		return driver.findElements(By.className("input-field")).get(0);
+	}
+	
+	public static WebElement getSubmitButton3DS2() {
+		return driver.findElement(By.id("buttonSubmit"));
+	}
 }
+	

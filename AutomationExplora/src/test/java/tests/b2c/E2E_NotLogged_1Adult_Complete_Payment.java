@@ -1,16 +1,8 @@
 package tests.b2c;
 
 import java.awt.AWTException;
-
-import javax.lang.model.element.Element;
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import actions.b2c.TouchXAdyenAction;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
@@ -30,7 +22,7 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 	
 	@Test
 	public static void bookingFlow1adultCompletePaymentNotLogged() throws InterruptedException, AWTException {
-		test=TestManager.startTest("E2E_06", "E2E Not Logged: Scenario 1 Adult - Pay Total","E2E");
+		test=TestManager.startTest("E2E_03", "E2E Not Logged: Scenario 1 Adult - Pay Total","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -47,19 +39,15 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		//VersonixMethodsB2C.clickOnLabel("Book");
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-	    
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-		//VersonixMethodsB2C.clickOnLabel("Book");
-	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
+		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		
 		String FirstName ="test"+ExternalFunction.getRandomString(5);
 	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 		Report.passStep("Adult 1 - Insert First Name");
@@ -74,11 +62,9 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		
 		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
 		Report.passStep("Click On Pay Total");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
@@ -94,12 +80,10 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		Report.passStep("Insert Expiry Date");
 		TouchXAdyenAction.setCVV(new Configuration().cvv());
 		Report.passStep("Insert Cvv");
-		
 		TouchXAdyenAction.clickOnPayButton();
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();
-		String a=VersonixMethodsB2C.storevalue("span", "#").substring(10, 14);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 

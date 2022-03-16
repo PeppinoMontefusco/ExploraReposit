@@ -6,11 +6,9 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.ExtentReports;
+
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
+
 
 import globalSetup.b2c.setupDriver;
 
@@ -45,8 +43,7 @@ public class TestListener implements ITestListener {
 	    public void onTestFailure(ITestResult iTestResult) {
 	    	//setupDriver.test.log(Status.FAIL, iTestResult.getThrowable().getMessage());
 	    	try {
-	    		
-	    		setupDriver.test.fail(iTestResult.getThrowable().getMessage(),MediaEntityBuilder.createScreenCaptureFromPath(GetScreenShot.capture(setupDriver.driver, "TestFailed")).build());
+	    		setupDriver.test.fail(iTestResult.getThrowable().getMessage(),MediaEntityBuilder.createScreenCaptureFromPath(GetScreenShot.capture(setupDriver.driver, iTestResult.getName())).build());
 			} catch (IOException e) {
 				
 				e.printStackTrace();

@@ -9,6 +9,7 @@ import actions.b2c.TouchXAdyenAction;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.b2c.Configuration;
+import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
 import wrappers.Report;
@@ -22,7 +23,7 @@ public class E2E_NotLogged_1Adult_Deposit extends setupDriver {
 	
 	@Test
 	public static void bookingFlow1adultDepositNotLogged() throws InterruptedException, AWTException {
-		test=TestManager.startTest("E2E_08", "E2E Not Logged: Scenario 1 Adult - Pay Deposit","E2E");
+		test=TestManager.startTest("E2E_02", "E2E Not Logged: Scenario 1 Adult - Pay Deposit","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -48,13 +49,16 @@ public class E2E_NotLogged_1Adult_Deposit extends setupDriver {
 	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-	    VersonixMethodsB2C.searchInputAndCompile("First","Test");
+		String FirstName ="test"+ExternalFunction.getRandomString(5);
+	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 		Report.passStep("Adult 1 - Insert First Name");
-		VersonixMethodsB2C.searchInputAndCompile("Last","Automation");
+		String LastName ="test"+ExternalFunction.getRandomString(5);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Adult 1 - Insert Last Name");
 		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
 		Report.passStep("Adult 1 - Insert Date Of Birth");
-		VersonixMethodsB2C.searchInputAndCompile("Email", "test@yopmail.com");
+		String Email=FirstName+"@yopmail.com";
+		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
 		Report.passStep("Adult 1 - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");

@@ -2,6 +2,8 @@ package tests.b2c;
 
 import java.awt.AWTException;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -10,6 +12,7 @@ import actions.b2c.AdobeLoginAction;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
+import pages.b2c.AdobeHomePage;
 import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
@@ -20,16 +23,37 @@ import wrappers.WebWrapper;
 public class TOUCHX_Login_from_Adobe extends setupDriver {
 	
 	@Test
-	public static void loginFromAdobe() throws AWTException, InterruptedException{
+	public static void integrationAdobeVersonixLoginLogout() throws AWTException, InterruptedException{
 		test=TestManager.startTest("INT_01", "Login from Adobe", "Integration");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
-		Thread.sleep(2000);
-		AdobeHomePageAction.clickOnQuickSearch();
 		WebWrapper.waitForJavascript();
-		Thread.sleep(2000);
+		AdobeHomePageAction.clickOnQuickSearch();
+		Report.passStep("Click On Quick Search");
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTextFromSpan(new Configuration().name());
+		Report.passStep("Integration Login Adobe - TouchX");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("VersonixIcons","span");
+		Report.passStep("Click On My Profile Icon in TouchX");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClickByOffset("width: 168px", "flt-clip", 80, 10);
+		Report.passStep("Click On Sign Out in Touch X");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("width: 92.8px","flt-clip");
+		Report.passStep("Close Sign Out Pop Up");
+		VersonixMethodsB2C.startVersonixPage();
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("Back");
+		Report.passStep("Return in Adobe");
+		WebWrapper.waitForJavascript();
+		if(AdobeHomePage.getMyAccountButton().isDisplayed()) {
+			Report.passStep("User Is Not Logged");
+		}
+		else
+		{
+			throw new RuntimeException("User Still Logged");
+		}
 		
 
 }
