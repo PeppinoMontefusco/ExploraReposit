@@ -98,6 +98,7 @@ public class E2E_NotLogged_2Adults_1Child_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Pop Up");
 		
+		
 
 		}
 
