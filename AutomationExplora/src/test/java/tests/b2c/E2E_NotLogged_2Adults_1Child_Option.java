@@ -99,6 +99,7 @@ public class E2E_NotLogged_2Adults_1Child_Option extends setupDriver{
 		Report.passStep("Close Confirm Pop Up");
 		
 		
+		
 
 		}
 
