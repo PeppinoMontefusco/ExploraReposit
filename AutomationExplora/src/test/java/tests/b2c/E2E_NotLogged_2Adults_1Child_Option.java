@@ -83,15 +83,6 @@ public class E2E_NotLogged_2Adults_1Child_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchInputAndCompile("First","testchild");
-		Report.passStep("Child 1 - Insert First Name");
-		VersonixMethodsB2C.searchInputAndCompile("Last","Automationtre");
-		Report.passStep("Child 1 - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01012015");
-		Report.passStep("Child 1 - Insert Date Of Birth");
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
