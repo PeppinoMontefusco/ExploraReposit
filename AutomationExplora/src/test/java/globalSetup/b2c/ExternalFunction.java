@@ -36,8 +36,20 @@ public class ExternalFunction extends setupDriver{
 		
 		return randomName;
 		
-		
+
 	}
+		
+	public static String getRandomNumber(int n) {
+		Random r = new Random();
+		String number = "0123456789"; 
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < n; i++) { sb.append(number.charAt(r.nextInt(number.length()))); } 
+		String randomNumber = sb.toString();
+		
+		return randomNumber;
+		}
+
+
 	
 	public static String getRandomInt(int min , int max) {
 		ThreadLocalRandom tlr = ThreadLocalRandom.current();

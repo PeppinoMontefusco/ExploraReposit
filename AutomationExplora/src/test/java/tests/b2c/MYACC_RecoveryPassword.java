@@ -16,7 +16,7 @@ import globalSetup.b2c.startPage;
 import pages.b2c.AdobeLoginPage;
 import wrappers.WebWrapper;
 
-public class RecoveryPassword extends setupDriver {
+public class MYACC_RecoveryPassword extends setupDriver {
 	
 	
 	

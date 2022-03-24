@@ -16,7 +16,7 @@ import globalSetup.b2c.startPage;
 import pages.b2c.AdobeLoginPage;
 import wrappers.WebWrapper;
 
-public class CreateUser extends setupDriver {
+public class MYACC_CreateUser extends setupDriver {
 	
 	
 	@Test

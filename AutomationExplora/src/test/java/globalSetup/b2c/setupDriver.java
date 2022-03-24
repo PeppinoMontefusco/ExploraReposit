@@ -1,10 +1,12 @@
 package globalSetup.b2c;
 
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -40,10 +42,27 @@ public class setupDriver {
 	public void before_method()  
 	{  
         System.setProperty("webdriver.chrome.driver" ,"C:\\Users\\WebDriver\\chromedriver.exe");
+        
+        //ChromeOptions  options = new ChromeOptions();
+        
+        
+        //options.addExtensions(new File("C:\\Users\\WebDriver\\ModHeader.crx"));
+        
+        driver=new ChromeDriver();
+        /*driver.get("https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=it");
 		
-		driver=new ChromeDriver();
 		
 		
+		((JavascriptExecutor)driver).executeScript(
+			    "localStorage.setItem('profiles', JSON.stringify([{                " +
+			    "  title: 'Selenium', hideComment: true, appendMode: '',           " +
+			    "  headers: [                                                      " +
+			    "    {enabled: true, name: 'x-restricted-custom', value: 'SQEB3yich9rhog-maiy', comment: ''} " +
+			    "  ],                                                              " +
+			    "  respHeaders: [],                                                " +
+			    "  filters: []                                                     " +
+			    "}]));                                                             " );*/
+
 		driver.manage().window().maximize();
 		
 		
@@ -53,6 +72,6 @@ public class setupDriver {
 	@AfterMethod
 	public void after_method()  
 	{  
-	driver.quit(); 
+	//driver.quit(); 
 	}  
 }

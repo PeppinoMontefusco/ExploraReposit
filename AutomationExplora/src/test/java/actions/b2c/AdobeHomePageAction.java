@@ -24,5 +24,8 @@ public class AdobeHomePageAction {
 	public static void clickOnQuickSearch() {
 		WebWrapper.clickOn(AdobeHomePage.getQuickSearchButton());
 	}
-
+	
+	public static void clickOnJoinUs() {
+		WebWrapper.clickOn(AdobeHomePage.joinUsButton());
+	}
 }
