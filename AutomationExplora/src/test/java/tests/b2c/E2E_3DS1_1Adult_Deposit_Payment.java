@@ -90,10 +90,10 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		Report.passStep("Insert Password");
 		TouchXAdyenAction.clickOnSubmitButton3DS1();
 		Report.passStep("Click On Submit");
-		driver.switchTo().defaultContent();
-		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
-		Report.passStep("Click On Confirmation Pop Up");
+		//driver.switchTo().defaultContent();
+		//WebWrapper.waitForJavascript();
+		//VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		//Report.passStep("Click On Confirmation Pop Up");
 
 		}
 

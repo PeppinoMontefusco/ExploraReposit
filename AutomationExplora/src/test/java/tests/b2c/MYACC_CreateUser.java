@@ -9,6 +9,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeRegistrationAction;
+import globalSetup.b2c.API;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
@@ -39,7 +40,7 @@ public class MYACC_CreateUser extends setupDriver {
 		AdobeRegistrationAction.clickCreateAccountSubmitButton();
 		AdobeRegistrationAction.clickCreateAccountCloseButton();
 		String md5=ExternalFunction.getMd5Hash(email);
-		ExternalFunction.getRegistrationEmails(md5);
+		API.getRegistrationEmails(md5);
 		AdobeRegistrationAction.clickCreateAccountSuccessClose();
 		
 		//Login after registration

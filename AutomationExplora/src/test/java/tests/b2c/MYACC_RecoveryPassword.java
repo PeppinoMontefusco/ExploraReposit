@@ -9,6 +9,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeRecoveryAction;
+import globalSetup.b2c.API;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
@@ -29,7 +30,7 @@ public class MYACC_RecoveryPassword extends setupDriver {
 		AdobeRecoveryAction.clickOnRecoveryPasswordResetButton();
 		Thread.sleep(5000);
 		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecovery());
-		ExternalFunction.getRecoveryEmails(md5);
+		API.getRecoveryEmails(md5);
 		String pass=AdobeRecoveryAction.insertRecoveryPasswordNewPassword();
 		AdobeRecoveryAction.insertRecoveryPasswordConfirmPassword(pass);
 		AdobeRecoveryAction.clickOnRecoveryPasswordUpdateButton();

@@ -28,4 +28,8 @@ public class AdobeHomePageAction {
 	public static void clickOnJoinUs() {
 		WebWrapper.clickOn(AdobeHomePage.joinUsButton());
 	}
+	
+	public static void clickOnTalkToUs() {
+		WebWrapper.clickOn(AdobeHomePage.talkWithUs());
+	}
 }

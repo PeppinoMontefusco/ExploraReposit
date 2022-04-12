@@ -26,9 +26,10 @@ public class AdobeLoginAction  {
     	WebWrapper.clickOn(AdobeLoginPage.getSignOutButton());
     }
     
-    public static void loginBase() {
+    public static void loginBase() throws InterruptedException {
 		AdobeHomePageAction.clickOnMyAccount();
 		Report.passStep("Click On Adobe MyAccount");
+		Thread.sleep(2000);
 		insertLoginUsername();
 		Report.passStep("Insert Email");
 		insertLoginPassword();

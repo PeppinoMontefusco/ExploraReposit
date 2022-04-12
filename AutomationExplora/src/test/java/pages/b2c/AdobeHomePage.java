@@ -30,5 +30,10 @@ public class AdobeHomePage extends setupDriver {
 	public static WebElement joinUsButton() {
 		return driver.findElements(By.className("joinUs")).get(0);
 	}
+	
+	public static WebElement talkWithUs() {
+		return driver.findElements(By.className("icon-explora-talk-to-us")).get(0);
+				
+	}
 
 }
