@@ -254,4 +254,21 @@ public class VersonixMethodsB2C extends setupDriver {
 		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('[aria-label="+label+"]').click();");
 	}
 	
-}
+	public static String getSummaryInformation(String label) throws InterruptedException {
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return (String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('[aria-label^="+label+"]').innerText;");
+		
+		}
+	public static void verifyValue(String base, String check, String control) {
+		
+		if (base.contains(check)) {
+			Report.passStep("Values of "+control+" are ok");
+		}
+			else {
+				throw new RuntimeException("Value of "+control+" is not ok");
+				
+			}
+		}
+	}
+

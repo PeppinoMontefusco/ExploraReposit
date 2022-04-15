@@ -29,7 +29,7 @@ public class AdobeLoginAction  {
     public static void loginBase() throws InterruptedException {
 		AdobeHomePageAction.clickOnMyAccount();
 		Report.passStep("Click On Adobe MyAccount");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		insertLoginUsername();
 		Report.passStep("Insert Email");
 		insertLoginPassword();
