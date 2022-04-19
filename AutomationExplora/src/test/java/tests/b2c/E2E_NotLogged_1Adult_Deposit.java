@@ -5,9 +5,12 @@ import java.awt.AWTException;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
+
 import actions.b2c.TouchXAdyenAction;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import globalSetup.b2c.API;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
@@ -22,7 +25,7 @@ import wrappers.WebWrapper;
 public class E2E_NotLogged_1Adult_Deposit extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adultDepositNotLogged() throws InterruptedException, AWTException {
+	public static void bookingFlow1adultDepositNotLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_02", "E2E Not Logged: Scenario 1 Adult - Pay Deposit","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
@@ -87,6 +90,22 @@ public class E2E_NotLogged_1Adult_Deposit extends setupDriver {
 		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("Cancel");
+		WebWrapper.waitForJavascript();
+		
+		
+		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
+		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
+		String bookingNumber =reservationInfo.substring(10, 14);
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
+		//ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), API.getAmountBooking(bookingNumber, "70"));
+		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
 
 		}
 

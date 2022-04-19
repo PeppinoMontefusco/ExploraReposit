@@ -263,7 +263,7 @@ public class VersonixMethodsB2C extends setupDriver {
 	public static void verifyValue(String base, String check, String control) {
 		
 		if (base.contains(check)) {
-			Report.passStep("Values of "+control+" are ok");
+			Report.passStep("Value of "+control+" is ok");
 		}
 			else {
 				throw new RuntimeException("Value of "+control+" is not ok");

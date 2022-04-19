@@ -66,6 +66,15 @@ public class ExternalFunction extends setupDriver{
             return timestamp;
         }
     }
+    
+    public static String getSumOfStringValue(String arg1, String arg2) {
+    	Double one =Double.parseDouble(arg1);
+    	Double two = Double.parseDouble(arg2);
+    	Integer somma =(int) (one+two);
+		return String.valueOf(somma);
+    	
+    	
+    }
 	
 	
 	

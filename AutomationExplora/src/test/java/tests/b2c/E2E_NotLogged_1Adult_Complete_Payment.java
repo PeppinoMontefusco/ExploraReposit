@@ -90,13 +90,24 @@ public class E2E_NotLogged_1Adult_Complete_Payment extends setupDriver {
 		driver.switchTo().defaultContent();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("Store");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("OK");
+		WebWrapper.waitForJavascript();
+		
 		
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
-		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice");
+		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
 		String bookingNumber =reservationInfo.substring(10, 14);
-		System.out.println(bookingNumber);
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber("1030"), "Cabin number");
-		//VersonixMethodsB2C.verifyValue(invoiceInfo, "Invoice", "Invoice");
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
+		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountSinglePaymentsBooking(bookingNumber), "Payment Amount");
+		
+		
+		
 		
 		
 

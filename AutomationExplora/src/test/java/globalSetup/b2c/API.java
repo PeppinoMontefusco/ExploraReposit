@@ -132,7 +132,16 @@ public static String getStatusBooking(String bookingNumber) throws UnirestExcept
 		String a =response.getBody();
 		JSONObject soapDatainJsonObject = XML.toJSONObject(a);
 		JSONObject status =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:ReservationID");
-		return status.get("StatusCode").toString();
+		if( status.get("StatusCode").toString().equals("42")) {
+			return "OPTION";
+		}
+		else if( status.get("StatusCode").toString().equals("49")) {
+			return "BOOKED";
+		}
+		else {
+			return null;
+			
+		}
 		
 		
 	}
@@ -142,7 +151,7 @@ public static String getAmountBooking(String bookingNumber , String amountValue)
 	  .header("Content-Type", "application/xml")
 	  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
 	  .asString();
-	String TotalAmount = null;
+	String  TotalAmount = null;
 	String a =response.getBody();
 	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
 	
@@ -168,7 +177,7 @@ public static String getAmountBooking(String bookingNumber , String amountValue)
 
 }
 
-public static int getAmountMultiplePaymentsBooking(String bookingNumber) throws UnirestException {
+public static String getAmountMultiplePaymentsBooking(String bookingNumber) throws UnirestException {
 	
 	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
 	  .header("Content-Type", "application/xml")
@@ -188,10 +197,11 @@ public static int getAmountMultiplePaymentsBooking(String bookingNumber) throws 
     	 
      
      }
-     return somma;
+     String value =String.valueOf(somma);
+     return value;
 
 }
-public static int getAmountSinglePaymentsBooking(String bookingNumber) throws UnirestException {
+public static String getAmountSinglePaymentsBooking(String bookingNumber) throws UnirestException {
 	
 	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
 	  .header("Content-Type", "application/xml")
@@ -202,9 +212,10 @@ public static int getAmountSinglePaymentsBooking(String bookingNumber) throws Un
 	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
 	
 	JSONObject amount =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:PaymentOptions").getJSONObject("vx:PaymentOption").getJSONObject("vx:PaymentAmount");
-	int sum= Integer.parseInt(amount.get("Amount").toString());
+	String value =amount.get("Amount").toString();
 	
-     return sum;
+	
+     return value;
 
 }
 
