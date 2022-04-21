@@ -11,7 +11,7 @@ public class AdobeRequestAQuotePage extends setupDriver {
 	public static WebElement getFirstName() {
 
 		return driver.findElement(By.xpath("//form[@class='form theme--light']/div[2]/fieldset[1]/div[1]/div/div/input"));
-		//return driver.findElement(By.id("regFirstname"));
+		
 	}
 
 	public static WebElement getLastName() {

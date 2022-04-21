@@ -5,8 +5,11 @@ import java.awt.AWTException;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
+
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import globalSetup.b2c.API;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 import globalSetup.b2c.startPage;
@@ -22,7 +25,7 @@ import wrappers.WebWrapper;
 public class E2E_NotLogged_1Adult_Option extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adultOptionNotLogged() throws InterruptedException, AWTException {
+	public static void bookingFlow1adultOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 1 Adult - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
@@ -77,6 +80,15 @@ public class E2E_NotLogged_1Adult_Option extends setupDriver {
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Pop Up");
+		WebWrapper.waitForJavascript();
+		
+		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
+		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
+		String bookingNumber =reservationInfo.substring(10, 14);
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
 		
 
 		}

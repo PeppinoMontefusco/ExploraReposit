@@ -7,7 +7,9 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
+import com.mashape.unirest.http.exceptions.UnirestException;
 
+import globalSetup.b2c.API;
 import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import actions.b2c.TouchXAdyenAction;
@@ -26,7 +28,7 @@ import wrappers.WebWrapper;
 public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 	
 	@Test
-	public static void bookingFlow2adultsCompletePaymentNotLogged() throws InterruptedException, AWTException {
+	public static void bookingFlow2adultsCompletePaymentNotLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_09", "E2E Not Logged: Scenario 2 Adults - Pay Total", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
@@ -98,6 +100,21 @@ public class E2E_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("Store");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.clickOnLabel("OK");
+		WebWrapper.waitForJavascript();
+		
+		
+		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
+		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
+		String bookingNumber =reservationInfo.substring(10, 14);
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
+		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
+		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
+		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountSinglePaymentsBooking(bookingNumber), "Payment Amount");
 		
 		
 	

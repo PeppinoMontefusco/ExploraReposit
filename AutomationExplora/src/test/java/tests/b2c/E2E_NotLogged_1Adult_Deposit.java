@@ -104,8 +104,8 @@ public class E2E_NotLogged_1Adult_Deposit extends setupDriver {
 		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-		//ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), API.getAmountBooking(bookingNumber, "70"));
-		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
+		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
+				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
 
 		}
 

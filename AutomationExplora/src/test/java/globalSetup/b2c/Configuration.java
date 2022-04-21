@@ -16,6 +16,7 @@ public class Configuration {
 	String Password3DS1;
 	String CardNumber3DS2;
 	
+	
 	public Configuration(){
 		ResourceBundle configuration= ResourceBundle.getBundle("configurations");
 		URL = configuration.getString("URL");
@@ -30,8 +31,8 @@ public class Configuration {
 		Username3DS1= configuration.getString("Username3DS1");
 		Password3DS1= configuration.getString("Password3DS1");
 		CardNumber3DS2= configuration.getString("CardNumber3DS2");
+		
 	}
-	
 	public String username() {
 		return Username;
 	}

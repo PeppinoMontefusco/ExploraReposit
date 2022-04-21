@@ -33,7 +33,7 @@ public class FORM_NewsLetter extends setupDriver  {
 		AdobeNewsLetterAction.setCustomerType();
 		AdobeNewsLetterAction.setPrivacyBox();;
 		AdobeNewsLetterAction.clickOnRegisterButton();
-		AdobeNewsLetterAction.clickOnPopup();
+		//AdobeNewsLetterAction.clickOnPopup();
 		}
 
 }

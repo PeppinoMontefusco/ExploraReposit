@@ -39,10 +39,10 @@ public class AdobeNewsLetterPage extends setupDriver {
 		}
 	
 	public static WebElement getRegisterButton() {
-		return driver.findElements(By.className("cta-navy-btn")).get(5);
+		return driver.findElement(By.xpath("//*[text()='register']"));
 		}
 	public static WebElement getPopupButton() {
-		return driver.findElements(By.className("space-right--auto")).get(0);
+		return driver.findElement(By.xpath("//*[text()='close']"));
 		}
 	
 	

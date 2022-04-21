@@ -32,7 +32,7 @@ public class TOUCHX_Login_from_Adobe extends setupDriver {
 		AdobeHomePageAction.clickOnQuickSearch();
 		Report.passStep("Click On Quick Search");
 		WebWrapper.waitForJavascript();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		VersonixMethodsB2C.searchTextFromSpan(new Configuration().name());
 		Report.passStep("Integration Login Adobe - TouchX");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("VersonixIcons","span");

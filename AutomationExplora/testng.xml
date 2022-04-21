@@ -3,9 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      <class name="tests.b2c.TOUCHX_Login_from_Adobe"/>
       <class name="tests.b2c.MYACC_Login_And_Logout"/>
       <class name="tests.b2c.TOUCHX_Login_And_Logout"/>
-      <class name="tests.b2c.TOUCHX_Login_from_Adobe"/>
       <class name="tests.b2c.E2E_NotLogged_1Adult_Option"/>
       <class name="tests.b2c.E2E_NotLogged_1Adult_Deposit"/>
       <class name="tests.b2c.E2E_NotLogged_1Adult_Complete_Payment"/>
