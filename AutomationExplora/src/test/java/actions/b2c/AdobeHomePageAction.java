@@ -1,9 +1,14 @@
 package actions.b2c;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import globalSetup.b2c.setupDriver;
 import pages.b2c.AdobeHomePage;
 import wrappers.WebWrapper;
 
-public class AdobeHomePageAction {
+public class AdobeHomePageAction extends setupDriver {
 
 	public static void clickOnMyAccount() {
 		
@@ -32,4 +37,26 @@ public class AdobeHomePageAction {
 	public static void clickOnTalkToUs() {
 		WebWrapper.clickOn(AdobeHomePage.talkWithUs());
 	}
+	public static void clickOnDestinationQuickSearchButton() {
+		WebWrapper.clickOn(AdobeHomePage.getDestinationButton());
+	}	
+	public static void clickOnDestinationQuickSearch() {
+		Actions actions = new Actions(driver);
+		 actions.moveToElement(AdobeHomePage.getDestinationSelectQuickSearch()).click().build().perform();
+	}	
+	public static void clickOnSelectAndCloseQuickSearch() {
+		
+		Actions actions = new Actions(driver);
+		 actions.moveToElement(AdobeHomePage.getSelectAndCloseQuickSearch()).click().build().perform();
+		
+	}	
+	
+	public static void clickOnGuestNumberQuickSearchButton() {
+		WebWrapper.clickOn(AdobeHomePage.getGuestNumberButton());
+}
+	
+	public static void clickOnSearchAndBookGuestQuickSearch() {
+		
+		 WebWrapper.clickOn(AdobeHomePage.getSearchAndBookQuickSearchButton());
+	}	
 }

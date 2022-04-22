@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 import wrappers.WebWrapper;
 
@@ -36,5 +37,22 @@ public class AdobeHomePage extends setupDriver {
 		return driver.findElements(By.className("icon-explora-talk-to-us")).get(0);
 				
 	}
-
+	public static WebElement getDestinationButton() {
+		return driver.findElement(By.name("destination"));
+	}
+	
+	public static WebElement getDestinationSelectQuickSearch() {
+		int destination= Integer.valueOf(ExternalFunction.getRandomInt(0, 7));
+		return driver.findElements(By.className("quickBooking__smallGradient")).get(destination);
+		}
+	public static WebElement getSelectAndCloseQuickSearch() {
+		return driver.findElements(By.className("cta-gold-btn")).get(5);
+	}
+	public static WebElement getGuestNumberButton() {
+		return driver.findElement(By.name("numberGuests"));
+	
+}
+	public static WebElement getSearchAndBookQuickSearchButton() {
+		return driver.findElements(By.className("quickBooking__guestBtn")).get(0);
+		}
 }
