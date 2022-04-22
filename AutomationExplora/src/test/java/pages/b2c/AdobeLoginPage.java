@@ -15,8 +15,8 @@ public class AdobeLoginPage extends setupDriver {
 	}
 
 	public static WebElement getLoginUsername() {
-		 WebWrapper.wait.until(ExpectedConditions.elementToBeClickable(By.id("okta-signin-username")));
-		 WebWrapper.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("okta-signin-username")));
+		 //WebWrapper.wait.until(ExpectedConditions.elementToBeClickable(By.id("okta-signin-username")));
+		 //WebWrapper.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("okta-signin-username")));
 		return driver.findElement(By.id("okta-signin-username"));
 		}
 	public static WebElement getLoginPassword() {

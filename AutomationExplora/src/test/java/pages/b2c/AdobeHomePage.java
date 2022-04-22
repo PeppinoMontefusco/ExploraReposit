@@ -13,9 +13,10 @@ public class AdobeHomePage extends setupDriver {
 	return driver.findElements(By.className("myAccount")).get(0);
 	}
 
-	public static WebElement getMyAccountLoggedButton() {
-	 WebWrapper.wait.until(ExpectedConditions.elementToBeClickable(By.className("myAccountLogged")));
-	 WebWrapper.wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("myAccountLogged")));
+	public static WebElement getMyAccountLoggedButton() throws InterruptedException {
+	Thread.sleep(3000);
+	 //WebWrapper.wait.until(ExpectedConditions.elementToBeClickable(By.className("myAccountLogged")));
+	 //WebWrapper.wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("myAccountLogged")));
 	return driver.findElements(By.className("myAccountLogged")).get(0);
 	}
 

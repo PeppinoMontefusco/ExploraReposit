@@ -11,7 +11,7 @@ public class AdobeHomePageAction {
 		
 	}
 
-	public static void clickOnMyAccountLogged() {
+	public static void clickOnMyAccountLogged() throws InterruptedException {
 		
 		WebWrapper.clickOn(AdobeHomePage.getMyAccountLoggedButton());
 		

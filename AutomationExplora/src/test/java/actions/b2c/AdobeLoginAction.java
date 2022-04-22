@@ -38,7 +38,7 @@ public class AdobeLoginAction  {
 		Report.passStep("Click On SignIn");
 	}
 	
-	public static void logOutBase() {
+	public static void logOutBase() throws InterruptedException {
 		AdobeHomePageAction.clickOnMyAccountLogged();
 		Report.passStep("Click On MyAccount");
 		clickOnSignOutButton();
