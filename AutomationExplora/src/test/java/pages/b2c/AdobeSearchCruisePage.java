@@ -10,7 +10,7 @@ public class AdobeSearchCruisePage extends setupDriver {
 	
 	public static WebElement getDestinationSelect() {
 		int destination= Integer.valueOf(ExternalFunction.getRandomInt(0, 7));
-		return driver.findElements(By.className("destinationName")).get(destination);
+		return driver.findElements(By.className("destinationName")).get(1);
 		}
 	
 	public static WebElement getGuestSelection() {

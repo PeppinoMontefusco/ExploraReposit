@@ -39,7 +39,7 @@ public class AdobeBrochureRequestPage extends setupDriver {
 		return driver.findElement(By.xpath("//*[text()='Submit']"));
 		}
 	public static WebElement getClosetButton() {
-		return driver.findElement(By.xpath("//*[text()='Close']"));
+		return driver.findElements(By.className("btn-full")).get(0);
 		}
 	
 }

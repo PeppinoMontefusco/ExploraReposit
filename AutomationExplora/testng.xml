@@ -17,6 +17,10 @@
       <class name="tests.b2c.E2E_NotLogged_2Adults_1Child_Complete_Payment"/>
       <class name="tests.b2c.E2E_3DS1_1Adult_Deposit_Payment"/>
       <class name="tests.b2c.E2E_3DS2_1Adult_1Child_Complete_Payment"/>
+      <class name="tests.b2c.E2E_NotLogged_1Adult_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_NotLogged_2Adults_Deposit_And_Complete_Payment_3ds1"/>
       <class name="tests.b2c.FORM_Brochure"/>
       <class name="tests.b2c.FORM_NewsLetter"/>
       <class name="tests.b2c.FORM_RequestAQuote"/>

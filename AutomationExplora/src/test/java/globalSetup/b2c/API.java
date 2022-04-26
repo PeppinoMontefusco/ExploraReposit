@@ -183,7 +183,7 @@ public static String getAmountMultiplePaymentsBooking(String bookingNumber) thro
 	  .header("Content-Type", "application/xml")
 	  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
 	  .asString();
-	int somma=0;
+	double somma=0;
 	String a =response.getBody();
 	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
 	
@@ -192,12 +192,12 @@ public static String getAmountMultiplePaymentsBooking(String bookingNumber) thro
 	
      for(int i=0 ; i<index ; i++) {
     	 JSONObject stringAmount=(JSONObject) amount.get(i);
-    	 Integer sum = Integer.parseInt(stringAmount.getJSONObject("vx:PaymentAmount").get("Amount").toString());
+    	 double sum = Double.parseDouble(stringAmount.getJSONObject("vx:PaymentAmount").get("Amount").toString());
     	 somma=somma + sum;
-    	 
      
      }
-     String value =String.valueOf(somma);
+     
+     String value =String.valueOf((int)somma);
      return value;
 
 }
