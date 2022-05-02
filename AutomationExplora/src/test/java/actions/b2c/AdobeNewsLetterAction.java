@@ -13,6 +13,7 @@ public class AdobeNewsLetterAction extends setupDriver {
 	public static void setEmail() {
 		String email = "automation"+ ExternalFunction.getRandomString(4)+"@yopmail.com";
     	WebWrapper.typeInField(AdobeNewsLetterPage.getEmailField(), email);
+    	System.out.println(email);
     }
 	
 	public static void setPhonePrefix() {

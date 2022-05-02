@@ -56,18 +56,7 @@ public class E2E_Logged_1Adult_Deposit_And_Complete_Payment extends setupDriver 
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		/*String FirstName ="test"+ExternalFunction.getRandomString(5);
-	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
-		Report.passStep("Adult 1 - Insert First Name");
-		String LastName ="test"+ExternalFunction.getRandomString(5);
-		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
-		Report.passStep("Adult 1 - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
-		Report.passStep("Adult 1 - Insert Date Of Birth");
-		String Email=FirstName+"@yopmail.com";
-		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
-		Report.passStep("Adult 1 - Insert Email");*/
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+	    VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -92,7 +81,7 @@ public class E2E_Logged_1Adult_Deposit_And_Complete_Payment extends setupDriver 
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -102,6 +91,7 @@ public class E2E_Logged_1Adult_Deposit_And_Complete_Payment extends setupDriver 
 		Report.passStep("Click On Pay Total");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
+		Thread.sleep(1000);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
@@ -117,7 +107,7 @@ public class E2E_Logged_1Adult_Deposit_And_Complete_Payment extends setupDriver 
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.clickOnLabel("Store");

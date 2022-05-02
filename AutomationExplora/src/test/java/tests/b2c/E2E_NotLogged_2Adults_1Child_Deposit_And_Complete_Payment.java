@@ -110,7 +110,7 @@ public class E2E_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extends s
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -120,6 +120,7 @@ public class E2E_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extends s
 		Report.passStep("Click On Pay Total");
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
+		Thread.sleep(1000);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
@@ -135,7 +136,7 @@ public class E2E_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extends s
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.clickOnLabel("Store");

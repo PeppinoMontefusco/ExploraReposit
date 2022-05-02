@@ -81,7 +81,7 @@ public class E2E_Logged_1Adult_Deposit extends setupDriver {
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
 		driver.switchTo().defaultContent();   
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");

@@ -29,7 +29,7 @@ public class TOUCHX_Login_from_Adobe extends setupDriver {
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
 		WebWrapper.waitForJavascript();
-		/*AdobeHomePageAction.clickOnQuickSearch();
+		AdobeHomePageAction.clickOnQuickSearch();
 		Report.passStep("Click On Quick Search");
 		WebWrapper.waitForJavascript();
 		Thread.sleep(10000);
@@ -56,6 +56,6 @@ public class TOUCHX_Login_from_Adobe extends setupDriver {
 			throw new RuntimeException("User Still Logged");
 		}
 		
-*/
+
 }
 }
