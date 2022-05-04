@@ -1,6 +1,7 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+import java.util.ArrayList;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -49,7 +50,8 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		String FirstName ="test"+ExternalFunction.getRandomString(5);
+		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
+		/*String FirstName ="test"+ExternalFunction.getRandomString(5);
 	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 		Report.passStep("Adult 1 - Insert First Name");
 		String LastName ="test"+ExternalFunction.getRandomString(5);
@@ -62,7 +64,7 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		Report.passStep("Adult 1 - Insert Email");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
+		WebWrapper.waitForJavascript();*/
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();

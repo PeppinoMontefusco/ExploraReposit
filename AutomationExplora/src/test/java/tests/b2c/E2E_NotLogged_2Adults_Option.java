@@ -48,7 +48,8 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		String FirstName ="test"+ExternalFunction.getRandomString(5);
+		VersonixMethodsB2C.addAdult(2);
+		/*String FirstName ="test"+ExternalFunction.getRandomString(5);
 		VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 		Report.passStep("Adult 1 - Insert First Name");
 		String LastName ="test"+ExternalFunction.getRandomString(5);
@@ -72,7 +73,7 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Adult 2 - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
+		WebWrapper.waitForJavascript();*/
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();

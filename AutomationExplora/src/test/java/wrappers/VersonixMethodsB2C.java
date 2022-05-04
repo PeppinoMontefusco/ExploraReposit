@@ -1,10 +1,13 @@
 package wrappers;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 
 public class VersonixMethodsB2C extends setupDriver {
@@ -270,5 +273,32 @@ public class VersonixMethodsB2C extends setupDriver {
 				
 			}
 		}
+	
+	public static ArrayList<String> addAdult(int i) throws InterruptedException {
+		ArrayList<String> dati=new ArrayList<String>();
+		
+		for(int e=0;e<i;e++) {
+		Report.passStep("Insert data Adult "+(e+1)+"");
+		String FirstName ="test"+ExternalFunction.getRandomString(5);
+		dati.add(FirstName);
+	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
+	    Report.passStep("Adult "+(e+1)+" - Insert First Name");
+		String LastName ="test"+ExternalFunction.getRandomString(5);
+		dati.add(LastName);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
+		Report.passStep("Adult "+(e+1)+" - Insert Last Name");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
+		dati.add("01011990");
+		Report.passStep("Adult "+(e+1)+" - Insert Date Of Birth");
+		String Email=FirstName+"@yopmail.com";
+		dati.add(Email);
+		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
+		Report.passStep("Adult "+(e+1)+" - Insert Email");
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		}
+		return dati;
+	}
 	}
 

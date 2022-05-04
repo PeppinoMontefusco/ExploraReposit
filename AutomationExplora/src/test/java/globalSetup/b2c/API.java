@@ -232,6 +232,22 @@ public static String getCabinCategory(String bookingNumber) throws UnirestExcept
 	
 	
 }
+
+public static String getPaxData (String bookingNumber) throws UnirestException {
+	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
+			  .header("Content-Type", "application/xml")
+			  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
+			  .asString();
+			String a =response.getBody();
+			JSONObject soapDatainJsonObject = XML.toJSONObject(a);
+			JSONObject Name =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONObject("vx:GuestDetail").getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName");
+			System.out.println(Name.get("vx:GivenName").toString());
+			System.out.println(Name.get("vx:Surname").toString());
+			JSONObject contact =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONObject("vx:GuestDetail").getJSONObject("vx:ContactInfo");
+			System.out.println(contact.get("PersonBirthDate").toString());
+			System.out.println(contact.get("vx:Email").toString());
+			return a;
+}
 }
 
 
