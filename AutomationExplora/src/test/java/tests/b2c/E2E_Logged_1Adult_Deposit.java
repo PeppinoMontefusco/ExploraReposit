@@ -27,7 +27,7 @@ public class E2E_Logged_1Adult_Deposit extends setupDriver {
 	
 	@Test
 	public static void bookingFlow1adultDepositNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_02", "E2E Not Logged: Scenario 1 Adult - Pay Deposit","E2E");
+		test=TestManager.startTest("E2E_18", "E2E Logged: Scenario 1 Adult - Pay Deposit","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
@@ -64,8 +64,10 @@ public class E2E_Logged_1Adult_Deposit extends setupDriver {
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
 		Report.passStep("Click Pay Deposit");
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
+		Thread.sleep(1000);
+	    VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
+		Thread.sleep(1000);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");

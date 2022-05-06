@@ -26,8 +26,8 @@ import wrappers.WebWrapper;
 public class E2E_Logged_1Adult_Option extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adultOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 1 Adult - Option Creation", "E2E");
+	public static void bookingFlow1adultOptionLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_19", "E2E Logged: Scenario 1 Adult - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
