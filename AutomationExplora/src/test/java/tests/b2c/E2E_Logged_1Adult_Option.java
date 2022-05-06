@@ -31,6 +31,7 @@ public class E2E_Logged_1Adult_Option extends setupDriver {
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
+		
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();
