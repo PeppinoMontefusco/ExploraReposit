@@ -18,7 +18,7 @@ import wrappers.TestListener;
 import wrappers.TestManager;
 
 @Listeners(TestListener.class)
-public class FORM_RequestAQuote extends setupDriver  {
+public class FORM_03_RequestAQuote extends setupDriver  {
 
 	@Test
 	public static void quote() throws AWTException, InterruptedException{

@@ -17,7 +17,7 @@ import wrappers.TestListener;
 import wrappers.TestManager;
 
 @Listeners(TestListener.class)
-public class FORM_Brochure extends setupDriver  {
+public class FORM_02_Brochure extends setupDriver  {
 
 	@Test
 	public static void brochure() throws AWTException, InterruptedException{

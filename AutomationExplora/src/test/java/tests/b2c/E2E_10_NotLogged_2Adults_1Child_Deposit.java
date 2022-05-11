@@ -23,12 +23,11 @@ import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
-
-public class E2E_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupDriver {
+public class E2E_10_NotLogged_2Adults_1Child_Deposit extends setupDriver{
 	
 	@Test
-	public static void bookingFlow1adultDepositAndCompletePaymentNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_12", "E2E Not Logged: Scenario 1 Adult - Deposit and Pay Total","E2E");
+	public static void bookingFlow2adults1childDepositNotLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_10", "E2E Not Logged: Scenario 2 Adults 1 Child - Pay Deposit","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -39,27 +38,29 @@ public class E2E_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupDriv
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");
-		AdobeSearchCruiseAction.decreaseAdult();
-		Report.passStep("Set 1 Adult");
+		AdobeSearchCruiseAction.increaseChild();
+		Report.passStep("Set 1 Child");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
+	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
+		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
+		ArrayList<String> datiChild=VersonixMethodsB2C.addChild(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
-		Report.passStep("Click On Deposit");
+		Report.passStep("Click Pay Deposit");
 		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
@@ -78,41 +79,15 @@ public class E2E_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupDriv
 		TouchXAdyenAction.clickOnPayButton();
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
-		driver.switchTo().defaultContent();
+		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
-		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
-		Report.passStep("Click On Pay Total");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On Second Privacy Checkbox");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.passStep("Click On Apply");
+		VersonixMethodsB2C.clickOnLabel("Cancel");
 		WebWrapper.waitForJavascript();
-		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber());
-		Report.passStep("Insert Card Number");
-		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());
-		Report.passStep("Insert Expiry Date");
-		TouchXAdyenAction.setCVV(new Configuration().cvv());
-		Report.passStep("Insert Cvv");
-		TouchXAdyenAction.clickOnPayButton();
-		Report.passStep("Click On Pay");
-		Thread.sleep(3000);
-		driver.switchTo().defaultContent();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
-		Report.passStep("Click On Confirmation Pop Up");
-		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.clickOnLabel("Store");
-		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.clickOnLabel("OK");
-		WebWrapper.waitForJavascript();
+		
 		
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
 		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
@@ -121,8 +96,10 @@ public class E2E_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupDriv
 		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountMultiplePaymentsBooking(bookingNumber), "Payment Amount");
+		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
+				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
+
 		}
 
-
 }
+

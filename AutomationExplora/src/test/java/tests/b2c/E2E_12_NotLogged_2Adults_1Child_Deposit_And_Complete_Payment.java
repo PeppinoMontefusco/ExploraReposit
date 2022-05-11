@@ -24,11 +24,11 @@ import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 
-public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment extends setupDriver {
+public class E2E_12_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extends setupDriver {
 	
 	@Test
-	public static void bookingFlow2adultsDepositAndCompletePaymentNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_13", "E2E Not Logged: Scenario 2 Adult - Deposit and Pay Total","E2E");
+	public static void bookingFlow2adults1ChildDepositAndCompletePaymentNotLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_12", "E2E Not Logged: Scenario 2 Adult and 1 Child - Deposit and Pay Total","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -37,11 +37,16 @@ public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment extends setupDri
 		Report.passStep("Select One Destination");
 		AdobeSearchCruiseAction.clickOnSelectAndClose();
 		Report.passStep("Click On Select and Close");
+		AdobeSearchCruiseAction.clickOnGuest();
+		Report.passStep("Click On Guest");
+		AdobeSearchCruiseAction.increaseChild();
+		Report.passStep("Set 1 Child");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
 	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
@@ -51,6 +56,7 @@ public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment extends setupDri
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
 		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
+		ArrayList<String> datiChild=VersonixMethodsB2C.addChild(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();

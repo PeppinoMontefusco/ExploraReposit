@@ -23,11 +23,11 @@ import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 @Listeners(TestListener.class)
 
-public class E2E_Logged_1Adult_Deposit extends setupDriver {
+public class E2E_14_Logged_1Adult_Deposit extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adultDepositNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_18", "E2E Logged: Scenario 1 Adult - Pay Deposit","E2E");
+	public static void bookingFlow1adultDepositLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_14", "E2E Logged: Scenario 1 Adult - Pay Deposit","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
@@ -47,7 +47,8 @@ public class E2E_Logged_1Adult_Deposit extends setupDriver {
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");

@@ -62,8 +62,7 @@ public class VersonixMethodsB2C extends setupDriver {
 			 String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('input')["+i+"].getAttribute('aria-label');");
 			 if (text.contains(attribute)) {
 				 String index =i+"";
-				 //WebWrapper.clickOn(getElementInShadowRoot("input", index));
-				 Thread.sleep(1000);
+				  Thread.sleep(1000);
 				 WebWrapper.typeInField(getElementInShadowRoot("input", index), value);
 				 click=true;
 				 break;
@@ -246,9 +245,10 @@ public class VersonixMethodsB2C extends setupDriver {
 		 
 	 }
 	
-	public static void startVersonixPage() {
+	public static void startVersonixPage() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('flt-semantics-placeholder').click({force: true});");
+		Thread.sleep(2000);
 		
 	}
 	
@@ -278,7 +278,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		ArrayList<String> dati=new ArrayList<String>();
 		
 		for(int e=0;e<i;e++) {
-		Report.passStep("Insert data Adult "+(e+1)+"");
+		Report.passStep("Insert data Adult "+(e+1)+""); 
 		String FirstName ="automation"+ExternalFunction.getRandomString(5);
 		dati.add(FirstName);
 	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
@@ -345,11 +345,11 @@ public class VersonixMethodsB2C extends setupDriver {
 		return dati;
 	}
 	
-public static void randomClick() {
+public static void randomScroll() {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		
-		js.executeScript("var random=Math.floor(Math.random()*7);\r\n" + 
+		String Index = ExternalFunction.getRandomInt(0, 7);
+		js.executeScript("var random="+Index+";\r\n" + 
 				"		        \r\n" + 
 				"				let i=0;\r\n" + 
 				"				while(i++<random && (!document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label=\\\"TERMS OF USE\\\"]') || document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label=\\\"TERMS OF USE\\\"]').length==0)){ \r\n" + 
@@ -361,5 +361,14 @@ public static void randomClick() {
 		
 	   
 	}
+
+public static void clickOnLabelRandom(String label) {
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	String Index=ExternalFunction.getRandomInt(0,1);
+	js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label="+label+"]')["+Index+"].click();");
+}
+
+
+
 	}
 

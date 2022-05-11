@@ -1,6 +1,8 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+import java.util.ArrayList;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -8,7 +10,6 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import actions.b2c.TouchXAdyenAction;
 import actions.b2c.AdobeHomePageAction;
-import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.b2c.API;
 import globalSetup.b2c.Configuration;
@@ -20,19 +21,15 @@ import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
-
 @Listeners(TestListener.class)
 
-public class E2E_Logged_1Adult_Complete_Payment extends setupDriver {
+public class E2E_02_NotLogged_1Adult_Deposit extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adultCompletePaymentLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_16", "E2E Logged: Scenario 1 Adult - Pay Total","E2E");
+	public static void bookingFlow1adultDepositNotLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_02", "E2E Not Logged: Scenario 1 Adult - Pay Deposit","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
-		Report.passStep("Effettuo il login");
-		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
@@ -47,23 +44,22 @@ public class E2E_Logged_1Adult_Complete_Payment extends setupDriver {
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
+	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
+		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
-		Report.passStep("Click On Pay Total");
+		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
+		Report.passStep("Click Pay Deposit");
 		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
@@ -82,13 +78,13 @@ public class E2E_Logged_1Adult_Complete_Payment extends setupDriver {
 		TouchXAdyenAction.clickOnPayButton();
 		Report.passStep("Click On Pay");
 		Thread.sleep(3000);
-		driver.switchTo().defaultContent();
+		driver.switchTo().defaultContent();   
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.clickOnLabel("Store");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.clickOnLabel("OK");
+		VersonixMethodsB2C.clickOnLabel("Cancel");
 		WebWrapper.waitForJavascript();
 		
 		
@@ -99,14 +95,9 @@ public class E2E_Logged_1Adult_Complete_Payment extends setupDriver {
 		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountSinglePaymentsBooking(bookingNumber), "Payment Amount");
-		
-		
-		
-		
-		
+		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
+				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
 
 		}
-
 
 }

@@ -1,6 +1,7 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+import java.util.ArrayList;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -8,7 +9,6 @@ import org.testng.annotations.Test;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import actions.b2c.AdobeHomePageAction;
-import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.b2c.API;
 import globalSetup.b2c.ExternalFunction;
@@ -21,19 +21,13 @@ import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
-
-
-public class E2E_Logged_1Adult_Option extends setupDriver {
+public class E2E_09_NotLogged_2Adults_1Child_Option extends setupDriver{
 	
 	@Test
-	public static void bookingFlow1adultOptionLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_19", "E2E Logged: Scenario 1 Adult - Option Creation", "E2E");
+	public static void bookingFlow2adults1childOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_09", "E2E Not Logged: Scenario 2 Adults 1 Child - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
-		
-		Report.passStep("Effettuo il login");
-		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
@@ -42,13 +36,14 @@ public class E2E_Logged_1Adult_Option extends setupDriver {
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");
-		AdobeSearchCruiseAction.decreaseAdult();
-		Report.passStep("Set 1 Adult");
+		AdobeSearchCruiseAction.increaseChild();
+		Report.passStep("Set 1 Child");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
@@ -57,9 +52,8 @@ public class E2E_Logged_1Adult_Option extends setupDriver {
 	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
+		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
+		ArrayList<String> datiChild=VersonixMethodsB2C.addChild(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
@@ -76,7 +70,6 @@ public class E2E_Logged_1Adult_Option extends setupDriver {
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Pop Up");
-		WebWrapper.waitForJavascript();
 		
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
 		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
@@ -85,6 +78,7 @@ public class E2E_Logged_1Adult_Option extends setupDriver {
 		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
+		
 		
 
 		}

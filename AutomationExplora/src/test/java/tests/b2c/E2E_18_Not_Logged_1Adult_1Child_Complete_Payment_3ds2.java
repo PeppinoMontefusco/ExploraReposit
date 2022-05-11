@@ -20,11 +20,11 @@ import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 
-public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
+public class E2E_18_Not_Logged_1Adult_1Child_Complete_Payment_3ds2 extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adult3DS1() throws InterruptedException, AWTException {
-		test=TestManager.startTest("E2E_10", "E2E 3DS1: Scenario 1 Adult - Deposit","E2E");
+	public static void bookingFlow1adult1Child3DS2() throws InterruptedException, AWTException {
+		test=TestManager.startTest("E2E_18", "E2E Not Logged 3DS2: Scenario 1 Adult 1 Child - Complete Payment","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -37,11 +37,14 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		Report.passStep("Click On Guest");
 		AdobeSearchCruiseAction.decreaseAdult();
 		Report.passStep("Set 1 Adult");
+		AdobeSearchCruiseAction.increaseChild();
+		Report.passStep("Set 1 Child");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
 	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
@@ -50,7 +53,8 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
+		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(1);
+		ArrayList<String> datiChild=VersonixMethodsB2C.addChild(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
@@ -65,7 +69,7 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript();
-		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber3DS1());
+		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber3DS2());
 		Report.passStep("Insert Card Number");
 		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());
 		Report.passStep("Insert Expiry Date");
@@ -74,20 +78,21 @@ public class E2E_3DS1_1Adult_Deposit_Payment extends setupDriver {
 		TouchXAdyenAction.clickOnPayButton();
 		Report.passStep("Click On Pay");
 		WebWrapper.waitForJavascript();
-		TouchXAdyenAction.setUsername3DS1(new Configuration().username3DS1());
-		Report.passStep("Insert Username");
-		TouchXAdyenAction.setPassword3DS1(new Configuration().password3DS1());
+ 	    TouchXAdyenAction.setPassword3DS2(new Configuration().password3DS1());
 		Report.passStep("Insert Password");
-		TouchXAdyenAction.clickOnSubmitButton3DS1();
+		TouchXAdyenAction.clickOnSubmitButton3DS2();
 		Report.passStep("Click On Submit");
-		//driver.switchTo().defaultContent();
-		//Thread.sleep(5000);
-		//WebWrapper.waitForJavascript();
-		//VersonixMethodsB2C.searchTagNotClickableAndClick("width: 429px","flt-clip");
-		//report.passStep("Click On Confirmation Pop Up");
+		/*driver.switchTo().defaultContent();
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
+		Report.passStep("Click On Confirmation Pop Up");*/
 
 		}
 
 }
+
+
+
+
 
 

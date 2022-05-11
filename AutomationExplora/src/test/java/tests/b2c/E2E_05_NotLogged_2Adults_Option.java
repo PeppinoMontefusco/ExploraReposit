@@ -23,11 +23,11 @@ import wrappers.WebWrapper;
 
 
 @Listeners(TestListener.class)
-public class E2E_NotLogged_2Adults_Option extends setupDriver{
+public class E2E_05_NotLogged_2Adults_Option extends setupDriver{
 	
 	@Test
 	public static void bookingFlow2adultsOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_07", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
+		test=TestManager.startTest("E2E_05", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -40,7 +40,8 @@ public class E2E_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");

@@ -24,11 +24,11 @@ import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 
-public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment_3ds1 extends setupDriver {
+public class E2E_19_NotLogged_2Adults_Deposit_And_Complete_Payment_different_card extends setupDriver {
 	
 	@Test
 	public static void bookingFlow2adultsDepositAndCompletePaymentWithDifferentCardNotLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_15", "E2E Not Logged: Scenario 2 Adult - Deposit and Pay Total with different card","E2E");
+		test=TestManager.startTest("E2E_19", "E2E Not Logged: Scenario 2 Adult - Deposit and Pay Total with different card","E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -41,7 +41,8 @@ public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment_3ds1 extends set
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
 	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
