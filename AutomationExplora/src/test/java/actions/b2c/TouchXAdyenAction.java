@@ -42,7 +42,7 @@ public class TouchXAdyenAction extends setupDriver {
       }
       
       public static void setUsername3DS1(String username) {
-   	      driver.switchTo().frame(1);
+   	      driver.switchTo().frame(2);
    	      
    	     WebWrapper.typeInField(TouchXAdyenPage.getUsername3DS1(), username);
       }
@@ -54,7 +54,7 @@ public class TouchXAdyenAction extends setupDriver {
    		driver.switchTo().defaultContent();
    	  }
    	public static void setPassword3DS2(String password) {
-   		  driver.switchTo().frame(1);
+   		  driver.switchTo().frame(2);
  	      driver.switchTo().frame(0);
  	      WebWrapper.waitForJavascript();
  	      WebWrapper.typeInField(TouchXAdyenPage.getPassword3DS2(), password);

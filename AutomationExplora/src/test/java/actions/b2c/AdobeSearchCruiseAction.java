@@ -28,6 +28,11 @@ public class AdobeSearchCruiseAction extends setupDriver {
 		
 	}
 	
+	public static void increaseInfant() {
+		WebWrapper.clickOn(AdobeSearchCruisePage.getIncreaseInfant());
+		
+	}
+	
 	public static void decreaseAdult() {
 		WebWrapper.clickOn(AdobeSearchCruisePage.getDecreaseAdult());
 			

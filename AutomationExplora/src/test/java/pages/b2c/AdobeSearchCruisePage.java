@@ -28,6 +28,11 @@ public class AdobeSearchCruisePage extends setupDriver {
 		
 	}
 	
+	public static WebElement getIncreaseInfant() {
+		return driver.findElements(By.className("increment")).get(2);
+		
+	}
+	
 	
 	public static WebElement getSelectAndCloseButton() {
 		return driver.findElements(By.className("cta-gold-btn")).get(0);

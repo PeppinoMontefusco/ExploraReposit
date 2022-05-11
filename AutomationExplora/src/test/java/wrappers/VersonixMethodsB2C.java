@@ -279,11 +279,11 @@ public class VersonixMethodsB2C extends setupDriver {
 		
 		for(int e=0;e<i;e++) {
 		Report.passStep("Insert data Adult "+(e+1)+"");
-		String FirstName ="test"+ExternalFunction.getRandomString(5);
+		String FirstName ="automation"+ExternalFunction.getRandomString(5);
 		dati.add(FirstName);
 	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
 	    Report.passStep("Adult "+(e+1)+" - Insert First Name");
-		String LastName ="test"+ExternalFunction.getRandomString(5);
+		String LastName ="automation"+ExternalFunction.getRandomString(5);
 		dati.add(LastName);
 		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Adult "+(e+1)+" - Insert Last Name");
@@ -299,6 +299,67 @@ public class VersonixMethodsB2C extends setupDriver {
 		WebWrapper.waitForJavascript();
 		}
 		return dati;
+	}
+	public static ArrayList<String> addChild(int i) throws InterruptedException {
+		ArrayList<String> dati=new ArrayList<String>();
+		
+		for(int e=0;e<i;e++) {
+		Report.passStep("Insert data Child "+(e+1)+"");
+		String FirstName ="automation"+ExternalFunction.getRandomString(5);
+		dati.add(FirstName);
+	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
+	    Report.passStep("Child "+(e+1)+" - Insert First Name");
+		String LastName ="automation"+ExternalFunction.getRandomString(5);
+		dati.add(LastName);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
+		Report.passStep("Child "+(e+1)+" - Insert Last Name");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "01012015");
+		dati.add("01012015");
+		Report.passStep("Child "+(e+1)+" - Insert Date Of Birth");
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		}
+		return dati;
+	}
+	public static ArrayList<String> addInfant(int i) throws InterruptedException {
+		ArrayList<String> dati=new ArrayList<String>();
+		
+		for(int e=0;e<i;e++) {
+		Report.passStep("Insert data Infant "+(e+1)+"");
+		String FirstName ="automation"+ExternalFunction.getRandomString(5);
+		dati.add(FirstName);
+	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
+	    Report.passStep("Infant "+(e+1)+" - Insert First Name");
+		String LastName ="automation"+ExternalFunction.getRandomString(5);
+		dati.add(LastName);
+		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
+		Report.passStep("Infant "+(e+1)+" - Insert Last Name");
+		VersonixMethodsB2C.searchInputAndCompile("Date", "01012022");
+		dati.add("01012022");
+		Report.passStep("Infant "+(e+1)+" - Insert Date Of Birth");
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		}
+		return dati;
+	}
+	
+public static void randomClick() {
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		js.executeScript("var random=Math.floor(Math.random()*7);\r\n" + 
+				"		        \r\n" + 
+				"				let i=0;\r\n" + 
+				"				while(i++<random && (!document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label=\\\"TERMS OF USE\\\"]') || document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label=\\\"TERMS OF USE\\\"]').length==0)){ \r\n" + 
+				"				   var buttons= document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll(\"[aria-label='Book']\");\r\n" + 
+				"				    buttons[buttons.length-1].scrollIntoView(true);\r\n" + 
+				"				 await new Promise(r => setTimeout(r, 1000))};");
+		
+		
+		
+	   
 	}
 	}
 

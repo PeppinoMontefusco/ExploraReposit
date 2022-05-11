@@ -1,6 +1,8 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+import java.util.ArrayList;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -48,38 +50,16 @@ public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment extends setupDri
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		String FirstName ="test"+ExternalFunction.getRandomString(5);
-	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
-		Report.passStep("Adult 1 - Insert First Name");
-		String LastName ="test"+ExternalFunction.getRandomString(5);
-		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
-		Report.passStep("Adult 1 - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
-		Report.passStep("Adult 1 - Insert Date Of Birth");
-		String Email=FirstName+"@yopmail.com";
-		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
-		Report.passStep("Adult 1 - Insert Email");
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
-		String FirstNameAdult2 ="test"+ExternalFunction.getRandomString(5);
-	    VersonixMethodsB2C.searchInputAndCompile("First",FirstNameAdult2);
-		Report.passStep("Adult 2 - Insert First Name");
-		String LastNameAdult2 ="test"+ExternalFunction.getRandomString(5);
-		VersonixMethodsB2C.searchInputAndCompile("Last",LastNameAdult2);
-		Report.passStep("Adult 2 - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "04061971");
-		Report.passStep("Adult 2 - Insert Date Of Birth");
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
+		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
 		Report.passStep("Click On Deposit");
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
@@ -103,9 +83,10 @@ public class E2E_NotLogged_2Adults_Deposit_And_Complete_Payment extends setupDri
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
 		Report.passStep("Click On Pay Total");
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");

@@ -65,8 +65,10 @@ public class E2E_Logged_1Adult_Option extends setupDriver {
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("FREE");
 		Report.passStep("Click On Option 72h");
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");

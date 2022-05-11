@@ -64,10 +64,10 @@ public class E2E_Logged_1Adult_Deposit extends setupDriver {
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
 		Report.passStep("Click Pay Deposit");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 	    VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
