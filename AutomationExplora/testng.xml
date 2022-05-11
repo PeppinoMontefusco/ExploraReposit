@@ -9,7 +9,7 @@
       <class name="tests.b2c.E2E_01_NotLogged_1Adult_Option"/>
       <class name="tests.b2c.E2E_02_NotLogged_1Adult_Deposit"/>
       <class name="tests.b2c.E2E_03_NotLogged_1Adult_Complete_Payment"/>
-      <class name="tests.b2c.E2E_04_NotLogged_1Adult_Deposit_And_Complete_Payment"/
+      <class name="tests.b2c.E2E_04_NotLogged_1Adult_Deposit_And_Complete_Payment"/>
       <class name="tests.b2c.E2E_05_NotLogged_2Adults_Option"/>
       <class name="tests.b2c.E2E_06_NotLogged_2Adults_Deposit"/>
       <class name="tests.b2c.E2E_07_NotLogged_2Adults_Complete_Payment"/>

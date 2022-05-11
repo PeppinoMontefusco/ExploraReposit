@@ -40,17 +40,7 @@ public class TOUCHX_Login_And_Logout extends setupDriver {
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("height: 28px","flt-clip");
-		Report.passStep("Click On Sign In ");
-		WebWrapper.waitForJavascript();
-		TouchXLoginAction.setUsername();
-		Report.passStep("Insert Username");
-		TouchXLoginAction.setPassword();
-		Report.passStep("Insert Password");
-		TouchXLoginAction.clickOnSignIn();
-		Report.passStep("Click On Sign In Button");
-		WebWrapper.waitForJavascript();
-		Thread.sleep(3000);
+		TouchXLoginAction.loginBaseTouchX();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("VersonixIcons","span");
 		Report.passStep("Click On My Profile Icon");
 		Thread.sleep(3000);
