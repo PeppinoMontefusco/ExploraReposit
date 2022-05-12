@@ -297,6 +297,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1000);
 		}
 		return dati;
 	}
@@ -319,6 +320,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1000);
 		}
 		return dati;
 	}
@@ -341,6 +343,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1000);
 		}
 		return dati;
 	}

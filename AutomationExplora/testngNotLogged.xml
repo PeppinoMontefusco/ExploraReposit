@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SuiteNotLogged">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="tests.b2c.MYACC_Login_And_Logout"/>
+      <class name="tests.b2c.TOUCHX_Login_And_Logout"/>
+      <class name="tests.b2c.TOUCHX_Login_from_Adobe"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_01_NotLogged_1Adult_Option"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_02_NotLogged_1Adult_Deposit"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_04_NotLogged_1Adult_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_05_NotLogged_2Adults_Option"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_06_NotLogged_2Adults_Deposit"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_07_NotLogged_2Adults_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_08_NotLogged_2Adults_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_09_NotLogged_2Adults_1Child_Option"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_10_NotLogged_2Adults_1Child_Deposit"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_11_NotLogged_2Adults_1Child_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_12_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_13_NotLogged_2Adults_1Child_1Infant_Option"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_14_NotLogged_2Adults_1Infant_Deposit"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_15_NotLogged_1Adult_1Infant_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_16_NotLogged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_17_NotLogged_1Adult_Deposit_Payment_3ds1"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_18_NotLogged_1Adult_1Child_Complete_Payment_3ds2"/>
+      <class name="tests.b2c.E2E_Not_Logged.E2E_19_NotLogged_2Adults_Deposit_And_Complete_Payment_different_card"/>
+      <class name="tests.b2c.FORM_01_NewsLetter"/>
+      <class name="tests.b2c.FORM_02_Brochure"/>
+      <class name="tests.b2c.FORM_03_RequestAQuote"/>
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
