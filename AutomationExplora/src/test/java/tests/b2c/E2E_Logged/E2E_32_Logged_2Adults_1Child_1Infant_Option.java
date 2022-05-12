@@ -54,6 +54,7 @@ public class E2E_32_Logged_2Adults_1Child_1Infant_Option extends setupDriver{
 		WebWrapper.waitForJavascript();
 	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
+		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();

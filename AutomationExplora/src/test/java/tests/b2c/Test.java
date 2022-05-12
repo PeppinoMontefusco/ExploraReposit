@@ -9,7 +9,7 @@ public class Test extends VersonixMethodsB2C {
 
 	public static void main(String[] args) throws UnirestException  {
 		
-		VersonixMethodsB2C.clickOnLabelRandom("Book");
+		API.getAllPaxData("2742");
 
 	}
 

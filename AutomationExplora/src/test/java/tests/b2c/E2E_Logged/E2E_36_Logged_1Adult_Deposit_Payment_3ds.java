@@ -72,21 +72,7 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript();
-		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber3DS1());
-		Report.passStep("Insert Card Number");
-		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());
-		Report.passStep("Insert Expiry Date");
-		TouchXAdyenAction.setCVV(new Configuration().cvv());
-		Report.passStep("Insert Cvv");
-		TouchXAdyenAction.clickOnPayButton();
-		Report.passStep("Click On Pay");
-		WebWrapper.waitForJavascript();
-		TouchXAdyenAction.setUsername3DS1(new Configuration().username3DS1());
-		Report.passStep("Insert Username");
-		TouchXAdyenAction.setPassword3DS1(new Configuration().password3DS1());
-		Report.passStep("Insert Password");
-		TouchXAdyenAction.clickOnSubmitButton3DS1();
-		Report.passStep("Click On Submit");
+		TouchXAdyenAction.payment3ds1Card();
 		//driver.switchTo().defaultContent();
 		//Thread.sleep(5000);
 		//WebWrapper.waitForJavascript();
@@ -96,5 +82,4 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 		}
 
 }
-
 

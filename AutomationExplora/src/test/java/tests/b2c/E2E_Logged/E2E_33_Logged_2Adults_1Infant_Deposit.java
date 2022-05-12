@@ -58,7 +58,7 @@ public class E2E_33_Logged_2Adults_1Infant_Deposit extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
+		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(1);
 		ArrayList<String> datiInfant=VersonixMethodsB2C.addInfant(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
@@ -74,16 +74,7 @@ public class E2E_33_Logged_2Adults_1Infant_Deposit extends setupDriver{
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript();
-		TouchXAdyenAction.setCardNumber(new Configuration().cardNumber());
-		Report.passStep("Insert Card Number");
-		TouchXAdyenAction.setExpiryDate(new Configuration().expireDate());
-		Report.passStep("Insert Expiry Date");
-		TouchXAdyenAction.setCVV(new Configuration().cvv());
-		Report.passStep("Insert Cvv");
-		TouchXAdyenAction.clickOnPayButton();
-		Report.passStep("Click On Pay");
-		Thread.sleep(3000);
-		driver.switchTo().defaultContent();   
+		TouchXAdyenAction.paymentNormalCard();  
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();

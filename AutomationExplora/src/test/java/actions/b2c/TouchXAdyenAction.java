@@ -1,7 +1,9 @@
 package actions.b2c;
 
+import globalSetup.b2c.Configuration;
 import globalSetup.b2c.setupDriver;
 import pages.b2c.TouchXAdyenPage;
+import wrappers.Report;
 import wrappers.WebWrapper;
 
 public class TouchXAdyenAction extends setupDriver {
@@ -63,4 +65,50 @@ public class TouchXAdyenAction extends setupDriver {
    		WebWrapper.clickOn(TouchXAdyenPage.getSubmitButton3DS2());
  	  }
 
+   	public static void paymentNormalCard() throws InterruptedException {
+   		setCardNumber(new Configuration().cardNumber());
+		Report.passStep("Insert Card Number");
+		setExpiryDate(new Configuration().expireDate());
+		Report.passStep("Insert Expiry Date");
+		setCVV(new Configuration().cvv());
+		Report.passStep("Insert Cvv");
+		clickOnPayButton();
+		Report.passStep("Click On Pay");
+		Thread.sleep(3000);
+		driver.switchTo().defaultContent();
+   	}
+   	
+   	public static void payment3ds1Card() throws InterruptedException {
+   		setCardNumber(new Configuration().cardNumber3DS1());
+		Report.passStep("Insert Card Number");
+		setExpiryDate(new Configuration().expireDate());
+		Report.passStep("Insert Expiry Date");
+		setCVV(new Configuration().cvv());
+		Report.passStep("Insert Cvv");
+		clickOnPayButton();
+		Report.passStep("Click On Pay");
+		WebWrapper.waitForJavascript();
+		setUsername3DS1(new Configuration().username3DS1());
+		Report.passStep("Insert Username");
+		setPassword3DS1(new Configuration().password3DS1());
+		Report.passStep("Insert Password");
+		clickOnSubmitButton3DS1();
+		Report.passStep("Click On Submit");
+   	}
+   	
+   	public static void payment3ds2Card() throws InterruptedException {
+   		setCardNumber(new Configuration().cardNumber3DS2());
+		Report.passStep("Insert Card Number");
+		setExpiryDate(new Configuration().expireDate());
+		Report.passStep("Insert Expiry Date");
+		setCVV(new Configuration().cvv());
+		Report.passStep("Insert Cvv");
+		clickOnPayButton();
+		Report.passStep("Click On Pay");
+		WebWrapper.waitForJavascript();
+ 	    setPassword3DS2(new Configuration().password3DS1());
+		Report.passStep("Insert Password");
+		clickOnSubmitButton3DS2();
+		Report.passStep("Click On Submit");
+   	}
 }
