@@ -58,20 +58,12 @@ public class E2E_24_Logged_2Adults_Option extends setupDriver{
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
 		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
+		ArrayList <String> datiPax=VersonixMethodsB2C.loggedPaxData();
+		datiPax.addAll(dati);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("FREE");
-		Report.passStep("Select Create Option 72h");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On Second Privacy Checkbox");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.confirmPopup("FREE");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Option Pop Up");
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
@@ -81,6 +73,6 @@ public class E2E_24_Logged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-
+		VersonixMethodsB2C.compareArrayList(datiPax, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
 		}
 	}

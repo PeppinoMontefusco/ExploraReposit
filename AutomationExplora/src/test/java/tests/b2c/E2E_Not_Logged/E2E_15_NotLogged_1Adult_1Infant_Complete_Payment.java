@@ -58,20 +58,11 @@ public class E2E_15_NotLogged_1Adult_1Infant_Complete_Payment extends setupDrive
 		WebWrapper.waitForJavascript();
 		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(1);
 		ArrayList<String> datiInfant=VersonixMethodsB2C.addInfant(1);
+		datiAdult.addAll(datiInfant);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
-		Report.passStep("Click On Pay Total");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On Second Privacy Checkbox");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.confirmPopup("PAY TOTAL");
 		TouchXAdyenAction.paymentNormalCard();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
@@ -90,7 +81,7 @@ public class E2E_15_NotLogged_1Adult_1Infant_Complete_Payment extends setupDrive
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
 		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountSinglePaymentsBooking(bookingNumber), "Payment Amount");
-		
+		VersonixMethodsB2C.compareArrayList(API.getAllPaxData(bookingNumber), datiAdult, "The checks of Passengers data");
 		
 		
 		

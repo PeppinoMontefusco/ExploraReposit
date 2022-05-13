@@ -61,17 +61,7 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
-		Report.passStep("Click On Pay Total");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On Second Privacy Checkbox");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.confirmPopup("PAY DEPOSIT");
 		TouchXAdyenAction.payment3ds1Card();
 		//driver.switchTo().defaultContent();
 		//Thread.sleep(5000);

@@ -52,21 +52,11 @@ public class E2E_06_NotLogged_2Adults_Deposit extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
 		Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-	    ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
+	    ArrayList<String> dati=VersonixMethodsB2C.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("PAY DEPOSIT");
-		Report.passStep("Pay Deposit");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On Second Privacy Checkbox");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.confirmPopup("PAY DEPOSIT");
 		TouchXAdyenAction.paymentNormalCard();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
@@ -86,7 +76,7 @@ public class E2E_06_NotLogged_2Adults_Deposit extends setupDriver{
 		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
 		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
 				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
-		
+		VersonixMethodsB2C.compareArrayList(dati, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
 		
 	
 		}

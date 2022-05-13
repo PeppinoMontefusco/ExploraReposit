@@ -248,7 +248,6 @@ public static ArrayList <String>  get1AdultData (String bookingNumber) throws Un
 			paxdata.add(contact.get("PersonBirthDate").toString());
 			
 			paxdata.add(contact.get("vx:Email").toString());
-			System.out.println(paxdata);
 			return paxdata;
 }
 
@@ -272,7 +271,6 @@ public static ArrayList <String>  getAllPaxData (String bookingNumber) throws Un
 		    	}
 		        
 		     }
-			
 			return paxdata;
 		
 			

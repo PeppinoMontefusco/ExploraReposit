@@ -58,17 +58,7 @@ public class E2E_18_NotLogged_1Adult_1Child_Complete_Payment_3ds2 extends setupD
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.findSpanAndClick("PAY TOTAL");
-		Report.passStep("Click On Pay Total");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On First Privacy Checkbox");
-		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
-		Report.passStep("Click On Second Privacy Checkbox");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-		Report.passStep("Click On Apply");
-		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.confirmPopup("PAY TOTAL");
 		TouchXAdyenAction.payment3ds2Card();
 		/*driver.switchTo().defaultContent();
 		WebWrapper.waitForJavascript();

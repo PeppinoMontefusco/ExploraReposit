@@ -13,7 +13,7 @@ import globalSetup.b2c.setupDriver;
 public class VersonixMethodsB2C extends setupDriver {
 
 	public static WebElement getElementInShadowRoot(String tag, String index) throws InterruptedException {
-		//Thread.sleep(2000);
+		
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 		return	  (WebElement) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('"+tag+"')["+index+"];");
 		
@@ -288,7 +288,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Adult "+(e+1)+" - Insert Last Name");
 		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
-		dati.add("01011990");
+		dati.add("1990-01-01");
 		Report.passStep("Adult "+(e+1)+" - Insert Date Of Birth");
 		String Email=FirstName+"@yopmail.com";
 		dati.add(Email);
@@ -315,7 +315,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Child "+(e+1)+" - Insert Last Name");
 		VersonixMethodsB2C.searchInputAndCompile("Date", "01012015");
-		dati.add("01012015");
+		dati.add("2015-01-01");
 		Report.passStep("Child "+(e+1)+" - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
@@ -338,7 +338,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
 		Report.passStep("Infant "+(e+1)+" - Insert Last Name");
 		VersonixMethodsB2C.searchInputAndCompile("Date", "01012022");
-		dati.add("01012022");
+		dati.add("2022-01-01");
 		Report.passStep("Infant "+(e+1)+" - Insert Date Of Birth");
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
@@ -371,7 +371,37 @@ public static void clickOnLabelRandom(String label) {
 	js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label="+label+"]')["+Index+"].click();");
 }
 
-
-
+public static void compareArrayList(ArrayList <String> a , ArrayList <String> b, String c ) {
+	if (a.equals(b)) {
+		Report.passStep(c+" are ok");
 	}
+	else {
+		throw new RuntimeException(c+" are not ok");
+	}
+}
+
+public static ArrayList <String> loggedPaxData(){
+	ArrayList <String> a = new ArrayList <String>();
+	a.add("PEPPE");
+	a.add("MONTE");
+	a.add("1942-01-01");
+	a.add("testnexsoftita@yopmail.com");
+	
+	return a;
+	
+}
+public static void confirmPopup(String a) throws InterruptedException {
+	findSpanAndClick(a);
+	Report.passStep("Click On Option 72h");
+	Thread.sleep(500);
+	clickOnCheckBox("25", "svg");
+	Report.passStep("Click On First Privacy Checkbox");
+	Thread.sleep(500);
+	clickOnCheckBox("25", "svg");
+	Report.passStep("Click On Second Privacy Checkbox");
+	searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
+	Report.passStep("Click On Apply");
+	WebWrapper.waitForJavascript();
+}
+}
 
