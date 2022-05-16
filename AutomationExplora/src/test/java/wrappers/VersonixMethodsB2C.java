@@ -1,12 +1,15 @@
 package wrappers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import globalSetup.b2c.Configuration;
 import globalSetup.b2c.ExternalFunction;
 import globalSetup.b2c.setupDriver;
 
@@ -402,6 +405,24 @@ public static void confirmPopup(String a) throws InterruptedException {
 	searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 	Report.passStep("Click On Apply");
 	WebWrapper.waitForJavascript();
+}
+
+public static void checkCountry() throws InterruptedException {
+	String[] list= {"Italy","International", "Belgium", "Canada", "Germany", "Ireland", "Netherlands", "Spain", "Switzerland", "United Kingdom", "USA"};
+	String[] code= {"it","int","be","ca","de","ie","nl","es","ch","uk","us"};
+	int index=list.length;
+	for(int i=0;i<index;i++) {
+		WebWrapper.clickOn(driver.findElements(By.className("countrySelection")).get(0));
+		Thread.sleep(1000);
+		WebWrapper.clickOnElementNotClickable(driver.findElement(By.xpath("//*[text()='"+list[i].toString()+"']")));
+		Thread.sleep(1000);
+		if(driver.getCurrentUrl().equals(new Configuration().URLGeneric+code[i]+"/en.html")) {
+			Report.passStep("Check country "+list[i]+" is ok");
+		}
+		else {
+			throw new RuntimeException("Check country "+list[i]+" is not ok");
+		}
+	}
 }
 }
 

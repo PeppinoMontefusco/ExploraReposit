@@ -15,6 +15,7 @@ public class Configuration {
 	String Username3DS1;
 	String Password3DS1;
 	String CardNumber3DS2;
+	public String URLGeneric;
 	
 	
 	public Configuration(){
@@ -31,6 +32,7 @@ public class Configuration {
 		Username3DS1= configuration.getString("Username3DS1");
 		Password3DS1= configuration.getString("Password3DS1");
 		CardNumber3DS2= configuration.getString("CardNumber3DS2");
+		URLGeneric= configuration.getString("URLGeneric");
 		
 	}
 	public String username() {
@@ -71,6 +73,9 @@ public class Configuration {
 	}
 	public String cardNumber3DS2() {
 		return CardNumber3DS2;
+	}
+	public String getUrlGeneric() {
+		return URLGeneric;
 	}
 	
 }
