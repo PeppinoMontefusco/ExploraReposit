@@ -49,11 +49,12 @@ public class E2E_04_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupD
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-	    VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+	    VersonixMethodsB2C.clickOnLabelRandom("Select");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip"); 
-		Report.passStep("Click On Cabin Subcategory");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
+	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
 		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");

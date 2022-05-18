@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri May 06 14:47:18 CEST 2022</td>
+<td>Started on:</td><td>Tue May 17 18:16:58 CEST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>62 seconds (62909 ms)</td>
+<tr><td>Total time:</td><td>95 seconds (95043 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.b2c.E2E_Logged_1Adult_Deposit.bookingFlow1adultDepositNotLogged()'><b>bookingFlow1adultDepositNotLogged</b><br>Test class: tests.b2c.E2E_Logged_1Adult_Deposit</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=100.0.4896.127)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+<td title='tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment.bookingFlow1adultCompletePaymentNotLogged()'><b>bookingFlow1adultCompletePaymentNotLogged</b><br>Test class: tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment</td>
+<td><div><pre>org.openqa.selenium.JavascriptException: javascript error: Cannot read properties of null (reading &apos;innerText&apos;)
+  (Session info: chrome=101.0.4951.54)
 Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
-System info: host: &apos;PC-MARIO&apos;, ip: &apos;192.168.1.79&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
+System info: host: &apos;PEPPEPC&apos;, ip: &apos;172.22.131.201&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e42149061912723ab26afeec650d3cdb, actions {actions=[org.openqa.selenium.interactions.Sequence@60cb1ed6]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.127, chrome: {chromedriverVersion: 100.0.4896.60 (6a5d10861ce8..., userDataDir: C:\Users\mario\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61318}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61318/devtoo..., se:cdpVersion: 100.0.4896.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: e42149061912723ab26afeec650d3cdb
+Command: [f42738149171550cd82e8156c1ca2c40, executeScript {script=return document.querySelector(&apos;flt-glass-pane&apos;).shadowRoot.querySelector(&apos;[aria-label^=Invoice]&apos;).innerText;, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.54, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\giuse\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49321}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49321/devtoo..., se:cdpVersion: 101.0.4951.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f42738149171550cd82e8156c1ca2c40
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -97,11 +96,9 @@ Session ID: e42149061912723ab26afeec650d3cdb
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:558)
-	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:626)
-	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:656)
-	at wrappers.VersonixMethodsB2C.clickOnTagNotClickable(VersonixMethodsB2C.java:27)
-	at wrappers.VersonixMethodsB2C.clickOnCheckBox(VersonixMethodsB2C.java:164)
-	at tests.b2c.E2E_Logged_1Adult_Deposit.bookingFlow1adultDepositNotLogged(E2E_Logged_1Adult_Deposit.java:68)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:492)
+	at wrappers.VersonixMethodsB2C.getSummaryInformation(VersonixMethodsB2C.java:266)
+	at tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment.bookingFlow1adultCompletePaymentNotLogged(E2E_03_NotLogged_1Adult_Complete_Payment.java:75)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -130,16 +127,15 @@ Session ID: e42149061912723ab26afeec650d3cdb
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1234757451", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1234757451'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=100.0.4896.127)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+</pre></div><a href='#' onClick='toggleBox("stack-trace716896919", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace716896919'><pre>org.openqa.selenium.JavascriptException: javascript error: Cannot read properties of null (reading &apos;innerText&apos;)
+  (Session info: chrome=101.0.4951.54)
 Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
-System info: host: &apos;PC-MARIO&apos;, ip: &apos;192.168.1.79&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
+System info: host: &apos;PEPPEPC&apos;, ip: &apos;172.22.131.201&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e42149061912723ab26afeec650d3cdb, actions {actions=[org.openqa.selenium.interactions.Sequence@60cb1ed6]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 100.0.4896.127, chrome: {chromedriverVersion: 100.0.4896.60 (6a5d10861ce8..., userDataDir: C:\Users\mario\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61318}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61318/devtoo..., se:cdpVersion: 100.0.4896.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: e42149061912723ab26afeec650d3cdb
+Command: [f42738149171550cd82e8156c1ca2c40, executeScript {script=return document.querySelector(&apos;flt-glass-pane&apos;).shadowRoot.querySelector(&apos;[aria-label^=Invoice]&apos;).innerText;, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.54, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\giuse\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49321}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49321/devtoo..., se:cdpVersion: 101.0.4951.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f42738149171550cd82e8156c1ca2c40
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -152,11 +148,9 @@ Session ID: e42149061912723ab26afeec650d3cdb
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:558)
-	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:626)
-	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:656)
-	at wrappers.VersonixMethodsB2C.clickOnTagNotClickable(VersonixMethodsB2C.java:27)
-	at wrappers.VersonixMethodsB2C.clickOnCheckBox(VersonixMethodsB2C.java:164)
-	at tests.b2c.E2E_Logged_1Adult_Deposit.bookingFlow1adultDepositNotLogged(E2E_Logged_1Adult_Deposit.java:68)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:492)
+	at wrappers.VersonixMethodsB2C.getSummaryInformation(VersonixMethodsB2C.java:266)
+	at tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment.bookingFlow1adultCompletePaymentNotLogged(E2E_03_NotLogged_1Adult_Complete_Payment.java:75)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -186,8 +180,8 @@ Session ID: e42149061912723ab26afeec650d3cdb
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>61</td>
-<td>tests.b2c.E2E_Logged_1Adult_Deposit@7bd4937b</td></tr>
+<td>92</td>
+<td>tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment@7bd4937b</td></tr>
 </table><p>
 </body>
 </html>

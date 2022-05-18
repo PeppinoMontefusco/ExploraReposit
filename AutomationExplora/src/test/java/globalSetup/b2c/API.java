@@ -22,6 +22,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import freemarker.ext.util.ModelFactory;
 import globalSetup.b2c.ExternalFunction.Email;
+import wrappers.VersonixMethodsB2C;
 
 public class API extends setupDriver {
 
@@ -276,6 +277,9 @@ public static ArrayList <String>  getAllPaxData (String bookingNumber) throws Un
 			
 }
 
+public static void getInformationBooking() {
+	
+}
 
 }
 

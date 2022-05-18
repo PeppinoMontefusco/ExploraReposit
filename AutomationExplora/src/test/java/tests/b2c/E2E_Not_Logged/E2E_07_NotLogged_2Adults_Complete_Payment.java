@@ -47,11 +47,12 @@ public class E2E_07_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+	    VersonixMethodsB2C.clickOnLabelRandom("Select");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-        VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
-		Report.passStep("Click On Cabin Subcategory");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
+	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
 		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");

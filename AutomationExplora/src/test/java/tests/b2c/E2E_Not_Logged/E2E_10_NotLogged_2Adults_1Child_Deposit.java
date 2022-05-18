@@ -48,11 +48,12 @@ public class E2E_10_NotLogged_2Adults_1Child_Deposit extends setupDriver{
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111px","flt-clip");
+	    VersonixMethodsB2C.clickOnLabelRandom("Select");
 	    Report.passStep("Click On Cabin Category");
 		WebWrapper.waitForJavascript();
-	    VersonixMethodsB2C.searchTagAndClick("width: 106.8px", "flt-clip");
-		Report.passStep("Click On Cabin Subcategory");
+		VersonixMethodsB2C.randomScroll();
+		VersonixMethodsB2C.clickOnLabelRandom("Book");
+	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
 		ArrayList<String> datiAdult=VersonixMethodsB2C.addAdult(2);
 		ArrayList<String> datiChild=VersonixMethodsB2C.addChild(1);

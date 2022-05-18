@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.b2c.E2E_Logged_1Adult_Deposit">
+      <class name="tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment">
         <methods>
+          <include name="bookingFlow1adultCompletePaymentNotLogged"/>
           <include name="before_method"/>
-          <include name="bookingFlow1adultDepositNotLogged"/>
           <include name="after_method"/>
         </methods>
-      </class> <!-- tests.b2c.E2E_Logged_1Adult_Deposit -->
+      </class> <!-- tests.b2c.E2E_Not_Logged.E2E_03_NotLogged_1Adult_Complete_Payment -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
