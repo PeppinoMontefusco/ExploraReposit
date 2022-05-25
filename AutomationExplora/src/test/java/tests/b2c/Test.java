@@ -1,23 +1,53 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-import globalSetup.b2c.API;
-import globalSetup.b2c.startPage;
+import globalSetup.API;
+import globalSetup.startPage;
 import wrappers.VersonixMethodsB2C;
 
 public class Test extends VersonixMethodsB2C {
 
-	public static void main(String[] args) throws UnirestException, InterruptedException, AWTException  {
+	public static void main(String[] args) throws IOException {
+		BasicConfigurator.configure();
 		
-		driver.get("https://explorajourneys.com/it/en.html");
-		VersonixMethodsB2C.checkCountry();
+		XSSFWorkbook workbook= new XSSFWorkbook();
+		XSSFSheet sheet=workbook.createSheet("Automation");
+		XSSFSheet sheet1=workbook.createSheet("Automation1");
+		Object empdata[][] = {{"Firstname" , "Lastname"},
+				{"Mario" , "Paolino"},
+				{"Valentinsa" , "Villano"}
+				
+		   };
+		CellStyle ciao= workbook.createCellStyle();
 		
+		int row =empdata.length;
+		int col=empdata[0].length;
 		
-
+		for(int i=0 ; i<row ; i++) {
+			XSSFRow rows =sheet.createRow(i);
+			for(int j=0;j<col;j++) {
+				XSSFCell cell= rows.createCell(j);
+				cell.setCellValue((String)empdata[i][j]);			}
+		}
+		
+		String filepath=".\\Results\\auomation.xlsx";
+		FileOutputStream automation=new FileOutputStream(filepath);
+		workbook.write(automation);
+		automation.close();
 	}
 
 }
