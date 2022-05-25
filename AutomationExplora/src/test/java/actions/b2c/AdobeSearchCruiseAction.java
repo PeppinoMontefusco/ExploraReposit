@@ -4,7 +4,7 @@ package actions.b2c;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 import pages.b2c.AdobeSearchCruisePage;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;

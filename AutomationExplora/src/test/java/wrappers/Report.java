@@ -2,7 +2,7 @@ package wrappers;
 
 import com.aventstack.extentreports.Status;
 
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 
 public class Report {
 	

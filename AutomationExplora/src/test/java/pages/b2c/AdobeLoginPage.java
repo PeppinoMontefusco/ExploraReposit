@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 import wrappers.WebWrapper;
 
 public class AdobeLoginPage extends setupDriver {

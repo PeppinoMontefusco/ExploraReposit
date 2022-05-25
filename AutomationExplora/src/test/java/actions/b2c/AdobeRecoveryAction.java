@@ -1,9 +1,9 @@
 package actions.b2c;
 
 
-import globalSetup.b2c.setupDriver;
-import globalSetup.b2c.Configuration;
-import globalSetup.b2c.ExternalFunction;
+import globalSetup.Configuration;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
 import pages.b2c.AdobeRecoveryPage;
 import wrappers.WebWrapper;
 

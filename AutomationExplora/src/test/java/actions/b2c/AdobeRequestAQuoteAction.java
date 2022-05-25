@@ -3,7 +3,7 @@ package actions.b2c;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
-import globalSetup.b2c.ExternalFunction;
+import globalSetup.ExternalFunction;
 import pages.b2c.AdobeBrochureRequestPage;
 import pages.b2c.AdobeRequestAQuotePage;
 import wrappers.WebWrapper;

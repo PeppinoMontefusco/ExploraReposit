@@ -10,22 +10,22 @@ import org.testng.annotations.Test;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeNewsLetterAction;
-import globalSetup.b2c.setupDriver;
-import globalSetup.b2c.startPage;
+import globalSetup.setupDriver;
+import globalSetup.startPage;
+import wrappers.AdobeMethodsB2C;
 import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
-import wrappers.VersonixMethodsB2C;
 
 @Listeners(TestListener.class)
-public class ChangeCountry extends setupDriver  {
+public class Adobe_01_ChangeCountry extends setupDriver  {
 
 	@Test
-	public static void newsLetter() throws AWTException, InterruptedException{
-		test=TestManager.startTest("Form_01", "NewsLetter", "Form");
+	public static void AdobeChangeCountry() throws AWTException, InterruptedException{
+		test=TestManager.startTest("Change Country", "Change Country", "Adobe");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		VersonixMethodsB2C.checkCountry();
+		AdobeMethodsB2C.checkCountry();
 		}
 
 }

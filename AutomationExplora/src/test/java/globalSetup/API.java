@@ -1,4 +1,4 @@
-package globalSetup.b2c;
+package globalSetup;
 
 import java.io.InputStream;
 import java.time.Instant;
@@ -21,7 +21,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import freemarker.ext.util.ModelFactory;
-import globalSetup.b2c.ExternalFunction.Email;
+import globalSetup.ExternalFunction.Email;
 import wrappers.VersonixMethodsB2C;
 
 public class API extends setupDriver {
@@ -243,8 +243,8 @@ public static ArrayList <String>  get1AdultData (String bookingNumber) throws Un
 			String a =response.getBody();
 			JSONObject soapDatainJsonObject = XML.toJSONObject(a);
 			JSONObject Name =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONObject("vx:GuestDetail").getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName");
-			paxdata.add(Name.get("vx:GivenName").toString());
-			paxdata.add(Name.get("vx:Surname").toString());
+			paxdata.add(Name.get("vx:GivenName").toString().toLowerCase());
+			paxdata.add(Name.get("vx:Surname").toString().toLowerCase());
 			JSONObject contact =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONObject("vx:GuestDetail").getJSONObject("vx:ContactInfo");
 			paxdata.add(contact.get("PersonBirthDate").toString());
 			
@@ -264,8 +264,8 @@ public static ArrayList <String>  getAllPaxData (String bookingNumber) throws Un
 			int index=data.length();
 			for(int i=0 ; i<index ; i++) {
 		    	 JSONObject dati=(JSONObject) data.get(i);
-		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName").get("vx:GivenName").toString());
-		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName").get("vx:Surname").toString()); 
+		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName").get("vx:GivenName").toString().toLowerCase());
+		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName").get("vx:Surname").toString().toLowerCase()); 
 		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").get("PersonBirthDate").toString()); 
 		    	if(Integer.parseInt(dati.getJSONObject("vx:ContactInfo").get("Age").toString())>17) {
 		    		paxdata.add(dati.getJSONObject("vx:ContactInfo").get("vx:Email").toString());

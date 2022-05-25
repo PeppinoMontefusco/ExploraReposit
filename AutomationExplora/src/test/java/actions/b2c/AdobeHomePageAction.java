@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 import pages.b2c.AdobeHomePage;
 import wrappers.WebWrapper;
 

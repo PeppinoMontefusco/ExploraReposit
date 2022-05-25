@@ -1,7 +1,7 @@
 package actions.b2c;
 
-import globalSetup.b2c.Configuration;
-import globalSetup.b2c.setupDriver;
+import globalSetup.Configuration;
+import globalSetup.setupDriver;
 import pages.b2c.TouchXAdyenPage;
 import wrappers.Report;
 import wrappers.WebWrapper;

@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
-import globalSetup.b2c.Configuration;
-import globalSetup.b2c.setupDriver;
-import globalSetup.b2c.startPage;
+import globalSetup.Configuration;
+import globalSetup.setupDriver;
+import globalSetup.startPage;
 import pages.b2c.AdobeHomePage;
 import wrappers.Report;
 import wrappers.TestListener;

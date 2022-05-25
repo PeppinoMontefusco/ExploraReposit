@@ -1,17 +1,14 @@
 package wrappers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import globalSetup.b2c.Configuration;
-import globalSetup.b2c.ExternalFunction;
-import globalSetup.b2c.setupDriver;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
 
 public class VersonixMethodsB2C extends setupDriver {
 
@@ -52,10 +49,7 @@ public class VersonixMethodsB2C extends setupDriver {
 				
 			 
 		 }
-		 
-		 
-		 
-	 }
+		 }
 	
 	public static void searchInputAndCompile(String attribute, String value) throws InterruptedException {
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -76,13 +70,9 @@ public class VersonixMethodsB2C extends setupDriver {
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to compile field");
 			
-		 
-			     
-	 }
+		 }
 	 }
 	
-	
-
 	public static void findSpanAndClick(String nameOfField) throws InterruptedException {
 		 
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -100,11 +90,9 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to click");
-			
-		 
+	
 	 }
-		 
-		 
+	
 	 }
 
 	public static void searchTagAndClick(String attribute, String tag) throws InterruptedException {
@@ -125,9 +113,7 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to click");
-			
-		 
-			     
+		     
 	 }
 	 }
 
@@ -148,8 +134,7 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to click");
-			
-		 
+		
 	 }
 		 
 	 }
@@ -171,8 +156,7 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to click");
-			
-		 
+		
 	 }
 	}
 	public static String storevalue(String tag , String value) throws InterruptedException {
@@ -193,12 +177,10 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to store");
-			
-		 
+	 
 	 }
 		return digit;
-		 
-		 
+	 
 	 }
 	
 	public static void searchTagAndClickByOffset(String attribute, String tag, int x , int y) throws InterruptedException {
@@ -219,8 +201,7 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(click==false) {
 			 throw new RuntimeException("Impossible to click");
-			
-		 
+	 
 	 }
 	
 	}
@@ -240,19 +221,15 @@ public class VersonixMethodsB2C extends setupDriver {
 			 }
 		 if(content==false) {
 			 throw new RuntimeException("Text search failed");
-			
-		 
+	 
 	 }
-		
-		 
-		 
+	 
 	 }
 	
 	public static void startVersonixPage() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('flt-semantics-placeholder').click({force: true});");
 		Thread.sleep(2000);
-		
 	}
 	
 	public static void clickOnLabel(String label) {
@@ -266,92 +243,7 @@ public class VersonixMethodsB2C extends setupDriver {
 		return (String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('[aria-label^="+label+"]').innerText;");
 		
 		}
-	public static void verifyValue(String base, String check, String control) {
-		
-		if (base.contains(check)) {
-			Report.passStep("Value of "+control+" is ok");
-		}
-			else {
-				throw new RuntimeException("Value of "+control+" is not ok");
-				
-			}
-		}
-	
-	public static ArrayList<String> addAdult(int i) throws InterruptedException {
-		ArrayList<String> dati=new ArrayList<String>();
-		
-		for(int e=0;e<i;e++) {
-		Report.passStep("Insert data Adult "+(e+1)+""); 
-		String FirstName ="automation"+ExternalFunction.getRandomString(5);
-		dati.add(FirstName);
-	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
-	    Report.passStep("Adult "+(e+1)+" - Insert First Name");
-		String LastName ="automation"+ExternalFunction.getRandomString(5);
-		dati.add(LastName);
-		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
-		Report.passStep("Adult "+(e+1)+" - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01011990");
-		dati.add("1990-01-01");
-		Report.passStep("Adult "+(e+1)+" - Insert Date Of Birth");
-		String Email=FirstName+"@yopmail.com";
-		dati.add(Email);
-		VersonixMethodsB2C.searchInputAndCompile("Email", Email);
-		Report.passStep("Adult "+(e+1)+" - Insert Email");
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
-		Thread.sleep(1000);
-		}
-		return dati;
-	}
-	public static ArrayList<String> addChild(int i) throws InterruptedException {
-		ArrayList<String> dati=new ArrayList<String>();
-		
-		for(int e=0;e<i;e++) {
-		Report.passStep("Insert data Child "+(e+1)+"");
-		String FirstName ="automation"+ExternalFunction.getRandomString(5);
-		dati.add(FirstName);
-	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
-	    Report.passStep("Child "+(e+1)+" - Insert First Name");
-		String LastName ="automation"+ExternalFunction.getRandomString(5);
-		dati.add(LastName);
-		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
-		Report.passStep("Child "+(e+1)+" - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01012015");
-		dati.add("2015-01-01");
-		Report.passStep("Child "+(e+1)+" - Insert Date Of Birth");
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
-		Thread.sleep(1000);
-		}
-		return dati;
-	}
-	public static ArrayList<String> addInfant(int i) throws InterruptedException {
-		ArrayList<String> dati=new ArrayList<String>();
-		
-		for(int e=0;e<i;e++) {
-		Report.passStep("Insert data Infant "+(e+1)+"");
-		String FirstName ="automation"+ExternalFunction.getRandomString(5);
-		dati.add(FirstName);
-	    VersonixMethodsB2C.searchInputAndCompile("First",FirstName);
-	    Report.passStep("Infant "+(e+1)+" - Insert First Name");
-		String LastName ="automation"+ExternalFunction.getRandomString(5);
-		dati.add(LastName);
-		VersonixMethodsB2C.searchInputAndCompile("Last",LastName);
-		Report.passStep("Infant "+(e+1)+" - Insert Last Name");
-		VersonixMethodsB2C.searchInputAndCompile("Date", "01012022");
-		dati.add("2022-01-01");
-		Report.passStep("Infant "+(e+1)+" - Insert Date Of Birth");
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
-		Thread.sleep(1000);
-		}
-		return dati;
-	}
-	
-public static void randomScroll() {
+	public static void randomScroll() {
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String Index = ExternalFunction.getRandomInt(0, 7);
@@ -362,67 +254,13 @@ public static void randomScroll() {
 				"				   var buttons= document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll(\"[aria-label='Book']\");\r\n" + 
 				"				    buttons[buttons.length-1].scrollIntoView(true);\r\n" + 
 				"				 await new Promise(r => setTimeout(r, 1000))};");
-		
-		
-		
-	   
+	
 	}
 
 public static void clickOnLabelRandom(String label) {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	String Index=ExternalFunction.getRandomInt(0,1);
 	js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[aria-label="+label+"]')["+Index+"].click();");
-}
-
-public static void compareArrayList(ArrayList <String> a , ArrayList <String> b, String c ) {
-	if (a.equals(b)) {
-		Report.passStep(c+" are ok");
-	}
-	else {
-		throw new RuntimeException(c+" are not ok");
-	}
-}
-
-public static ArrayList <String> loggedPaxData(){
-	ArrayList <String> a = new ArrayList <String>();
-	a.add("PEPPE");
-	a.add("MONTE");
-	a.add("1942-01-01");
-	a.add("testnexsoftita@yopmail.com");
-	
-	return a;
-	
-}
-public static void confirmPopup(String a) throws InterruptedException {
-	findSpanAndClick(a);
-	Report.passStep("Click On Option 72h");
-	Thread.sleep(500);
-	clickOnCheckBox("25", "svg");
-	Report.passStep("Click On First Privacy Checkbox");
-	Thread.sleep(500);
-	clickOnCheckBox("25", "svg");
-	Report.passStep("Click On Second Privacy Checkbox");
-	searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
-	Report.passStep("Click On Apply");
-	WebWrapper.waitForJavascript();
-}
-
-public static void checkCountry() throws InterruptedException {
-	String[] list= {"Italy","International", "Belgium", "Canada", "Germany", "Ireland", "Netherlands", "Spain", "Switzerland", "United Kingdom", "USA"};
-	String[] code= {"it","int","be","ca","de","ie","nl","es","ch","uk","us"};
-	int index=list.length;
-	for(int i=0;i<index;i++) {
-		WebWrapper.clickOn(driver.findElements(By.className("countrySelection")).get(0));
-		Thread.sleep(1000);
-		WebWrapper.clickOnElementNotClickable(driver.findElement(By.xpath("//*[text()='"+list[i].toString()+"']")));
-		Thread.sleep(1000);
-		if(driver.getCurrentUrl().equals(new Configuration().URLGeneric+code[i]+"/en.html")) {
-			Report.passStep("Check country "+list[i]+" is ok");
-		}
-		else {
-			throw new RuntimeException("Check country "+list[i]+" is not ok");
-		}
-	}
 }
 }
 

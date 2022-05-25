@@ -10,11 +10,12 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
-import globalSetup.b2c.API;
-import globalSetup.b2c.ExternalFunction;
-import globalSetup.b2c.setupDriver;
-import globalSetup.b2c.startPage;
+import globalSetup.API;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
+import globalSetup.startPage;
 import wrappers.Report;
+import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
@@ -55,23 +56,18 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		ArrayList<String> dati=VersonixMethodsB2C.addAdult(1);
+		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.confirmPopup("FREE");
+		TestCasesVersonixMethods.confirmPopup("FREE");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Pop Up");
 		WebWrapper.waitForJavascript();
 		
-		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
-		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
-		String bookingNumber =reservationInfo.substring(10, 14);
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
-		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
-		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-		VersonixMethodsB2C.compareArrayList(dati, API.get1AdultData(bookingNumber), "The checks of Passengers data");
+		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
+		
+		WebWrapper.compareArrayList(dati, API.get1AdultData(bookingNumber), "The checks of Passengers data");
 
 		}
 

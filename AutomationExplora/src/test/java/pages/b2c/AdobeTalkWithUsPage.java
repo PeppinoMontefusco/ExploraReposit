@@ -3,7 +3,7 @@ package pages.b2c;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 
 public class AdobeTalkWithUsPage extends setupDriver {
 

@@ -9,8 +9,7 @@ import org.testng.ITestResult;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 
-
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 
 public class TestListener implements ITestListener {
 

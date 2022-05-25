@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import globalSetup.b2c.ExternalFunction;
-import globalSetup.b2c.setupDriver;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
 import wrappers.WebWrapper;
 
 public class AdobeHomePage extends setupDriver {

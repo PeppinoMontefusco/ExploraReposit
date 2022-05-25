@@ -8,15 +8,16 @@ import org.testng.annotations.Test;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import actions.b2c.TouchXAdyenAction;
+import globalSetup.API;
+import globalSetup.Configuration;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
+import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
-import globalSetup.b2c.API;
-import globalSetup.b2c.Configuration;
-import globalSetup.b2c.ExternalFunction;
-import globalSetup.b2c.setupDriver;
-import globalSetup.b2c.startPage;
 import wrappers.Report;
+import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
@@ -64,7 +65,7 @@ public class E2E_21_Logged_1Adult_Deposit extends setupDriver {
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.confirmPopup("PAY DEPOSIT");
+		TestCasesVersonixMethods.confirmPopup("PAY DEPOSIT");
 		TouchXAdyenAction.paymentNormalCard();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");
@@ -75,16 +76,10 @@ public class E2E_21_Logged_1Adult_Deposit extends setupDriver {
 		WebWrapper.waitForJavascript();
 		
 		
-		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
-		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
-		String bookingNumber =reservationInfo.substring(10, 14);
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
-		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
-		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
+		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
+		WebWrapper.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
 				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
-		VersonixMethodsB2C.compareArrayList(VersonixMethodsB2C.loggedPaxData(), API.get1AdultData(bookingNumber), "The checks of Passengers data");
+		WebWrapper.compareArrayList(TestCasesVersonixMethods.loggedPaxData(), API.get1AdultData(bookingNumber), "The checks of Passengers data");
 
 		}
 

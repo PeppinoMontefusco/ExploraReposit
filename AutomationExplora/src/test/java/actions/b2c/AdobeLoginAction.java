@@ -1,6 +1,6 @@
 package actions.b2c;
 
-import globalSetup.b2c.Configuration;
+import globalSetup.Configuration;
 import pages.b2c.AdobeLoginPage;
 import wrappers.Report;
 import wrappers.WebWrapper;

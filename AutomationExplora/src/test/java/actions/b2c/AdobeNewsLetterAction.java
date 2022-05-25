@@ -2,8 +2,8 @@ package actions.b2c;
 
 import org.openqa.selenium.support.ui.Select;
 
-import globalSetup.b2c.ExternalFunction;
-import globalSetup.b2c.setupDriver;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
 import pages.b2c.AdobeNewsLetterPage;
 import pages.b2c.AdobeRegistrationPage;
 import wrappers.WebWrapper;

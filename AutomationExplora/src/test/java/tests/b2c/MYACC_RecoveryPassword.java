@@ -9,11 +9,11 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeRecoveryAction;
-import globalSetup.b2c.API;
-import globalSetup.b2c.Configuration;
-import globalSetup.b2c.ExternalFunction;
-import globalSetup.b2c.setupDriver;
-import globalSetup.b2c.startPage;
+import globalSetup.API;
+import globalSetup.Configuration;
+import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
+import globalSetup.startPage;
 import pages.b2c.AdobeLoginPage;
 import wrappers.WebWrapper;
 

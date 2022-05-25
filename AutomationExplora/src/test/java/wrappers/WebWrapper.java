@@ -1,5 +1,7 @@
  package wrappers;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.WebElement;
@@ -7,8 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-import globalSetup.b2c.setupDriver;
+import globalSetup.setupDriver;
 
 public class WebWrapper extends setupDriver {
 	
@@ -106,6 +107,26 @@ public class WebWrapper extends setupDriver {
 		actions.moveToElement(element).click().build().perform();
 		
 	 }
+
+	public static void compareArrayList(ArrayList <String> a , ArrayList <String> b, String c ) {
+		if (a.equals(b)) {
+			Report.passStep(c+" are ok");
+		}
+		else {
+			throw new RuntimeException(c+" are not ok");
+		}
+	}
+
+	public static void verifyValue(String base, String check, String control) {
+	
+	if (base.contains(check)) {
+		Report.passStep("Value of "+control+" is ok");
+	}
+		else {
+			throw new RuntimeException("Value of "+control+" is not ok");
+			
+		}
+	}
 		 
 		 
 	 }
