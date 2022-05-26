@@ -36,7 +36,7 @@ public class E2E_04_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupD
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");

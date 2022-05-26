@@ -4,6 +4,7 @@ import java.util.ResourceBundle;
 
 public class Configuration {
 	String URL;
+	String URLProd;
     String Username;
 	String Password;
 	String EmailRecovery;
@@ -21,6 +22,7 @@ public class Configuration {
 	public Configuration(){
 		ResourceBundle configuration= ResourceBundle.getBundle("configurations");
 		URL = configuration.getString("URL");
+		URLProd = configuration.getString("URLProd");
 		Username = configuration.getString("Username");
 		Password = configuration.getString("Password");
 		EmailRecovery = configuration.getString("EmailRecovery");
@@ -76,6 +78,9 @@ public class Configuration {
 	}
 	public String getUrlGeneric() {
 		return URLGeneric;
+	}
+	public String getUrlProd() {
+		return URLProd;
 	}
 	
 }

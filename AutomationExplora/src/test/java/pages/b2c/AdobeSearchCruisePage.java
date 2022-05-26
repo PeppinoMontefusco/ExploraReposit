@@ -13,6 +13,15 @@ public class AdobeSearchCruisePage extends setupDriver {
 		return driver.findElements(By.className("destinationName")).get(destination);
 		}
 	
+	public static WebElement getDateOfTravelButton() {
+		return driver.findElements(By.className("quickBooking__main")).get(1);
+		
+	}
+	
+	public static WebElement getMonthSelect() {
+		int month= Integer.valueOf(ExternalFunction.getRandomInt(0, 3));
+		return driver.findElements(By.className("quickBooking__months")).get(1).findElements(By.className("available")).get(month);
+	}
 	public static WebElement getGuestSelection() {
 		return driver.findElements(By.className("quickBooking__main")).get(2);
 		
@@ -34,10 +43,12 @@ public class AdobeSearchCruisePage extends setupDriver {
 	}
 	
 	
-	public static WebElement getSelectAndCloseButton() {
+	public static WebElement getSelectAndCloseDestinationButton() {
 		return driver.findElements(By.className("cta-gold-btn")).get(0);
 		}
-	
+	public static WebElement getSelectAndCloseDateOfTravelButton() {
+		return driver.findElements(By.className("cta-gold-btn")).get(1);
+		}
 	public static WebElement getSearchCruiseButton() {
 		return driver.findElements(By.className("quickBooking__guestBtn")).get(0);
 		}

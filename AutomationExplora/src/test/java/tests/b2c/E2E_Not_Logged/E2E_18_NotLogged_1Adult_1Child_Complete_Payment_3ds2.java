@@ -32,7 +32,7 @@ public class E2E_18_NotLogged_1Adult_1Child_Complete_Payment_3ds2 extends setupD
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");

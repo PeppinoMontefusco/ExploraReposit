@@ -1,4 +1,4 @@
-package tests.b2c.E2E_Logged;
+package tests.b2c.E2E_Not_Logged;
 
 import java.awt.AWTException;
 import java.util.ArrayList;
@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
-import actions.b2c.TouchXLoginAction;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
+import globalSetup.startPageProd;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -22,29 +23,27 @@ import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
 import wrappers.WebWrapper;
 
+
 @Listeners(TestListener.class)
-public class E2E_28_Logged_2Adults_1Child_Option extends setupDriver{
+public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 	
 	@Test
-	public static void bookingFlow2adults1childOptionLogged() throws InterruptedException, AWTException, UnirestException {
-		test=TestManager.startTest("E2E_28", "E2E Logged: Scenario 2 Adults 1 Child - Option Creation", "E2E");
-		startPage.startPage();
+	public static void bookingFlow2adultsOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
+		test=TestManager.startTest("E2E_05", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
+		startPageProd.startPageProd();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
-		AdobeSearchCruiseAction.clickOnDestination();
-		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
-		Report.passStep("Click On Select and Close");
-		AdobeSearchCruiseAction.clickOnGuest();
-		Report.passStep("Click On Guest");
-		AdobeSearchCruiseAction.increaseChild();
-		Report.passStep("Set 1 Child");
+		AdobeSearchCruiseAction.clickOnDateOfTravelButton();
+		Report.passStep("Click on Date of Travel");
+		AdobeSearchCruiseAction.clickOnRamdomMonth();;
+		Report.passStep("Click on Random Month 2024");
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDateOfTravel();;
+		Report.passStep("Click On Select And Close");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		TouchXLoginAction.loginBaseTouchX();
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");
@@ -56,26 +55,16 @@ public class E2E_28_Logged_2Adults_1Child_Option extends setupDriver{
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		Thread.sleep(1500);
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
-		ArrayList<String> datiAdult=TestCasesVersonixMethods.addAdult(1);
-		ArrayList<String> datiChild=TestCasesVersonixMethods.addChild(1);
-		ArrayList <String> datiPax=TestCasesVersonixMethods.loggedPaxData();
-		datiPax.addAll(datiAdult);
-		datiPax.addAll(datiChild);
+		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("FREE");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
-		Report.passStep("Close Confirm Pop Up");
-		
-		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.compareArrayList(datiPax, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
-		
-
+		Report.passStep("Close Confirm Option Pop Up");
+		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
+        String bookingNumber =reservationInfo.substring(10, 14);
+		System.out.println(bookingNumber);
+		System.out.println(dati);
 		}
-
-}
+	}

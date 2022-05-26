@@ -35,7 +35,7 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");

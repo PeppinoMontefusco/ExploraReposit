@@ -38,7 +38,7 @@ public class E2E_07_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");

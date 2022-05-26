@@ -40,7 +40,7 @@ public class E2E_27_Logged_2Adults_Deposit_And_Complete_Payment extends setupDri
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");

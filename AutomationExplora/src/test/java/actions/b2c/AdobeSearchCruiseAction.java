@@ -39,14 +39,24 @@ public class AdobeSearchCruiseAction extends setupDriver {
 	}
 	
 	
-	public static void clickOnSelectAndClose() {
-		WebWrapper.clickOn(AdobeSearchCruisePage.getSelectAndCloseButton());
+	public static void clickOnSelectAndCloseDestination() {
+		WebWrapper.clickOn(AdobeSearchCruisePage.getSelectAndCloseDestinationButton());
 		
 	}
-	
+	public static void clickOnSelectAndCloseDateOfTravel() {
+		WebWrapper.clickOn(AdobeSearchCruisePage.getSelectAndCloseDateOfTravelButton());
+		
+	}
 
 	public static void clickSearchCruise() {
     	WebWrapper.clickOn(AdobeSearchCruisePage.getSearchCruiseButton());
     }
-
+	
+	public static void clickOnDateOfTravelButton() {
+		WebWrapper.clickOn(AdobeSearchCruisePage.getDateOfTravelButton());
+	}
+	public static void clickOnRamdomMonth() {
+		WebWrapper.clickOn(AdobeSearchCruisePage.getMonthSelect());
+	}
+    
 }

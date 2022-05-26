@@ -38,7 +38,7 @@ public class E2E_16_NotLogged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
 		Report.passStep("Select One Destination");
-		AdobeSearchCruiseAction.clickOnSelectAndClose();
+		AdobeSearchCruiseAction.clickOnSelectAndCloseDestination();
 		Report.passStep("Click On Select and Close");
 		AdobeSearchCruiseAction.clickOnGuest();
 		Report.passStep("Click On Guest");
