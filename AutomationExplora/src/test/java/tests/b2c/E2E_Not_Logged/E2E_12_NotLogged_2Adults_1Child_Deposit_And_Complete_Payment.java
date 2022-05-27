@@ -12,6 +12,7 @@ import actions.b2c.TouchXAdyenAction;
 import globalSetup.API;
 import globalSetup.Configuration;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
@@ -57,6 +58,7 @@ public class E2E_12_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extend
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1500);
 		ArrayList<String> datiAdult=TestCasesVersonixMethods.addAdult(2);
 		ArrayList<String> datiChild=TestCasesVersonixMethods.addChild(1);
 		datiAdult.addAll(datiChild);
@@ -82,8 +84,10 @@ public class E2E_12_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extend
 		WebWrapper.waitForJavascript();
 		
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountMultiplePaymentsBooking(bookingNumber), "Payment Amount");
-		WebWrapper.compareArrayList(API.getAllPaxData(bookingNumber), datiAdult, "The checks of Passengers data");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+
+		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountMultiplePaymentsBooking(), "Payment Amount");
+		WebWrapper.compareArrayList(response.getAllPaxData(), datiAdult, "The checks of Passengers data");
 		}
 
 

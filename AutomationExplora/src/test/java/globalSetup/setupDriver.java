@@ -1,5 +1,22 @@
 package globalSetup;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -20,7 +37,48 @@ public class setupDriver {
 	public static WebDriver driver;
 	
 	public static ExtentTest test;
+	public static XSSFWorkbook workbook;
+	public static ArrayList <Object[]> empdata= new ArrayList<Object[]>();
+	public static XSSFSheet sheet;
 	
+	@BeforeSuite
+	/*public void before_suite() throws IOException {
+		BasicConfigurator.configure();  
+		System.setProperty("org.freemarker.loggerLibrary", "none");
+		System.setProperty("org.asynchttpclient.*", "none");
+        FileInputStream inputStream = new FileInputStream(new File(".\\Results\\auomation.xlsx"));
+         workbook = new XSSFWorkbook(inputStream);
+         inputStream.close();
+		
+		LocalDateTime today = LocalDateTime.now();
+		String formattedDate = today.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)).replace(":",".");
+			System.out.println("SHORT format: " + formattedDate);
+		sheet=workbook.createSheet(formattedDate);
+		
+		empdata.add(new Object[] {"FirstName" , "LastName" , "Email" , "Date Of Birth"} );
+	
+	}
+	
+    @AfterSuite
+    public void after_suite() throws IOException {
+    	int rowCount=0;
+		for (Object[] emp:empdata) {
+			XSSFRow row=setupDriver.sheet.createRow(rowCount++);
+			int columnCount=0;
+			for(Object value:emp) {
+				XSSFCell cell=row.createCell(columnCount++);
+				cell.setCellValue((String)value);
+		}
+		
+	}
+		
+		String filepath=".\\Results\\auomation.xlsx";
+		FileOutputStream automation=new FileOutputStream(filepath);
+		setupDriver.workbook.write(automation);
+		automation.flush();
+		automation.close();
+    }*/
+    
 	
 	@BeforeMethod
 	public void before_method() throws InterruptedException  
@@ -35,6 +93,8 @@ public class setupDriver {
 		
 		
 		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS); 
+	
+	
 		
 	}  
 	
@@ -42,7 +102,7 @@ public class setupDriver {
 	public void after_method()  
 	{  
 	    
-    driver.quit(); 
+       driver.quit(); 
 		
 	
 	}  

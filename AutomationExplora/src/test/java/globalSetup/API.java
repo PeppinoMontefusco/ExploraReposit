@@ -110,176 +110,31 @@ public class API extends setupDriver {
 		
 	}
 	
-	public static String getCabinNumber(String bookingNumber) throws UnirestException {
-		
+
+	
+	public static ReadResponse getReadResponse(String bookingNumber) throws UnirestException {
 		HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-		  .header("Content-Type", "application/xml")
-		  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-		  .asString();
-		String a =response.getBody();
-		JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-		JSONObject cabin =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:SailingInfo").getJSONObject("vx:SelectedCategory").getJSONObject("vx:SelectedCabin");
-		return cabin.get("CabinNumber").toString();
-		
+				  .header("Content-Type", "application/xml")
+				  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"5\" ID_Context=\"SEAWARE\" ID=\"201\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
+				  .asString();
+				String a =response.getBody();
+				JSONObject soapDatainJsonObject = XML.toJSONObject(a);
+				return new ReadResponse (soapDatainJsonObject);
 		
 	}
 	
-public static String getStatusBooking(String bookingNumber) throws UnirestException {
-		
-		HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-		  .header("Content-Type", "application/xml")
-		  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-		  .asString();
-		String a =response.getBody();
-		JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-		JSONObject status =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:ReservationID");
-		if( status.get("StatusCode").toString().equals("42")) {
-			return "OPTION";
-		}
-		else if( status.get("StatusCode").toString().equals("49")) {
-			return "BOOKED";
-		}
-		else {
-			return null;
-			
-		}
-		
-		
-	}
-public static String getAmountBooking(String bookingNumber , String amountValue) throws UnirestException {
-	
-	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-	  .header("Content-Type", "application/xml")
-	  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-	  .asString();
-	String  TotalAmount = null;
-	String a =response.getBody();
-	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-	
-	JSONArray amount =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:PaymentsDue").getJSONArray("vx:PaymentDue");
-	int index=amount.length()-2;
-	
-	for (int i=0; i<index ; i++) {
-		JSONObject stringAmount=(JSONObject) amount.get(i);
-		if(stringAmount.get("PaymentNumber").toString().equals(amountValue)) {
-			
-			TotalAmount= stringAmount.get("Amount").toString();
-			break;
-			
-		}
-		
-}
-		 if(TotalAmount==null) {
-			 throw new RuntimeException("Amount not Available");
-			 
-}
-		 return TotalAmount;
 
 
-}
 
-public static String getAmountMultiplePaymentsBooking(String bookingNumber) throws UnirestException {
-	
-	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-	  .header("Content-Type", "application/xml")
-	  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-	  .asString();
-	double somma=0;
-	String a =response.getBody();
-	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-	
-	JSONArray amount =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:PaymentOptions").getJSONArray("vx:PaymentOption");
-	int index=amount.length();
-	
-     for(int i=0 ; i<index ; i++) {
-    	 JSONObject stringAmount=(JSONObject) amount.get(i);
-    	 double sum = Double.parseDouble(stringAmount.getJSONObject("vx:PaymentAmount").get("Amount").toString());
-    	 somma=somma + sum;
-     
-     }
-     
-     String value =String.valueOf((int)somma);
-     return value;
 
-}
-public static String getAmountSinglePaymentsBooking(String bookingNumber) throws UnirestException {
-	
-	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-	  .header("Content-Type", "application/xml")
-	  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-	  .asString();
-	
-	String a =response.getBody();
-	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-	
-	JSONObject amount =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:PaymentOptions").getJSONObject("vx:PaymentOption").getJSONObject("vx:PaymentAmount");
-	String value =amount.get("Amount").toString();
-	
-	
-     return value;
 
-}
 
-public static String getCabinCategory(String bookingNumber) throws UnirestException {
-	
-	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-	  .header("Content-Type", "application/xml")
-	  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-	  .asString();
-	String a =response.getBody();
-	JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-	JSONObject cabin =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:SailingInfo").getJSONObject("vx:SelectedCategory").getJSONObject("vx:SelectedCabin");
-	return cabin.get("CabinCategoryCode").toString();
-	
-	
-}
 
-public static ArrayList <String>  get1AdultData (String bookingNumber) throws UnirestException {
-	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-			  .header("Content-Type", "application/xml")
-			  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-			  .asString();
-	        ArrayList <String> paxdata = new ArrayList <String>();
-			String a =response.getBody();
-			JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-			JSONObject Name =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONObject("vx:GuestDetail").getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName");
-			paxdata.add(Name.get("vx:GivenName").toString().toLowerCase());
-			paxdata.add(Name.get("vx:Surname").toString().toLowerCase());
-			JSONObject contact =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONObject("vx:GuestDetail").getJSONObject("vx:ContactInfo");
-			paxdata.add(contact.get("PersonBirthDate").toString());
-			
-			paxdata.add(contact.get("vx:Email").toString());
-			return paxdata;
-}
 
-public static ArrayList <String>  getAllPaxData (String bookingNumber) throws UnirestException {
-	HttpResponse<String> response = Unirest.post("http://10.0.1.155:8082/ota/rest/OTA_ReadRQ")
-			  .header("Content-Type", "application/xml")
-			  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"29\" ID_Context=\"SEAWARE\" ID=\"4821\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
-			  .asString();
-	        ArrayList <String> paxdata = new ArrayList <String>();
-			String a =response.getBody();
-			JSONObject soapDatainJsonObject = XML.toJSONObject(a);
-			JSONArray data =soapDatainJsonObject.getJSONObject("vx:OTA_ResRetrieveRS").getJSONObject("vx:ReservationsList").getJSONObject("vx:CruiseReservation").getJSONObject("vx:ReservationInfo").getJSONObject("vx:GuestDetails").getJSONArray("vx:GuestDetail");
-			int index=data.length();
-			for(int i=0 ; i<index ; i++) {
-		    	 JSONObject dati=(JSONObject) data.get(i);
-		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName").get("vx:GivenName").toString().toLowerCase());
-		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").getJSONObject("vx:PersonName").get("vx:Surname").toString().toLowerCase()); 
-		    	paxdata.add(dati.getJSONObject("vx:ContactInfo").get("PersonBirthDate").toString()); 
-		    	if(Integer.parseInt(dati.getJSONObject("vx:ContactInfo").get("Age").toString())>17) {
-		    		paxdata.add(dati.getJSONObject("vx:ContactInfo").get("vx:Email").toString());
-		    	}
-		        
-		     }
-			return paxdata;
-		
-			
-}
 
-public static void getInformationBooking() {
-	
-}
+
+
+
 
 }
 

@@ -13,6 +13,7 @@ import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import wrappers.Report;
@@ -52,6 +53,7 @@ public class E2E_05_NotLogged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
@@ -60,6 +62,8 @@ public class E2E_05_NotLogged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
 		Report.passStep("Close Confirm Option Pop Up");
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.compareArrayList(dati, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+
+		WebWrapper.compareArrayList(dati, response.getAllPaxData(), "The checks of Passengers data");
 		}
 	}

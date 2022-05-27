@@ -53,6 +53,7 @@ public class E2E_19_NotLogged_2Adults_Deposit_And_Complete_Payment_different_car
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1500);
 		ArrayList<String> datiAdult=TestCasesVersonixMethods.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");

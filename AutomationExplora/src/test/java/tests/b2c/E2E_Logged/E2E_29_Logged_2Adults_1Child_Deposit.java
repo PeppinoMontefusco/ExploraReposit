@@ -13,6 +13,7 @@ import actions.b2c.TouchXLoginAction;
 import globalSetup.API;
 import globalSetup.Configuration;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
@@ -82,9 +83,11 @@ public class E2E_29_Logged_2Adults_1Child_Deposit extends setupDriver{
 		
 		
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
-				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
-		WebWrapper.compareArrayList(datiPax, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+
+		WebWrapper.verifyValue(response.getAmountBooking("80"), ExternalFunction.getSumOfStringValue(response.getAmountSinglePaymentsBooking(), 
+				response.getAmountBooking("70")), "Payment Amount");
+		WebWrapper.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
 		}
 
 }

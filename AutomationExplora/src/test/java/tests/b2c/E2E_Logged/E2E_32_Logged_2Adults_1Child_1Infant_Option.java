@@ -13,6 +13,7 @@ import actions.b2c.AdobeSearchCruiseAction;
 import actions.b2c.TouchXLoginAction;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import wrappers.Report;
@@ -76,7 +77,9 @@ public class E2E_32_Logged_2Adults_1Child_1Infant_Option extends setupDriver{
 		Report.passStep("Close Confirm Pop Up");
 		
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.compareArrayList(datiPax, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+
+		WebWrapper.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
 		
 
 		}

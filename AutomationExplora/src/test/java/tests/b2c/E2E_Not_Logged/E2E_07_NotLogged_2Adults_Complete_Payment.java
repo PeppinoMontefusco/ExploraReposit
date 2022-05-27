@@ -14,6 +14,7 @@ import actions.b2c.TouchXAdyenAction;
 import globalSetup.API;
 import globalSetup.Configuration;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
@@ -55,6 +56,7 @@ public class E2E_07_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1500);
 		ArrayList<String> datiAdult=TestCasesVersonixMethods.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
@@ -71,7 +73,9 @@ public class E2E_07_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		
 		
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountSinglePaymentsBooking(bookingNumber), "Payment Amount");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+
+		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountSinglePaymentsBooking(), "Payment Amount");
 		
 		
 	

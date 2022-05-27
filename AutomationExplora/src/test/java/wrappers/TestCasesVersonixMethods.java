@@ -6,8 +6,11 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import globalSetup.API;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 
 public class TestCasesVersonixMethods {
+	
+	  
 
 	public static ArrayList<String> addAdult(int i) throws InterruptedException {
 		ArrayList<String> dati=new ArrayList<String>();
@@ -114,11 +117,13 @@ public class TestCasesVersonixMethods {
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
 		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
 		String bookingNumber =reservationInfo.substring(10, 14);
-		WebWrapper.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
-		WebWrapper.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
-		WebWrapper.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
-		WebWrapper.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+		WebWrapper.verifyValue(reservationInfo, response.getCabinNumber(), "Cabin number");
+		WebWrapper.verifyValue(reservationInfo, response.getStatusBooking(), "Status");
+		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("80"), "Amount Total");
+		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("70"), "Amount Due");
 		return bookingNumber;
 	}
+	
 
 }

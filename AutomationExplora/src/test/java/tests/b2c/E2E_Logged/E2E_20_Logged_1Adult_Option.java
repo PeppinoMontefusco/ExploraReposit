@@ -12,6 +12,7 @@ import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import wrappers.Report;
@@ -71,7 +72,8 @@ public class E2E_20_Logged_1Adult_Option extends setupDriver {
 		Report.passStep("Close Confirm Pop Up");
 		WebWrapper.waitForJavascript();
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		WebWrapper.compareArrayList(TestCasesVersonixMethods.loggedPaxData(), API.get1AdultData(bookingNumber), "The checks of Passengers data");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+		WebWrapper.compareArrayList(TestCasesVersonixMethods.loggedPaxData(), response.get1AdultData(), "The checks of Passengers data");
 
 		}
 

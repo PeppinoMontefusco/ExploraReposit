@@ -12,6 +12,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import globalSetup.API;
 import globalSetup.Configuration;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import actions.b2c.TouchXAdyenAction;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
@@ -20,6 +21,7 @@ import globalSetup.setupDriver;
 import globalSetup.startPage;
 import wrappers.ExtentManager;
 import wrappers.Report;
+import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
 import wrappers.TestManager;
 import wrappers.VersonixMethodsB2C;
@@ -78,17 +80,11 @@ public class E2E_25_Logged_2Adults_Deposit extends setupDriver{
 		VersonixMethodsB2C.clickOnLabel("Cancel");
 		WebWrapper.waitForJavascript();
 		
-		
-		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
-		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
-		String bookingNumber =reservationInfo.substring(10, 14);
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getCabinNumber(bookingNumber), "Cabin number");
-		VersonixMethodsB2C.verifyValue(reservationInfo, API.getStatusBooking(bookingNumber), "Status");
-		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "80"), "Amount Total");
-		VersonixMethodsB2C.verifyValue(invoiceInfo, API.getAmountBooking(bookingNumber, "70"), "Amount Due");
-		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), ExternalFunction.getSumOfStringValue(API.getAmountSinglePaymentsBooking(bookingNumber), 
-				API.getAmountBooking(bookingNumber, "70")), "Payment Amount");
-		VersonixMethodsB2C.compareArrayList(datiPax, API.getAllPaxData(bookingNumber), "The checks of Passengers data");
+		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
+		ReadResponse response =API.getReadResponse(bookingNumber);
+		VersonixMethodsB2C.verifyValue(response.getAmountBooking("80"), ExternalFunction.getSumOfStringValue(response.getAmountSinglePaymentsBooking(), 
+				response.getAmountBooking("70")), "Payment Amount");
+		VersonixMethodsB2C.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
 		
 		
 	

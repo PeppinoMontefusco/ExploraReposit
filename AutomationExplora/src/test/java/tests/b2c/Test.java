@@ -4,7 +4,14 @@ import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -25,8 +32,10 @@ public class Test extends VersonixMethodsB2C {
 		BasicConfigurator.configure();
 		
 		XSSFWorkbook workbook= new XSSFWorkbook();
-		XSSFSheet sheet=workbook.createSheet("Automation");
-		XSSFSheet sheet1=workbook.createSheet("Automation1");
+		LocalDate today = LocalDate.now();
+		String formattedDate = today.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
+			System.out.println("SHORT format: " + formattedDate);
+		XSSFSheet sheet=workbook.createSheet("Automation " + formattedDate);
 		Object empdata[][] = {{"Firstname" , "Lastname"},
 				{"Mario" , "Paolino"},
 				{"Valentinsa" , "Villano"}

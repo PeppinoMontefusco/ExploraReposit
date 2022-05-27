@@ -1,8 +1,18 @@
 package tests.b2c.E2E_Not_Logged;
 
 import java.awt.AWTException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -12,6 +22,7 @@ import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import wrappers.Report;
@@ -27,7 +38,7 @@ import wrappers.WebWrapper;
 public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 	
 	@Test
-	public static void bookingFlow1adultOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
+	public static void bookingFlow1adultOptionNotLogged() throws InterruptedException, AWTException, UnirestException, IOException {
 		test=TestManager.startTest("E2E_01", "E2E Not Logged: Scenario 1 Adult - Option Creation", "E2E");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
@@ -56,6 +67,7 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
@@ -66,9 +78,10 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		WebWrapper.waitForJavascript();
 		
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		
-		WebWrapper.compareArrayList(dati, API.get1AdultData(bookingNumber), "The checks of Passengers data");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+		WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
 
 		}
+	}
+	
 
-}
