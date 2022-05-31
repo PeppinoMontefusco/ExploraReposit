@@ -74,7 +74,8 @@ public class E2E_13_NotLogged_2Adults_1Child_1Infant_Option extends setupDriver{
 		ReadResponse response =API.getReadResponse(bookingNumber);
 
 		WebWrapper.compareArrayList(response.getAllPaxData(), datiAdult, "The checks of Passengers data");
-		
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 
 		}
 

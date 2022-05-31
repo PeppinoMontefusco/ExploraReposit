@@ -13,7 +13,7 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import org.apache.log4j.BasicConfigurator;
+
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -29,7 +29,7 @@ import wrappers.VersonixMethodsB2C;
 public class Test extends VersonixMethodsB2C {
 
 	public static void main(String[] args) throws IOException {
-		BasicConfigurator.configure();
+		
 		
 		XSSFWorkbook workbook= new XSSFWorkbook();
 		LocalDate today = LocalDate.now();

@@ -79,6 +79,8 @@ public class E2E_03_NotLogged_1Adult_Complete_Payment extends setupDriver {
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountSinglePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		
 		
 		

@@ -62,9 +62,9 @@ public class E2E_33_Logged_2Adults_1Infant_Deposit extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		ArrayList <String> datiPax=TestCasesVersonixMethods.loggedPaxData();
 		ArrayList<String> datiAdult=TestCasesVersonixMethods.addAdult(1);
 		ArrayList<String> datiInfant=TestCasesVersonixMethods.addInfant(1);
-		ArrayList <String> datiPax=TestCasesVersonixMethods.loggedPaxData();
 		datiPax.addAll(datiAdult);
 		datiPax.addAll(datiInfant);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -87,6 +87,8 @@ public class E2E_33_Logged_2Adults_1Infant_Deposit extends setupDriver{
 		WebWrapper.verifyValue(response.getAmountBooking("80"), ExternalFunction.getSumOfStringValue(response.getAmountSinglePaymentsBooking(), 
 				response.getAmountBooking("70")), "Payment Amount");
 		WebWrapper.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 
 }

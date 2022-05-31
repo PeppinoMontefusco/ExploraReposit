@@ -86,6 +86,8 @@ public class E2E_04_NotLogged_1Adult_Deposit_And_Complete_Payment extends setupD
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountMultiplePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 
 

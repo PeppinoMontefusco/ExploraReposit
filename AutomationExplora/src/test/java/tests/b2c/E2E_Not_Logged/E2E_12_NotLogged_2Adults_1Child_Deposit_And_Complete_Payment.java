@@ -88,6 +88,8 @@ public class E2E_12_NotLogged_2Adults_1Child_Deposit_And_Complete_Payment extend
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountMultiplePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(response.getAllPaxData(), datiAdult, "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 
 

@@ -76,7 +76,8 @@ public class E2E_07_NotLogged_2Adults_Complete_Payment extends setupDriver{
 		ReadResponse response =API.getReadResponse(bookingNumber);
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountSinglePaymentsBooking(), "Payment Amount");
-		
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		
 	
 		}

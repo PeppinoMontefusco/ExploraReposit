@@ -82,7 +82,8 @@ public class E2E_15_NotLogged_1Adult_1Infant_Complete_Payment extends setupDrive
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountSinglePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(response.getAllPaxData(), datiAdult, "The checks of Passengers data");
-		
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		
 		
 		

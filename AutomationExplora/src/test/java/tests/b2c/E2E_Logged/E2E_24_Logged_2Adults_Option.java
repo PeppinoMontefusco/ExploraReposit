@@ -61,8 +61,8 @@ public class E2E_24_Logged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
 		ArrayList <String> datiPax=TestCasesVersonixMethods.loggedPaxData();
+		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
 		datiPax.addAll(dati);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
@@ -74,5 +74,7 @@ public class E2E_24_Logged_2Adults_Option extends setupDriver{
 		ReadResponse response =API.getReadResponse(bookingNumber);
 
 		WebWrapper.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 	}

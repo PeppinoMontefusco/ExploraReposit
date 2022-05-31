@@ -65,8 +65,8 @@ public class E2E_34_Logged_1Adult_1Infant_Complete_Payment extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		ArrayList<String> datiInfant=TestCasesVersonixMethods.addInfant(1);
 		ArrayList <String> datiPax=TestCasesVersonixMethods.loggedPaxData();
+		ArrayList<String> datiInfant=TestCasesVersonixMethods.addInfant(1);
 		datiPax.addAll(datiInfant);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
@@ -87,6 +87,8 @@ public class E2E_34_Logged_1Adult_1Infant_Complete_Payment extends setupDriver {
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountSinglePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		
 		
 		

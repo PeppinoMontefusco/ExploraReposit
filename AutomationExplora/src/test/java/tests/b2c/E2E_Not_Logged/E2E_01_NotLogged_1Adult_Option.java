@@ -80,7 +80,8 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
 		ReadResponse response =API.getReadResponse(bookingNumber);
 		WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
-
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 	}
 	

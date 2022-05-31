@@ -65,5 +65,7 @@ public class E2E_05_NotLogged_2Adults_Option extends setupDriver{
 		ReadResponse response =API.getReadResponse(bookingNumber);
 
 		WebWrapper.compareArrayList(dati, response.getAllPaxData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 	}

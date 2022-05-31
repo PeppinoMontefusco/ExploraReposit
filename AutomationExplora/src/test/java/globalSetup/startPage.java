@@ -14,6 +14,5 @@ public  class  startPage {
 		setupDriver.driver.get(new Configuration().URL);
 		WebWrapper.clickOn(setupDriver.driver.findElement(By.id("didomi-notice-agree-button")));
 		
-		//setupDriver.driver.findElement(By.id("didomi-notice-agree-button")).click();
 	}
 }

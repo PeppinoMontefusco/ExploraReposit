@@ -7,8 +7,9 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
 import globalSetup.ReadResponse;
+import globalSetup.setupDriver;
 
-public class TestCasesVersonixMethods {
+public class TestCasesVersonixMethods extends setupDriver {
 	
 	  
 
@@ -35,6 +36,8 @@ public class TestCasesVersonixMethods {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		empdata.add(new Object[] { FirstName ,LastName , Email , "1990-01-01"} );
+		
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -59,6 +62,7 @@ public class TestCasesVersonixMethods {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		empdata.add(new Object[] { FirstName ,LastName , "" , "2015-01-01"} );
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -83,6 +87,7 @@ public class TestCasesVersonixMethods {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		empdata.add(new Object[] { FirstName ,LastName , "" , "2022-01-01"} );
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -94,7 +99,7 @@ public class TestCasesVersonixMethods {
 		a.add("monte");
 		a.add("1942-01-01");
 		a.add("testnexsoftita@yopmail.com");
-		
+		empdata.add(new Object[] { "Peppe" ,"Monte" , "testnexsoftita@yopmail.com" , "1942-01-01"} );
 		return a;
 		
 	}

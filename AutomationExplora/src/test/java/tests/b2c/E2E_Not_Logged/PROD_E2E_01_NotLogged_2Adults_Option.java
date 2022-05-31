@@ -65,7 +65,7 @@ public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Close Confirm Option Pop Up");
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
         String bookingNumber =reservationInfo.substring(10, 14);
-		System.out.println(bookingNumber);
-		System.out.println(dati);
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 		}
 	}

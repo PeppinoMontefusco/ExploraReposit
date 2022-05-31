@@ -77,7 +77,8 @@ public class E2E_06_NotLogged_2Adults_Deposit extends setupDriver{
 		WebWrapper.verifyValue(response.getAmountBooking("80"), ExternalFunction.getSumOfStringValue(response.getAmountSinglePaymentsBooking(), 
 				response.getAmountBooking("70")), "Payment Amount");
 		WebWrapper.compareArrayList(dati, response.getAllPaxData(), "The checks of Passengers data");
-		
+		empdata.add(new Object[] { "" } );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
 	
 		}
 	}

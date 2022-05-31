@@ -1,4 +1,5 @@
 package globalSetup;
+import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,9 +12,14 @@ import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.BasicConfigurator;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -42,32 +48,76 @@ public class setupDriver {
 	public static XSSFSheet sheet;
 	
 	@BeforeSuite
-	/*public void before_suite() throws IOException {
-		BasicConfigurator.configure();  
-		System.setProperty("org.freemarker.loggerLibrary", "none");
-		System.setProperty("org.asynchttpclient.*", "none");
+	public void before_suite() throws IOException {
+		
+		System.setProperty("org.apache.poi.util.POILogger","org.apache.commons.logging.impl.NoOpLog");
+		
         FileInputStream inputStream = new FileInputStream(new File(".\\Results\\auomation.xlsx"));
          workbook = new XSSFWorkbook(inputStream);
          inputStream.close();
 		
 		LocalDateTime today = LocalDateTime.now();
 		String formattedDate = today.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)).replace(":",".");
-			System.out.println("SHORT format: " + formattedDate);
 		sheet=workbook.createSheet(formattedDate);
+		sheet.setColumnWidth(0, 25 * 256);
+		sheet.setColumnWidth(1, 25 * 256);
+		sheet.setColumnWidth(2, 35 * 256);
+		sheet.setColumnWidth(3, 25 * 256);
+		sheet.setColumnWidth(4, 25 * 256);
+		
 		
 		empdata.add(new Object[] {"FirstName" , "LastName" , "Email" , "Date Of Birth"} );
-	
+		
+		CellStyle cellStyle = workbook.createCellStyle();
+		cellStyle.setAlignment(HorizontalAlignment.CENTER);
+		cellStyle.setFillForegroundColor(IndexedColors.DARK_BLUE.index);
+		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		cellStyle.setBorderTop(BorderStyle.MEDIUM);
+		cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+		cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+		cellStyle.setBorderRight(BorderStyle.MEDIUM);
+		XSSFFont font = workbook.createFont();
+		font.setFontName("Asana");
+		font.setColor(IndexedColors.WHITE.index);
+		font.setBold(true);
+		cellStyle.setFont(font);
+		
+		
+		for (Object[] emp:empdata) {
+			XSSFRow row=setupDriver.sheet.createRow(0);
+			int columnCount=0;
+			for(Object value:emp) {
+				XSSFCell cell=row.createCell(columnCount++);
+				cell.setCellValue((String)value);
+				cell.setCellStyle(cellStyle);
+			
+				
+			}}
+	empdata.clear();
 	}
 	
     @AfterSuite
     public void after_suite() throws IOException {
-    	int rowCount=0;
+    	CellStyle cellStyle = workbook.createCellStyle();
+		cellStyle.setAlignment(HorizontalAlignment.CENTER);
+		cellStyle.setBorderTop(BorderStyle.MEDIUM);
+		cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+		cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+		cellStyle.setBorderRight(BorderStyle.MEDIUM);
+		XSSFFont font = workbook.createFont();
+		font.setFontName("Asana");
+		font.setBold(true);
+		cellStyle.setFont(font);
+    	int rowCount=1;
 		for (Object[] emp:empdata) {
 			XSSFRow row=setupDriver.sheet.createRow(rowCount++);
 			int columnCount=0;
 			for(Object value:emp) {
 				XSSFCell cell=row.createCell(columnCount++);
 				cell.setCellValue((String)value);
+				cell.setCellStyle(cellStyle);
+			
+				
 		}
 		
 	}
@@ -77,7 +127,7 @@ public class setupDriver {
 		setupDriver.workbook.write(automation);
 		automation.flush();
 		automation.close();
-    }*/
+    }
     
 	
 	@BeforeMethod

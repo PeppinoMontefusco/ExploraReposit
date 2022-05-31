@@ -1,6 +1,7 @@
 package tests.b2c.E2E_Logged;
 
 import java.awt.AWTException;
+import java.util.ArrayList;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -60,6 +61,7 @@ public class E2E_20_Logged_1Adult_Option extends setupDriver {
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		ArrayList <String> datiPax=TestCasesVersonixMethods.loggedPaxData();
 		Thread.sleep(1500);
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
@@ -73,7 +75,10 @@ public class E2E_20_Logged_1Adult_Option extends setupDriver {
 		WebWrapper.waitForJavascript();
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
 		ReadResponse response =API.getReadResponse(bookingNumber);
-		WebWrapper.compareArrayList(TestCasesVersonixMethods.loggedPaxData(), response.get1AdultData(), "The checks of Passengers data");
+		WebWrapper.compareArrayList(datiPax, response.get1AdultData(), "The checks of Passengers data");
+		empdata.add(new Object[] { "", "", "", ""} );
+		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
+		empdata.add(new Object[] { "", "", "", ""} );
 
 		}
 
