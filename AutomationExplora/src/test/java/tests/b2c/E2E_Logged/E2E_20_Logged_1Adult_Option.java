@@ -16,6 +16,7 @@ import globalSetup.ExternalFunction;
 import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -31,6 +32,7 @@ public class E2E_20_Logged_1Adult_Option extends setupDriver {
 	@Test
 	public static void bookingFlow1adultOptionLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_20", "E2E Logged: Scenario 1 Adult - Option Creation", "E2E");
+		ApachePoiMethods.writeCell("1 Ad - Option");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
@@ -76,9 +78,7 @@ public class E2E_20_Logged_1Adult_Option extends setupDriver {
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
 		ReadResponse response =API.getReadResponse(bookingNumber);
 		WebWrapper.compareArrayList(datiPax, response.get1AdultData(), "The checks of Passengers data");
-		empdata.add(new Object[] { "", "", "", ""} );
-		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
-		empdata.add(new Object[] { "", "", "", ""} );
+		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 
 		}
 

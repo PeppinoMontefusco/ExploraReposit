@@ -13,6 +13,7 @@ import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -27,6 +28,7 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 	@Test
 	public static void bookingFlow1adultLogged3DS1() throws InterruptedException, AWTException {
 		test=TestManager.startTest("E2E_36", "E2E Logged 3DS1: Scenario 1 Adult - Deposit","E2E");
+		ApachePoiMethods.writeCell("1 Ad - Deposit 3ds");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
@@ -71,6 +73,8 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 		//WebWrapper.waitForJavascript();
 		//VersonixMethodsB2C.searchTagNotClickableAndClick("width: 429px","flt-clip");
 		//report.passStep("Click On Confirmation Pop Up");
+		empdata.add(new Object[] { } );
+		empdata.add(new Object[] { } );
 
 		}
 

@@ -18,6 +18,7 @@ import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -32,6 +33,7 @@ public class E2E_27_Logged_2Adults_Deposit_And_Complete_Payment extends setupDri
 	@Test
 	public static void bookingFlow2adultsDepositAndCompletePaymentLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_27", "E2E Logged: Scenario 2 Adult - Deposit and Pay Total","E2E");
+		ApachePoiMethods.writeCell("2 Ad - Pay Total");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();
@@ -91,8 +93,7 @@ public class E2E_27_Logged_2Adults_Deposit_And_Complete_Payment extends setupDri
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountMultiplePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(datiPax, response.getAllPaxData(), "The checks of Passengers data");
-		empdata.add(new Object[] { "" } );
-		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
+		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		}
 
 

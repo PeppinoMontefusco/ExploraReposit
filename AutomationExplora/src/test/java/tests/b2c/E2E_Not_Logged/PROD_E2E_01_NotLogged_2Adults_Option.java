@@ -16,6 +16,7 @@ import globalSetup.ExternalFunction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import globalSetup.startPageProd;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -30,6 +31,7 @@ public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 	@Test
 	public static void bookingFlow2adultsOptionNotLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_05", "E2E Not Logged: Scenario 2 Adults - Option Creation", "E2E");
+		ApachePoiMethods.writeCell("2 Ad - Option");
 		startPageProd.startPageProd();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -65,7 +67,6 @@ public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Close Confirm Option Pop Up");
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
         String bookingNumber =reservationInfo.substring(10, 14);
-		empdata.add(new Object[] { "" } );
-		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
+        ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		}
 	}

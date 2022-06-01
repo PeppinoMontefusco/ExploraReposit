@@ -16,6 +16,7 @@ import globalSetup.setupDriver;
 import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -30,6 +31,7 @@ public class E2E_19_NotLogged_2Adults_Deposit_And_Complete_Payment_different_car
 	@Test
 	public static void bookingFlow2adultsDepositAndCompletePaymentWithDifferentCardNotLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_19", "E2E Not Logged: Scenario 2 Adult - Deposit and Pay Total with different card","E2E");
+		ApachePoiMethods.writeCell("2 Ad - Pay Total 3ds");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -80,6 +82,8 @@ public class E2E_19_NotLogged_2Adults_Deposit_And_Complete_Payment_different_car
 		
 		String bookingNumber=VersonixMethodsB2C.checkCabinStatusAmount();
 		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountMultiplePaymentsBooking(bookingNumber), "Payment Amount");*/
+		empdata.add(new Object[] { } );
+		empdata.add(new Object[] { } );
 		}
 
 

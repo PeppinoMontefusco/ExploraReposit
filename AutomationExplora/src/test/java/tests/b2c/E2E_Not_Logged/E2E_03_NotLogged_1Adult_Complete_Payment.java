@@ -17,6 +17,7 @@ import globalSetup.setupDriver;
 import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -31,6 +32,7 @@ public class E2E_03_NotLogged_1Adult_Complete_Payment extends setupDriver {
 	@Test
 	public static void bookingFlow1adultCompletePaymentNotLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_03", "E2E Not Logged: Scenario 1 Adult - Pay Total","E2E");
+		ApachePoiMethods.writeCell("1 Ad - Pay Total");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -79,8 +81,7 @@ public class E2E_03_NotLogged_1Adult_Complete_Payment extends setupDriver {
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountSinglePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
-		empdata.add(new Object[] { "" } );
-		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
+		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		
 		
 		

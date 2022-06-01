@@ -18,6 +18,7 @@ import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -32,6 +33,7 @@ public class E2E_16_NotLogged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment
 	@Test
 	public static void bookingFlow1adultDepositAndCompletePaymentLogged() throws InterruptedException, AWTException, UnirestException {
 		test=TestManager.startTest("E2E_16", "E2E Not Logged: Scenario 1 Adult 1 Child 1 Infant - Deposit and Pay Total","E2E");
+		ApachePoiMethods.writeCell("1 Ad - 1 Cld - 1 Inf - Pay Total");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		WebWrapper.waitForJavascript();
@@ -98,8 +100,7 @@ public class E2E_16_NotLogged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment
 
 		WebWrapper.verifyValue(response.getAmountBooking("80"), response.getAmountMultiplePaymentsBooking(), "Payment Amount");
 		WebWrapper.compareArrayList(response.getAllPaxData(), datiAdult, "The checks of Passengers data");
-		empdata.add(new Object[] { "" } );
-		empdata.add(new Object[] { "" ,"" , "" , "", "Booking number: "+bookingNumber} );
+		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		}
 
 

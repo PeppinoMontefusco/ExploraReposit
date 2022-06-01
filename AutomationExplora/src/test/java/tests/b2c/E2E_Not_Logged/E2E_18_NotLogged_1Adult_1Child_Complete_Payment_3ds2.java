@@ -12,6 +12,7 @@ import globalSetup.setupDriver;
 import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
+import wrappers.ApachePoiMethods;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -26,6 +27,7 @@ public class E2E_18_NotLogged_1Adult_1Child_Complete_Payment_3ds2 extends setupD
 	@Test
 	public static void bookingFlow1adult1Child3DS2() throws InterruptedException, AWTException {
 		test=TestManager.startTest("E2E_18", "E2E Not Logged 3DS2: Scenario 1 Adult 1 Child - Complete Payment","E2E");
+		ApachePoiMethods.writeCell("1 Ad - 1Cld - Pay Total 3ds2");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
@@ -67,6 +69,8 @@ public class E2E_18_NotLogged_1Adult_1Child_Complete_Payment_3ds2 extends setupD
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 525.333px","flt-clip");
 		Report.passStep("Click On Confirmation Pop Up");*/
+		empdata.add(new Object[] { } );
+		empdata.add(new Object[] { } );
 
 		}
 
