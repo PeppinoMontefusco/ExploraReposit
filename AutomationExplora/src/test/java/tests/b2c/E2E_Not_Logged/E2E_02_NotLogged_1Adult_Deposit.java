@@ -58,7 +58,13 @@ public class E2E_02_NotLogged_1Adult_Deposit extends setupDriver {
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
+	    WebWrapper.waitForJavascript();
+	    VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+	    WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -66,7 +72,7 @@ public class E2E_02_NotLogged_1Adult_Deposit extends setupDriver {
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("PAY DEPOSIT");
 		TouchXAdyenAction.paymentNormalCard(); 
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");

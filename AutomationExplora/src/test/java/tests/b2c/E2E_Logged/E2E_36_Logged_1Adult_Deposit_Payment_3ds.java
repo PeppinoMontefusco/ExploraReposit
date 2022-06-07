@@ -59,6 +59,12 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+	    WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");

@@ -68,6 +68,12 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
+	    WebWrapper.waitForJavascript();
+	    VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
@@ -75,7 +81,7 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("FREE");
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Close Confirm Pop Up");
 		WebWrapper.waitForJavascript();
 		

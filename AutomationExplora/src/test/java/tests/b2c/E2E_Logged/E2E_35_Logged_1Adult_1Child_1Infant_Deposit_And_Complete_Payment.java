@@ -67,6 +67,12 @@ public class E2E_35_Logged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment ex
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+	    WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
@@ -82,7 +88,7 @@ public class E2E_35_Logged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment ex
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("PAY DEPOSIT");
 		TouchXAdyenAction.paymentNormalCard();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -90,7 +96,7 @@ public class E2E_35_Logged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment ex
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("PAY TOTAL");
 		TouchXAdyenAction.paymentNormalCard();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.clickOnLabel("Store");

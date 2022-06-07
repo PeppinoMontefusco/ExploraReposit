@@ -2,6 +2,8 @@ package wrappers;
 
 import java.util.ArrayList;
 
+import org.openqa.selenium.JavascriptExecutor;
+
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import globalSetup.API;
@@ -108,10 +110,14 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.findSpanAndClick(a);
 		Report.passStep("Click On Option 72h");
 		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[style*=\"width: 32px; height: 32px\"]')[0].click();");
+		//document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[style*="width: 32px; height: 32px"]')[1].click()
+	    //VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On First Privacy Checkbox");
 		Thread.sleep(500);
-		VersonixMethodsB2C.clickOnCheckBox("25", "svg");
+		js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[style*=\"width: 32px; height: 32px\"]')[1].click();");
+		//VersonixMethodsB2C.clickOnCheckBox("25", "svg");
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");

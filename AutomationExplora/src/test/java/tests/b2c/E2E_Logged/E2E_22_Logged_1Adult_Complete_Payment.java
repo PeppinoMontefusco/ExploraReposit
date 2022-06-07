@@ -39,6 +39,7 @@ public class E2E_22_Logged_1Adult_Complete_Payment extends setupDriver {
 		AdobeLoginAction.loginBase();
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
+		
 		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
 		AdobeSearchCruiseAction.clickOnDestination();
@@ -64,6 +65,12 @@ public class E2E_22_Logged_1Adult_Complete_Payment extends setupDriver {
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+		WebWrapper.waitForJavascript();
+		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
+		Report.passStep("Click On Continue");
+	    WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
@@ -74,7 +81,7 @@ public class E2E_22_Logged_1Adult_Complete_Payment extends setupDriver {
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("PAY TOTAL");
 		TouchXAdyenAction.paymentNormalCard();
-		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 86.8px","flt-clip");
+		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Click On Confirmation Pop Up");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.clickOnLabel("Store");
