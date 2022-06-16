@@ -44,7 +44,9 @@ public class AdobeSearchCruisePage extends setupDriver {
 	
 	
 	public static WebElement getSelectAndCloseDestinationButton() {
-		return driver.findElements(By.className("cta-gold-btn")).get(0);
+		//return driver.findElements(By.className("cta-gold-btn")).get(0);
+		
+		return driver.findElements(By.className("cta-navy-btn")).get(2);
 		}
 	public static WebElement getSelectAndCloseDateOfTravelButton() {
 		return driver.findElements(By.className("cta-gold-btn")).get(1);
