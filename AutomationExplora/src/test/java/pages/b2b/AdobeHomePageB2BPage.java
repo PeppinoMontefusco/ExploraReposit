@@ -5,11 +5,18 @@ import org.openqa.selenium.WebElement;
 
 import globalSetup.setupDriver;
 
-public class HomePage extends setupDriver {
+public class AdobeHomePageB2BPage extends setupDriver {
+	
+	
+	public static WebElement getBookNowButton() {
+		return driver.findElements(By.className("cta-navy-btn")).get(0);
+		
+		}
+	
+	
 	
 	public static WebElement closePopupButton() {
-		WebElement a = driver.findElements(By.className("icon-explora-close")).get(0);
-		return a;
+		return driver.findElements(By.className("icon-explora-close")).get(0);
 		
 		}
 	

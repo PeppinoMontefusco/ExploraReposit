@@ -112,12 +112,11 @@ public class TestCasesVersonixMethods extends setupDriver {
 		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[style*=\"width: 32px; height: 32px\"]')[0].click();");
-		//document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[style*="width: 32px; height: 32px"]')[1].click()
-	    //VersonixMethodsB2C.clickOnCheckBox("25", "svg");
+		
 		Report.passStep("Click On First Privacy Checkbox");
 		Thread.sleep(500);
 		js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelectorAll('[style*=\"width: 32px; height: 32px\"]')[1].click();");
-		//VersonixMethodsB2C.clickOnCheckBox("25", "svg");
+		
 		Report.passStep("Click On Second Privacy Checkbox");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
@@ -128,11 +127,11 @@ public class TestCasesVersonixMethods extends setupDriver {
 		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
 		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
 		String bookingNumber =reservationInfo.substring(10, 14);
-		//ReadResponse response =API.getReadResponse(bookingNumber);
-		//WebWrapper.verifyValue(reservationInfo, response.getCabinNumber(), "Cabin number");
-		//WebWrapper.verifyValue(reservationInfo, response.getStatusBooking(), "Status");
-		//WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("80"), "Amount Total");
-		//WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("70"), "Amount Due");
+		ReadResponse response =API.getReadResponse(bookingNumber);
+		WebWrapper.verifyValue(reservationInfo, response.getCabinNumber(), "Cabin number");
+		WebWrapper.verifyValue(reservationInfo, response.getStatusBooking(), "Status");
+		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("80"), "Amount Total");
+		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("70"), "Amount Due");
 		return bookingNumber;
 	}
 	

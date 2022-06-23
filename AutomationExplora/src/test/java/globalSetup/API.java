@@ -122,6 +122,32 @@ public class API extends setupDriver {
 				return new ReadResponse (soapDatainJsonObject);
 		
 	}
+	public static ArrayList<String> destinationB2B() throws UnirestException{
+		HttpResponse<JsonNode> response = Unirest.post("http://10.0.1.155:3000/graphql")
+				  .header("Accept-Encoding", "gzip, deflate, br")
+				  .header("Content-Type", "application/json")
+				  .header("Accept", "application/json")
+				  .header("Connection", "keep-alive")
+				  .header("DNT", "1")
+				  .header("Origin", "http://10.0.1.155:3000")
+				  .body("{\"query\":\"query AvailableVoyages{\\r\\n  destinations{\\r\\n    comments\\r\\n    \\r\\n  }\\r\\n}\\r\\n\",\"variables\":{}}")
+				  .asJson();
+		     var array=response.getBody().getObject();
+		     JSONArray destinationlist = array.getJSONObject("data").getJSONArray("destinations");
+		     int index=destinationlist.length();
+		     
+		     ArrayList<String> destinations = new ArrayList<String>();
+		     for(int i = 0; i<index;i++) {
+		    	 JSONObject destination=(JSONObject) destinationlist.get(i);
+		    	 String text=destination.get("comments").toString();
+		    	 
+		    	 destinations.add(text);
+		     }
+		     
+		    
+		return destinations;
+	}
+	
 	
 
 
