@@ -19,7 +19,7 @@ public class MYACC_Login_And_Logout extends setupDriver  {
 
 	@Test
 	public static void loginAndLogout() throws AWTException, InterruptedException{
-		test=TestManager.startTest("MYACC_01", "Login and Logout", "MyAccount");
+		test=TestManager.startTest("MYACC_02", "Login and Logout", "MyAccount");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeLoginAction.loginBase();

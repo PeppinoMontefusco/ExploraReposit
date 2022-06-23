@@ -59,7 +59,7 @@ public class AdobeRegistrationAction extends setupDriver{
 	    }
 	    
 	    public static void insertCreateAccountDOBYear() {
-	    	String DOBYear= ExternalFunction.getRandomInt(1940, 2000);
+	    	String DOBYear= ExternalFunction.getRandomInt(1970, 2000);
 	    	Select year =new Select(AdobeRegistrationPage.getCreateAccountDOBYear());
 	    	year.selectByVisibleText(DOBYear);
 	    }

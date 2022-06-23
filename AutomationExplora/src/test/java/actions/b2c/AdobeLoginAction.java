@@ -12,6 +12,7 @@ public class AdobeLoginAction  {
     	WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), new Configuration().username());
     	
     }
+	
     
     public static void insertLoginPassword() {
     	WebWrapper.typeInField(AdobeLoginPage.getLoginPassword(), new Configuration().password());
