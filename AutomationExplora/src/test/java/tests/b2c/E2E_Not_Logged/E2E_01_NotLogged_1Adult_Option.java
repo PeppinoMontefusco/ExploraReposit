@@ -77,18 +77,16 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
-		/*VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("FREE");
 		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Close Confirm Pop Up");
-		WebWrapper.waitForJavascript();*/
-		
-		//String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		String bookingNumber="1234";
-		//ReadResponse response =API.getReadResponse(bookingNumber);
-		//WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");*/
+		WebWrapper.waitForJavascript();
+		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
+		ReadResponse response =API.getReadResponse(bookingNumber);
+	    WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
 		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		}
 	}

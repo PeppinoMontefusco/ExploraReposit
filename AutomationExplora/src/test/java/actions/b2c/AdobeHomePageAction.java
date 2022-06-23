@@ -59,4 +59,10 @@ public class AdobeHomePageAction extends setupDriver {
 		
 		 WebWrapper.clickOn(AdobeHomePage.getSearchAndBookQuickSearchButton());
 	}	
+	public static void clickOnTravelAdvisors() {
+		
+		 WebWrapper.clickOn(AdobeHomePage.getTravelAdvisorsButton());
+	}	
+	
+	
 }

@@ -67,7 +67,7 @@ public class E2E_02_NotLogged_1Adult_Deposit extends setupDriver {
 	    WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(1);
-		/*VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
+		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("PAY DEPOSIT");
@@ -78,16 +78,16 @@ public class E2E_02_NotLogged_1Adult_Deposit extends setupDriver {
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.clickOnLabel("Cancel");
-		WebWrapper.waitForJavascript();*/
+		WebWrapper.waitForJavascript();
 		
 		
-		//String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
-		String bookingNumber="1234";
-		//ReadResponse response =API.getReadResponse(bookingNumber);
+		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmount();
+		
+		ReadResponse response =API.getReadResponse(bookingNumber);
 
-		//WebWrapper.verifyValue(response.getAmountBooking("80"), ExternalFunction.getSumOfStringValue(response.getAmountSinglePaymentsBooking(), 
-				//response.getAmountBooking("70")), "Payment Amount");
-		//WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
+		WebWrapper.verifyValue(response.getAmountBooking("80"), ExternalFunction.getSumOfStringValue(response.getAmountSinglePaymentsBooking(), 
+				response.getAmountBooking("70")), "Payment Amount");
+		WebWrapper.compareArrayList(dati, response.get1AdultData(), "The checks of Passengers data");
 		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		}
 
