@@ -1,6 +1,7 @@
 package wrappers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -38,7 +39,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		empdata.add(new Object[] { ApachePoiStyles.RESULTS,FirstName ,LastName , Email , "1990-01-01"} );
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , Email , "1990-01-01"),ExcelName.BOOKING) );
 		
 		Thread.sleep(1000);
 		}
@@ -64,7 +65,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		empdata.add(new Object[] { ApachePoiStyles.RESULTS,FirstName ,LastName , "" , "2015-01-01"} );
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2015-01-01"),ExcelName.BOOKING) );
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -89,7 +90,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		empdata.add(new Object[] { ApachePoiStyles.RESULTS,FirstName ,LastName , "" , "2022-01-01"} );
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2022-01-01"),ExcelName.BOOKING) );
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -101,7 +102,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		a.add("monte");
 		a.add("1970-01-01");
 		a.add("testnexsoftita@yopmail.com");
-		empdata.add(new Object[] { ApachePoiStyles.RESULTS,"Peppe" ,"Monte" , "testnexsoftita@yopmail.com" , "1942-01-01"} );
+		empdata.add(new OutputLine( ApachePoiStyles.RESULTS,List.of("Peppe" ,"Monte" , "testnexsoftita@yopmail.com" , "1942-01-01"),ExcelName.BOOKING) );
 		return a;
 		
 	}

@@ -1,6 +1,7 @@
 package tests.b2c;
 
 import java.awt.AWTException;
+import java.util.List;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -16,6 +17,9 @@ import globalSetup.ExternalFunction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import pages.b2c.AdobeLoginPage;
+import wrappers.ApachePoiStyles;
+import wrappers.ExcelName;
+import wrappers.OutputLine;
 import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
@@ -35,8 +39,6 @@ public class MYACC_CreateUser extends setupDriver {
 		Report.passStep("Click On Create New Account");
 		String email =AdobeRegistrationAction.insertCreateAccountEmail();
 		Report.passStep("Insert Email");
-		//Gestire la pausa all'interno del metodo insertCreateAccountEmail() in quando risulta la form non formattata correttamente
-		
 		AdobeRegistrationAction.insertCreateAccountPassword();
 		Report.passStep("Insert Password");
 		AdobeRegistrationAction.insertCreateAccountConfirmPassword();
@@ -76,7 +78,7 @@ public class MYACC_CreateUser extends setupDriver {
 		Report.passStep("Click on Sign In ");
 		
 		AdobeLoginAction.logOutBase();
-		
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Nicolino2017!!!"),ExcelName.USERS));
 		
 		}
 	
