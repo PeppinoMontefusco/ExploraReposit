@@ -4,6 +4,8 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="tests.b2c.Adobe_01_ChangeCountry"/>
+      <class name="tests.b2c.MYACC_CreateUser"/>
+      <class name="tests.b2c.MYACC_RecoveryPassword"/>
       <class name="tests.b2c.MYACC_Login_And_Logout"/>
       <class name="tests.b2c.TOUCHX_Login_And_Logout"/>
       <class name="tests.b2c.TOUCHX_Login_from_Adobe"/>

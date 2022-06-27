@@ -2,6 +2,7 @@ package tests.b2c;
 
 import java.awt.AWTException;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -15,34 +16,50 @@ import globalSetup.ExternalFunction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import pages.b2c.AdobeLoginPage;
+import wrappers.Report;
+import wrappers.TestListener;
+import wrappers.TestManager;
 import wrappers.WebWrapper;
 
+@Listeners(TestListener.class) 
 public class MYACC_RecoveryPassword extends setupDriver {
 	
 	
 	
 	@Test
 	public static void recoveryPassword() throws UnirestException, InterruptedException, AWTException {
+		test=TestManager.startTest("MYACC_03", "Recovery Password", "MyAccount");
 		startPage.startPage();
 		AdobeHomePageAction.clickOnMyAccount();
+		Report.passStep("Click On MyAccount");
 		AdobeRecoveryAction.clickOnRecoveryPasswordLink();
+		Report.passStep("Click On Recovery Password link");
 		AdobeRecoveryAction.insertRecoveryPasswordEmail();
+		Report.passStep("Insert Email");
 		AdobeRecoveryAction.clickOnRecoveryPasswordResetButton();
+		Report.passStep("Click on Recovery Password Button");
 		Thread.sleep(5000);
 		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecovery());
+		System.out.println(md5);
 		API.getRecoveryEmails(md5);
+		Report.passStep("Click on Recovery link in Email");
 		String pass=AdobeRecoveryAction.insertRecoveryPasswordNewPassword();
+		Report.passStep("Insert New Password");
 		AdobeRecoveryAction.insertRecoveryPasswordConfirmPassword(pass);
+		Report.passStep("Insert Confirm New Password");
 		AdobeRecoveryAction.clickOnRecoveryPasswordUpdateButton();
+		Report.passStep("Click on Update Button");
 		AdobeRecoveryAction.clickOnRecoveryPasswordUpdateSignInButton();
-		
-		// Login after recovery
-		
-		WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), new Configuration().emailRecovery());
+		Report.passStep("Login After Recovery");
+		Report.passStep("Click on Sign In Button");
+	    WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), new Configuration().emailRecovery());
+		Report.passStep("Insert Username");
 		WebWrapper.typeInField(AdobeLoginPage.getLoginPassword(), pass);
+		Report.passStep("Insert Password");
 		AdobeLoginAction.clickOnSignInButton();
+		Report.passStep("Click on Sign In Button");
 		AdobeLoginAction.logOutBase();
-		driver.quit();
+		
 		
 		
 		
