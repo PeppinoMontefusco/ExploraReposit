@@ -122,6 +122,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagNotClickableAndClick("rgb(10, 34, 64)","flt-clip");
 		Report.passStep("Click On Apply");
 		WebWrapper.waitForJavascript();
+		
 	}
 
 	public static String checkCabinStatusAmount() throws InterruptedException, UnirestException {
@@ -129,6 +130,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
 		String bookingNumber =reservationInfo.substring(10, 14);
 		ReadResponse response =API.getReadResponse(bookingNumber);
+		
 		WebWrapper.verifyValue(reservationInfo, response.getCabinNumber(), "Cabin number");
 		WebWrapper.verifyValue(reservationInfo, response.getStatusBooking(), "Status");
 		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("80"), "Amount Total");

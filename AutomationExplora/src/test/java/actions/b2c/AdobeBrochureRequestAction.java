@@ -20,9 +20,10 @@ public class AdobeBrochureRequestAction {
 		WebWrapper.typeInField(AdobeBrochureRequestPage.getLastName(), lastname);
 		}
 	
-	public static void setEmail() {
+	public static String setEmail() {
 		String email = "automation"+ ExternalFunction.getRandomString(4)+"@yopmail.com";
 		WebWrapper.typeInField(AdobeBrochureRequestPage.getEmail(), email);
+		return email;
 		}
 
 	public static void setPhonePrefix() {

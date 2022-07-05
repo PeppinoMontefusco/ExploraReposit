@@ -2,6 +2,7 @@ package tests.b2c.E2E_Logged;
 
 import java.awt.AWTException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -14,6 +15,9 @@ import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeLoginAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import wrappers.ApachePoiMethods;
+import wrappers.ApachePoiStyles;
+import wrappers.ExcelName;
+import wrappers.OutputLine;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -79,8 +83,10 @@ public class E2E_36_Logged_1Adult_Deposit_Payment_3ds extends setupDriver {
 		//WebWrapper.waitForJavascript();
 		//VersonixMethodsB2C.searchTagNotClickableAndClick("width: 429px","flt-clip");
 		//report.passStep("Click On Confirmation Pop Up");
-		empdata.add(new Object[] { } );
-		empdata.add(new Object[] { } );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.BOOKING) );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.BOOKING) );
+		
+		
 
 		}
 

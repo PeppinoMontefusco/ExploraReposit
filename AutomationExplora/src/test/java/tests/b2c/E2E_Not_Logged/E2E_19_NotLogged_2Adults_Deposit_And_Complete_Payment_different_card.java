@@ -2,6 +2,7 @@ package tests.b2c.E2E_Not_Logged;
 
 import java.awt.AWTException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -17,6 +18,9 @@ import globalSetup.startPage;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import wrappers.ApachePoiMethods;
+import wrappers.ApachePoiStyles;
+import wrappers.ExcelName;
+import wrappers.OutputLine;
 import wrappers.Report;
 import wrappers.TestCasesVersonixMethods;
 import wrappers.TestListener;
@@ -88,8 +92,8 @@ public class E2E_19_NotLogged_2Adults_Deposit_And_Complete_Payment_different_car
 		
 		String bookingNumber=VersonixMethodsB2C.checkCabinStatusAmount();
 		VersonixMethodsB2C.verifyValue(API.getAmountBooking(bookingNumber, "80"), API.getAmountMultiplePaymentsBooking(bookingNumber), "Payment Amount");*/
-		empdata.add(new Object[] { } );
-		empdata.add(new Object[] { } );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.BOOKING) );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.BOOKING) );
 		}
 
 

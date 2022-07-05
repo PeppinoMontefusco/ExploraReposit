@@ -57,6 +57,7 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
+		Thread.sleep(3000);
 		VersonixMethodsB2C.startVersonixPage();
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");

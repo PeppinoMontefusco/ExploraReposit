@@ -27,6 +27,34 @@ public class TouchBizSearchCruiseAction extends setupDriver{
 		WebWrapper.clickOn(driver.findElement(By.xpath("//*[text()='"+destination+"']")));
 
 	}
-	
+	public static void clickOnCloseDestination() throws InterruptedException{
+		WebWrapper.clickOnElementNotClickable(TouchBizSearchCruisePage.getCloseDestination());
+		
+		}
+	public static void ClickAndFilDateTo() throws InterruptedException{
+		
+		driver.findElements(By.className("gwt-TextBox")).get(5).click();
+		driver.findElements(By.className("gwt-TextBox")).get(5).clear();
+		driver.findElements(By.className("gwt-TextBox")).get(5).sendKeys("31/12/2024");
+		
+		}
+	public static void clickOnSearchJourney() throws InterruptedException {
+		WebWrapper.clickOn(TouchBizSearchCruisePage.getSearchJourneyButton());
+		
+		}
+	public static void clickOnGridButton() throws InterruptedException{
+		WebWrapper.clickOn(TouchBizSearchCruisePage.getGridButton());
+		
+		}
+	public static void clickOnRandomCruise() {
+		long num = WebWrapper.getLengthOfElement("document.getElementsByClassName('checkbox-rowsel').length");
+		String check =ExternalFunction.getRandomInt(0, (int) (num-1));
+		long random = Integer.parseInt(check);
+		WebWrapper.clickOn(driver.findElements(By.className("checkbox-rowsel")).get((int) random));
+		
+	}
+	public static void clickOnContinueButton() throws InterruptedException {
+		WebWrapper.clickOnElementNotClickable(TouchBizSearchCruisePage.getContinueButton());
+	}
 	
 }

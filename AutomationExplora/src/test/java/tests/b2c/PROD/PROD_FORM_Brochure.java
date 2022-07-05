@@ -1,4 +1,4 @@
-package tests.b2c;
+package tests.b2c.PROD;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -10,7 +10,7 @@ import actions.b2c.AdobeBrochureRequestAction;
 import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeTalkWithUsAction;
 import globalSetup.setupDriver;
-import globalSetup.startPage;
+import globalSetup.startPageProd;
 import wrappers.ApachePoiStyles;
 import wrappers.ExcelName;
 import wrappers.OutputLine;
@@ -19,12 +19,12 @@ import wrappers.TestListener;
 import wrappers.TestManager;
 
 @Listeners(TestListener.class)
-public class FORM_02_Brochure extends setupDriver  {
+public class PROD_FORM_Brochure extends setupDriver  {
 
 	@Test
 	public static void brochure() throws AWTException, InterruptedException{
 		test=TestManager.startTest("Form_02", "Request a Brochure", "Form");
-		startPage.startPage();
+		startPageProd.startPageProd();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnTalkToUs();
 		AdobeTalkWithUsAction.clickOnRequestBrochureButton();

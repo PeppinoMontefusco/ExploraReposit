@@ -20,4 +20,7 @@ public class AdobeLoginTravelAdvisorsPage extends setupDriver {
 		
 		}
 
+	public static WebElement getRegisterButton() {
+		return driver.findElements(By.className("register-button-desktop")).get(0);
+	}
 }

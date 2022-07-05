@@ -1,7 +1,10 @@
  package wrappers;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.WebElement;
@@ -128,10 +131,18 @@ public class WebWrapper extends setupDriver {
 		}
 	}
 		 
-		 
-	 }
-	 
-	 
+   public static long getLengthOfElement(String element) {
+   JavascriptExecutor executor = (JavascriptExecutor) driver;
+   long  length =  (long) executor.executeScript("return "+element+"");
+   return length;   
+   
+   }
+   public static List<WebElement> getListOfVisibleElements (List  <WebElement> elements) {
+	   List  <WebElement> lista = elements.stream().filter(x-> x.isDisplayed()).collect(Collectors.toList());
+	   return lista;
+   }
+}	 
+
 	 
 
 		

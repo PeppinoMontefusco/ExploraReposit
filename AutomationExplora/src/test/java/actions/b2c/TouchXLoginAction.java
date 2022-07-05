@@ -10,7 +10,7 @@ import wrappers.WebWrapper;
 public class TouchXLoginAction extends setupDriver {
 	
 	public static void setUsername() {
-		driver.switchTo().frame(2);
+		driver.switchTo().frame(1);
 		WebWrapper.typeInField(TouchXLoginPage.getUsername(), new Configuration().username());
     	
     }

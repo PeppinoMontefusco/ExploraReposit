@@ -22,4 +22,8 @@ public class AdobeLoginTravelAdvisorsAction extends setupDriver {
 	public static void clickOnSignInButtonB2B() {
 		WebWrapper.clickOn(AdobeLoginTravelAdvisorsPage.getSignInTravelAdvisors());
 	}
+	
+	public static void clickOnRegisterAsNewAdvisor() {
+		WebWrapper.clickOn(AdobeLoginTravelAdvisorsPage.getRegisterButton());
+	}
 }

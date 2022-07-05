@@ -1,4 +1,4 @@
-package tests.b2c;
+package tests.b2c.PROD;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -27,13 +27,13 @@ import wrappers.TestManager;
 import wrappers.WebWrapper;
 
 @Listeners(TestListener.class) 
-public class MYACC_CreateUser extends setupDriver {
+public class PROD_MYACC_CreateUser extends setupDriver {
 	
 	
 	@Test
 	public static void createUser() throws InterruptedException, UnirestException, AWTException{
 		test=TestManager.startTest("MYACC_01", "Registration User", "MyAccount");
-		startPage.startPage();
+		startPageProd.startPageProd();
 		AdobeHomePageAction.clickOnMyAccount();
 		Report.passStep("Click On MyAccount");
 		AdobeRegistrationAction.clickOnCreateAccountButton();

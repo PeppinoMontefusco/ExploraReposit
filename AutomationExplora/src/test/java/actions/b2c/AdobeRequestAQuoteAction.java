@@ -32,9 +32,10 @@ public class AdobeRequestAQuoteAction {
 		WebWrapper.typeInField(AdobeRequestAQuotePage.getMobileNumber(), ExternalFunction.getRandomNumber(10));
 		}
 	
-	public static void setEmail() {
+	public static String setEmail() {
 		String email = "automation"+ ExternalFunction.getRandomString(4)+"@yopmail.com";
 		WebWrapper.typeInField(AdobeRequestAQuotePage.getEmail(), email);
+		return email;
 		}
 	
 	public static void setQuoteSubject() {

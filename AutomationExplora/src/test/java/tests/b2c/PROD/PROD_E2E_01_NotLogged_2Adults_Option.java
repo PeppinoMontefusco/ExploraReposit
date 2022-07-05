@@ -1,4 +1,4 @@
-package tests.b2c.E2E_Not_Logged;
+package tests.b2c.PROD;
 
 import java.awt.AWTException;
 import java.util.ArrayList;

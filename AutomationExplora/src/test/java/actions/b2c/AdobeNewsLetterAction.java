@@ -10,9 +10,10 @@ import wrappers.WebWrapper;
 
 public class AdobeNewsLetterAction extends setupDriver {
 	
-	public static void setEmail() {
+	public static String setEmail() {
 		String email = "automation"+ ExternalFunction.getRandomString(4)+"@yopmail.com";
     	WebWrapper.typeInField(AdobeNewsLetterPage.getEmailField(), email);
+		return email;
     	
     }
 	
