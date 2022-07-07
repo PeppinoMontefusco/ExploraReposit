@@ -24,20 +24,30 @@ public class PROD_FORM_NewsLetter extends setupDriver  {
 
 	@Test
 	public static void newsLetter() throws AWTException, InterruptedException{
-		test=TestManager.startTest("Form_01", "NewsLetter", "Form");
+		test=TestManager.startTest("Form_News_Letter", "NewsLetter", "Form");
 		startPageProd.startPageProd();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnJoinUs();
-		String email =AdobeNewsLetterAction.setEmail();
+		Report.passStep("Click On Join Us");
+		String email=AdobeNewsLetterAction.setEmail();
+		Report.passStep("Insert Email");
 		AdobeNewsLetterAction.setPhonePrefix();
+		Report.passStep("Insert Phone Prefix");
 		AdobeNewsLetterAction.setPhone();
+		Report.passStep("Insert Phone");
 		AdobeNewsLetterAction.setFirstName();
+		Report.passStep("Insert First Name");
 		AdobeNewsLetterAction.setLastName();
+		Report.passStep("Insert Last Name");
 		AdobeNewsLetterAction.setCustomerType();
-		AdobeNewsLetterAction.setPrivacyBox();;
+		Report.passStep("Set Customer Type");
+		AdobeNewsLetterAction.setPrivacyBox();
+		Report.passStep("Set Privacy flag");
 		AdobeNewsLetterAction.clickOnRegisterButton();
+		Report.passStep("Click on Register Button");
 		//AdobeNewsLetterAction.clickOnPopup();
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, ""),ExcelName.USERS));
+		Report.passStep("Click on Confirmation Popup");
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_News_Letter"),ExcelName.USERS));
 		}
 
 }

@@ -12,6 +12,7 @@ import wrappers.WebWrapper;
 
 public class AdobeRegistrationTravelAdvisorsAction {
 
+	static String email;
 	
 	public static void selectTitle() {
 	
@@ -68,8 +69,12 @@ public class AdobeRegistrationTravelAdvisorsAction {
 	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getAgencyAddress(), "Via Test");
     }
    
+   public static void setZipCode() {
+   	   String n =ExternalFunction.getRandomNumber(5);
+	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getZipCode(), n);
+    }
    public static void setAgencyCity() {
-   	
+	   	
 	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getAgencyCity(), "Test");
     }
    
@@ -78,10 +83,31 @@ public class AdobeRegistrationTravelAdvisorsAction {
 	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getAgencyAddress1(), "Via Test");
     }
    
-   public static void setAgencyEmail() {
-	   String email = "automation"+ ExternalFunction.getRandomString(4)+"@yopmail.com";
-	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getEmail(), "email");
+   public static String setAgencyEmail() {
+	   email = "automation"+ ExternalFunction.getRandomString(4)+"@yopmail.com";
+	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getEmail(), email);
+	return email;
     }
+   
+   public static void setAgencyConfirmEmail() {
+	   
+	   WebWrapper.typeInField(AdobeRegistrationTravelAdvisorsPage.getConfirmEmail(), email);
+    }
+   
+   public static void clickOnMarketingFlag() {
+	   
+	   WebWrapper.clickOn(AdobeRegistrationTravelAdvisorsPage.getMarketingConsent());
+    }
+   public static void clickOnProfilingFlag() {
+	   
+	   WebWrapper.clickOn(AdobeRegistrationTravelAdvisorsPage.getProfilingConsent());
+    }
+   
+ public static void clickOnSubmitButton() {
+	   
+	   WebWrapper.clickOn(AdobeRegistrationTravelAdvisorsPage.getSubmitButton());
+    }
+   
    
    
    

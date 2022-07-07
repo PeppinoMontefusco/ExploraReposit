@@ -1,6 +1,7 @@
 package pages.b2c;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import globalSetup.ExternalFunction;
@@ -42,8 +43,11 @@ public class AdobeNewsLetterPage extends setupDriver {
 		return driver.findElement(By.xpath("//*[text()='register']"));
 		}
 	public static WebElement getPopupButton() {
-		return driver.findElement(By.xpath("//*[text()='close']"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("return document.querySelector('[aria-label=\"Close overlay\"]').click();");
+		return driver.findElements(By.cssSelector(".cta-navy-btn.space-left--auto.space-right--auto")).get(2);
+		//return driver.findElement(By.className("cta-navy-btn"))
 		}
 	
-	
+	 
 }

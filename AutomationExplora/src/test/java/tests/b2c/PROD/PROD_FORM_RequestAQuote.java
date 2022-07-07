@@ -24,23 +24,36 @@ public class PROD_FORM_RequestAQuote extends setupDriver  {
 
 	@Test
 	public static void quote() throws AWTException, InterruptedException{
-		test=TestManager.startTest("Form_03", "Request a Quote", "Form");
+		test=TestManager.startTest("Form_Request_A_Quote", "Request a Quote", "Form");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnTalkToUs();
+		Report.passStep("Click On Talk with Us");
 		AdobeTalkWithUsAction.clickOnRequestQuoteButton();
+		Report.passStep("Click On Request a Quote");
 		AdobeRequestAQuoteAction.setFirstName();
+		Report.passStep("Insert First Name");
 		AdobeRequestAQuoteAction.setLastName();
+		Report.passStep("Insert Last Name");
 		AdobeRequestAQuoteAction.setPhonePrefix();
+		Report.passStep("Insert Phone Prefix");
 		AdobeRequestAQuoteAction.setPhone();
+		Report.passStep("Insert Phone");
 		String email=AdobeRequestAQuoteAction.setEmail();
+		Report.passStep("Insert Email");
 		AdobeRequestAQuoteAction.setQuoteSubject();
+		Report.passStep("Set Quote Subject");
 		AdobeRequestAQuoteAction.clickOnContactMethod();
+		Report.passStep("Click on Contact Methods");
 		AdobeRequestAQuoteAction.clickOnPrivacyMarketing();
+		Report.passStep("Click on Privacy Marketing");
 		AdobeRequestAQuoteAction.clickOnPrivacyProfiling();
+		Report.passStep("Click on Privacy Profiling");
 		AdobeRequestAQuoteAction.clickOnSubmitButton();
+		Report.passStep("Click on Submit");
 		AdobeRequestAQuoteAction.clickOnCloseButton();
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, ""),ExcelName.USERS));
+		Report.passStep("Click on Close");
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_Request_A_Quote"),ExcelName.USERS));
 		
 	}
 	

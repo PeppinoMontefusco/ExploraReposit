@@ -1,5 +1,6 @@
 package actions.b2c;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
 import globalSetup.ExternalFunction;
@@ -52,7 +53,9 @@ public class AdobeNewsLetterAction extends setupDriver {
     }
 	
 	public static void clickOnPopup() {
-    	WebWrapper.clickOn(AdobeNewsLetterPage.getPopupButton());
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("return document.querySelector('[aria-label=\"Close overlay\"]').click();");
+    	//WebWrapper.clickOn(AdobeNewsLetterPage.getPopupButton());
     }
 	
 	

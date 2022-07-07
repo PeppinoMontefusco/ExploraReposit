@@ -1,4 +1,4 @@
-package tests.b2b.PROD;
+package tests.b2b;
 
 import java.awt.AWTException;
 import java.util.ArrayList;
@@ -24,7 +24,6 @@ import actions.b2c.AdobeHomePageAction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import globalSetup.startPageB2B;
-import globalSetup.startPageProd;
 import pages.b2b.TouchBizGuestSectionPage;
 import wrappers.ApachePoiStyles;
 import wrappers.ExcelName;
@@ -35,12 +34,12 @@ import wrappers.TestManager;
 
 @Listeners(TestListener.class)
 
-public class PROD_RegisterTravelAdvisor extends setupDriver {
+public class RegisterTravelAdvisor extends setupDriver {
 
 	@Test
 	public static void loginTravelAdvisors() throws AWTException, InterruptedException, UnirestException {
 		test=TestManager.startTest("Form_TravelAdvisor", "Register Travel Advisor", "Form");
-		startPageProd.startPageProd();
+		startPage.startPage();
 		AdobeHomePageAction.clickOnTravelAdvisors();
 		Report.passStep("Click On Travel Advisor");
 		ArrayList<String> tabs1 = new ArrayList<String> (driver.getWindowHandles());

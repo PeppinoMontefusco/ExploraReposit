@@ -50,6 +50,10 @@ public class AdobeRegistrationTravelAdvisorsPage extends setupDriver {
 		return driver.findElements(By.className("pac-target-input")).get(0);
 		
 	}
+	public static WebElement getZipCode() {
+		return driver.findElement(By.id("regZipCode"));
+		
+	}
 	public static WebElement getAgencyCity() {
 		return driver.findElement(By.id("regCity"));
 		
@@ -63,7 +67,7 @@ public class AdobeRegistrationTravelAdvisorsPage extends setupDriver {
 		
 	}
 	public static WebElement getConfirmEmail() {
-		return driver.findElement(By.id("regConfirmEmaill"));
+		return driver.findElement(By.id("regConfirmEmail"));
 		
 	}
 	public static WebElement getMarketingConsent() {
