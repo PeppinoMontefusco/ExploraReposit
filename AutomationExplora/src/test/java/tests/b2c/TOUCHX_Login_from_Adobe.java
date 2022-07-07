@@ -27,7 +27,7 @@ public class TOUCHX_Login_from_Adobe extends setupDriver {
 		test=TestManager.startTest("INT_01", "Login from Adobe", "Integration");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnQuickSearch();
 		Report.passStep("Click On Quick Search");

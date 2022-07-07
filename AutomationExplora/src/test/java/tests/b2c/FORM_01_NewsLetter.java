@@ -17,6 +17,7 @@ import wrappers.OutputLine;
 import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
+import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 public class FORM_01_NewsLetter extends setupDriver  {
@@ -44,10 +45,10 @@ public class FORM_01_NewsLetter extends setupDriver  {
 		Report.passStep("Set Privacy flag");
 		AdobeNewsLetterAction.clickOnRegisterButton();
 		Report.passStep("Click on Register Button");
-		//AdobeNewsLetterAction.clickOnPopup();
+		AdobeNewsLetterAction.clickOnPopup();
 		Report.passStep("Click on Confirmation Popup");
 		
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_01_NewsLetter"),ExcelName.USERS));
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "NewsLetter"),ExcelName.USERS));
 		}
 
 }

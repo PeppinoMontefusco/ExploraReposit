@@ -52,10 +52,9 @@ public class AdobeNewsLetterAction extends setupDriver {
     	WebWrapper.clickOn(AdobeNewsLetterPage.getRegisterButton());
     }
 	
-	public static void clickOnPopup() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("return document.querySelector('[aria-label=\"Close overlay\"]').click();");
-    	//WebWrapper.clickOn(AdobeNewsLetterPage.getPopupButton());
+	public static void clickOnPopup() throws InterruptedException {
+		
+    	WebWrapper.clickOn(AdobeNewsLetterPage.getPopupButton());
     }
 	
 	

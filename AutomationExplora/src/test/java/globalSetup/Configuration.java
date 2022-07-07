@@ -19,6 +19,8 @@ public class Configuration {
 	String UsernameB2B;
 	String PasswordB2B;
 	String URLB2B;
+	String UsernameProd;
+	String PasswordProd;
 
 	public String URLGeneric;
 
@@ -41,6 +43,8 @@ public class Configuration {
 		UsernameB2B = configuration.getString("UsernameB2B");
 		PasswordB2B = configuration.getString("PasswordB2B");
 		URLB2B = configuration.getString("URLB2B");
+		UsernameProd = configuration.getString("UsernameProd");
+		PasswordProd = configuration.getString("PasswordProd");
 	}
 
 	public String username() {
@@ -104,6 +108,13 @@ public class Configuration {
 	}
 	public String getUrlB2B() {
 		return URLB2B;
+	}
+	public String usernameProd() {
+		return UsernameProd;
+	}
+
+	public String passwordProd() {
+		return PasswordProd;
 	}
 
 }

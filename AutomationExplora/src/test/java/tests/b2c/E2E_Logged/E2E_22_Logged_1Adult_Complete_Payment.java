@@ -36,7 +36,7 @@ public class E2E_22_Logged_1Adult_Complete_Payment extends setupDriver {
 		ApachePoiMethods.writeCell("1 Ad - Pay Total");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
 		

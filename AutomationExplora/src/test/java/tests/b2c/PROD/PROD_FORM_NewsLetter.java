@@ -45,7 +45,7 @@ public class PROD_FORM_NewsLetter extends setupDriver  {
 		Report.passStep("Set Privacy flag");
 		AdobeNewsLetterAction.clickOnRegisterButton();
 		Report.passStep("Click on Register Button");
-		//AdobeNewsLetterAction.clickOnPopup();
+		AdobeNewsLetterAction.clickOnPopup();
 		Report.passStep("Click on Confirmation Popup");
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_News_Letter"),ExcelName.USERS));
 		}

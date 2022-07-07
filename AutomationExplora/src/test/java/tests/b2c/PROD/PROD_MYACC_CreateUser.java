@@ -74,7 +74,7 @@ public class PROD_MYACC_CreateUser extends setupDriver {
 		Report.passStep("Click On MyAccount");
 		WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), email);
 		Report.passStep("Insert Email");
-		AdobeLoginAction.insertLoginPassword();
+		AdobeLoginAction.insertLoginPassword("prod");
 		Report.passStep("Insert Password");
 		AdobeLoginAction.clickOnSignInButton();
 		Report.passStep("Click on Sign In ");

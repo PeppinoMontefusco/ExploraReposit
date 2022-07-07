@@ -141,8 +141,13 @@ public class WebWrapper extends setupDriver {
 	   List  <WebElement> lista = elements.stream().filter(x-> x.isDisplayed()).collect(Collectors.toList());
 	   return lista;
    }
+   public static void closeAndSwitchTab() {
+   ArrayList<String> tabs1 = new ArrayList<String> (driver.getWindowHandles());
+   driver.switchTo().window(tabs1.get(0));
+   driver.close();
+   driver.switchTo().window(tabs1.get(1));
 }	 
-
+}
 	 
 
 		

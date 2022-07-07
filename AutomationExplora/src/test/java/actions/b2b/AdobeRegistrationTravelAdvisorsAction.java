@@ -2,15 +2,18 @@ package actions.b2b;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import globalSetup.ExternalFunction;
+import globalSetup.setupDriver;
 import pages.b2b.AdobeLoginTravelAdvisorsPage;
 import pages.b2b.AdobeRegistrationTravelAdvisorsPage;
+import pages.b2c.AdobeNewsLetterPage;
 import wrappers.WebWrapper;
 
-public class AdobeRegistrationTravelAdvisorsAction {
+public class AdobeRegistrationTravelAdvisorsAction extends setupDriver {
 
 	static String email;
 	
@@ -108,7 +111,12 @@ public class AdobeRegistrationTravelAdvisorsAction {
 	   WebWrapper.clickOn(AdobeRegistrationTravelAdvisorsPage.getSubmitButton());
     }
    
-   
+ public static void clickOnPopupBackButton() throws InterruptedException {
+	 JavascriptExecutor executor = (JavascriptExecutor) driver;
+	    executor.executeScript("return window.scrollTo(0,0)");
+ 	WebWrapper.clickOn(AdobeRegistrationTravelAdvisorsPage.getPopupBackButton());
+ }
+	
    
    
     

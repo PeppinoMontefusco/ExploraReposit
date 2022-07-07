@@ -37,7 +37,7 @@ public class E2E_25_Logged_2Adults_Deposit extends setupDriver{
 		ApachePoiMethods.writeCell("2 Ad - Deposit");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();

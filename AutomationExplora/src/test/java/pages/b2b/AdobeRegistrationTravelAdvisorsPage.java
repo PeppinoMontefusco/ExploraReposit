@@ -1,9 +1,12 @@
 package pages.b2b;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import globalSetup.setupDriver;
+import wrappers.WebWrapper;
 
 public class AdobeRegistrationTravelAdvisorsPage extends setupDriver {
 
@@ -83,4 +86,12 @@ public class AdobeRegistrationTravelAdvisorsPage extends setupDriver {
 		return driver.findElements(By.className("btn--size-large")).get(0);
 		
 	}
+	public static WebElement getPopupBackButton() throws InterruptedException {
+		List <WebElement> list=null;
+		do{
+			list = WebWrapper.getListOfVisibleElements(driver.findElements(By.className("space-left--auto")));
+		}while(list.isEmpty());
+		 return list.get(0);
+		 
+		}
 }

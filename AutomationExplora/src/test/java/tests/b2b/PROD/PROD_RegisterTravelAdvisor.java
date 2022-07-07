@@ -32,6 +32,7 @@ import wrappers.OutputLine;
 import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
+import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 
@@ -43,11 +44,7 @@ public class PROD_RegisterTravelAdvisor extends setupDriver {
 		startPageProd.startPageProd();
 		AdobeHomePageAction.clickOnTravelAdvisors();
 		Report.passStep("Click On Travel Advisor");
-		ArrayList<String> tabs1 = new ArrayList<String> (driver.getWindowHandles());
-	    driver.switchTo().window(tabs1.get(0));
-	    driver.close();
-	    driver.switchTo().window(tabs1.get(1));
-		
+		WebWrapper.closeAndSwitchTab();
 	    AdobeLoginTravelAdvisorsAction.clickOnRegisterAsNewAdvisor();
 	    Report.passStep("Click On Register as new Advisor");
 	    AdobeRegistrationTravelAdvisorsAction.selectTitle();
@@ -84,6 +81,8 @@ public class PROD_RegisterTravelAdvisor extends setupDriver {
 	    Report.passStep("Set Profiling Flag");
 	    AdobeRegistrationTravelAdvisorsAction.clickOnSubmitButton();
 	    Report.passStep("Click On Submit");
+	    AdobeRegistrationTravelAdvisorsAction.clickOnPopupBackButton();
+	    Report.passStep("Click On Back Popup Button");
 	    empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_TravelAdvisor"),ExcelName.USERS));
 }
 }

@@ -22,7 +22,7 @@ public class MYACC_Login_And_Logout extends setupDriver  {
 		test=TestManager.startTest("MYACC_02", "Login and Logout", "MyAccount");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		AdobeLoginAction.logOutBase();
 		
 		

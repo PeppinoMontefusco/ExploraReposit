@@ -36,7 +36,7 @@ public class E2E_23_Logged_1Adult_Deposit_And_Complete_Payment extends setupDriv
 		ApachePoiMethods.writeCell("1 Ad - Pay Total");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();

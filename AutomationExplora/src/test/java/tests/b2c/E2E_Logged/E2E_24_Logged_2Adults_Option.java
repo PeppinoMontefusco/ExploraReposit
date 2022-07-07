@@ -35,7 +35,7 @@ public class E2E_24_Logged_2Adults_Option extends setupDriver{
 		ApachePoiMethods.writeCell("2 Ad - Option");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();

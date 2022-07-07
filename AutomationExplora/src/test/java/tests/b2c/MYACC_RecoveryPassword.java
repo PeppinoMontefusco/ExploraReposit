@@ -40,7 +40,6 @@ public class MYACC_RecoveryPassword extends setupDriver {
 		Report.passStep("Click on Recovery Password Button");
 		Thread.sleep(5000);
 		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecovery());
-		System.out.println(md5);
 		API.getRecoveryEmails(md5);
 		Report.passStep("Click on Recovery link in Email");
 		String pass=AdobeRecoveryAction.insertRecoveryPasswordNewPassword();

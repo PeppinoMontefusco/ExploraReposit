@@ -19,9 +19,10 @@ public class AdobeRecoveryAction extends setupDriver {
 	   WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordEmail(), new Configuration().emailRecovery());
 	}
    
-	public static void clickOnRecoveryPasswordResetButton() {
+	public static void clickOnRecoveryPasswordResetButton() throws InterruptedException {
 		
 		WebWrapper.clickOn(AdobeRecoveryPage.getRecoveryPasswordResetButton());
+		Thread.sleep(5000);
    
    }
 	

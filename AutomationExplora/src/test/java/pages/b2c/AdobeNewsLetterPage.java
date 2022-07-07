@@ -1,11 +1,15 @@
 package pages.b2c;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import globalSetup.ExternalFunction;
 import globalSetup.setupDriver;
+import wrappers.WebWrapper;
 
 public class AdobeNewsLetterPage extends setupDriver {
 	
@@ -42,11 +46,13 @@ public class AdobeNewsLetterPage extends setupDriver {
 	public static WebElement getRegisterButton() {
 		return driver.findElement(By.xpath("//*[text()='register']"));
 		}
-	public static WebElement getPopupButton() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("return document.querySelector('[aria-label=\"Close overlay\"]').click();");
-		return driver.findElements(By.cssSelector(".cta-navy-btn.space-left--auto.space-right--auto")).get(2);
-		//return driver.findElement(By.className("cta-navy-btn"))
+	public static WebElement getPopupButton() throws InterruptedException {
+		List <WebElement> list=null;
+		do{
+			list = WebWrapper.getListOfVisibleElements(driver.findElements(By.className("space-left--auto")));
+		}while(list.isEmpty());
+		 return list.get(0);
+		 
 		}
 	
 	 

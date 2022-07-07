@@ -35,7 +35,7 @@ public class E2E_20_Logged_1Adult_Option extends setupDriver {
 		ApachePoiMethods.writeCell("1 Ad - Option");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase();
+		AdobeLoginAction.loginBase("test");
 		Report.passStep("Effettuo il login");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnBookAJourney();
