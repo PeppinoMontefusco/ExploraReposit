@@ -50,7 +50,7 @@ public class E2E_31_Logged_2Adults_1Child_Deposit_And_Complete_Payment extends s
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		TouchXLoginAction.loginBaseTouchX();
+		TouchXLoginAction.loginBaseTouchX("test");
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");

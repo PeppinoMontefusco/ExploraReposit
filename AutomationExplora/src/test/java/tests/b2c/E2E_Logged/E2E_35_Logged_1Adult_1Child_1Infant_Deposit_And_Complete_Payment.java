@@ -56,7 +56,7 @@ public class E2E_35_Logged_1Adult_1Child_1Infant_Deposit_And_Complete_Payment ex
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		TouchXLoginAction.loginBaseTouchX();
+		TouchXLoginAction.loginBaseTouchX("test");
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();

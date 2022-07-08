@@ -49,7 +49,7 @@ public class E2E_29_Logged_2Adults_1Child_Deposit extends setupDriver{
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		TouchXLoginAction.loginBaseTouchX();
+		TouchXLoginAction.loginBaseTouchX("test");
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");

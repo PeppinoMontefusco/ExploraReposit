@@ -51,7 +51,7 @@ public class E2E_37_Logged_1Adult_1Child_Complete_Payment_3ds2 extends setupDriv
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		TouchXLoginAction.loginBaseTouchX();
+		TouchXLoginAction.loginBaseTouchX("test");
 		VersonixMethodsB2C.randomScroll();
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 		Report.passStep("Click On Book");

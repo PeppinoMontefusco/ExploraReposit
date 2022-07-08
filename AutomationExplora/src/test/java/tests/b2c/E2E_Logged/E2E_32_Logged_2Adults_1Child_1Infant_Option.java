@@ -49,7 +49,7 @@ public class E2E_32_Logged_2Adults_1Child_1Infant_Option extends setupDriver{
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		VersonixMethodsB2C.startVersonixPage();
-		TouchXLoginAction.loginBaseTouchX();
+		TouchXLoginAction.loginBaseTouchX("test");
 		VersonixMethodsB2C.searchTagAndClick("width: 102px", "flt-clip");
 		Report.passStep("Click On Book");
 	    WebWrapper.waitForJavascript();

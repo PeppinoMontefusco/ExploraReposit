@@ -12,6 +12,7 @@ public class Configuration {
 	String ExpireDate;
 	String Cvv;
 	String Name;
+	String NameProd;
 	String CardNumber3DS1;
 	String Username3DS1;
 	String Password3DS1;
@@ -23,6 +24,7 @@ public class Configuration {
 	String PasswordProd;
 
 	public String URLGeneric;
+	public String URLGenericProd;
 
 	public Configuration() {
 		ResourceBundle configuration = ResourceBundle.getBundle("configurations");
@@ -35,11 +37,13 @@ public class Configuration {
 		ExpireDate = configuration.getString("ExpireDate");
 		Cvv = configuration.getString("Cvv");
 		Name = configuration.getString("Name");
+		NameProd = configuration.getString("NameProd");
 		CardNumber3DS1 = configuration.getString("CardNumber3DS1");
 		Username3DS1 = configuration.getString("Username3DS1");
 		Password3DS1 = configuration.getString("Password3DS1");
 		CardNumber3DS2 = configuration.getString("CardNumber3DS2");
 		URLGeneric = configuration.getString("URLGeneric");
+		URLGenericProd = configuration.getString("URLGenericProd");
 		UsernameB2B = configuration.getString("UsernameB2B");
 		PasswordB2B = configuration.getString("PasswordB2B");
 		URLB2B = configuration.getString("URLB2B");
@@ -74,6 +78,9 @@ public class Configuration {
 	public String name() {
 		return Name;
 	}
+	public String nameProd() {
+		return NameProd;
+	}
 
 	public String cardNumber3DS1() {
 		return CardNumber3DS1;
@@ -93,6 +100,9 @@ public class Configuration {
 
 	public String getUrlGeneric() {
 		return URLGeneric;
+	}
+	public String getUrlGenericProd() {
+		return URLGenericProd;
 	}
 
 	public String getUrlProd() {
