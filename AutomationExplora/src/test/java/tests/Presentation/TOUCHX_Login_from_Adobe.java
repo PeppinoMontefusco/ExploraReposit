@@ -1,4 +1,4 @@
-package tests.b2c;
+package tests.Presentation;
 
 import java.awt.AWTException;
 
@@ -12,6 +12,7 @@ import actions.b2c.AdobeLoginAction;
 import globalSetup.Configuration;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
+import globalSetup.startPageProd;
 import pages.b2c.AdobeHomePage;
 import wrappers.Report;
 import wrappers.TestListener;
@@ -25,15 +26,15 @@ public class TOUCHX_Login_from_Adobe extends setupDriver {
 	@Test
 	public static void integrationAdobeVersonixLoginLogout() throws AWTException, InterruptedException{
 		test=TestManager.startTest("INT_01", "Login from Adobe", "Integration");
-		startPage.startPage();
+		startPageProd.startPageProd();
 		Report.passStep("Open Homepage");
-		AdobeLoginAction.loginBase("test");
+		AdobeLoginAction.loginBase("prod");
 		WebWrapper.waitForJavascript();
 		AdobeHomePageAction.clickOnQuickSearch();
 		Report.passStep("Click On Quick Search");
 		WebWrapper.waitForJavascript();
-		Thread.sleep(10000);
-		VersonixMethodsB2C.searchTextFromSpan(new Configuration().name());
+		Thread.sleep(7000);
+		VersonixMethodsB2C.searchTextFromSpan(new Configuration().nameProd());
 		Report.passStep("Integration Login Adobe - TouchX");
 		VersonixMethodsB2C.searchTagNotClickableAndClick("VersonixIcons","span");
 		Report.passStep("Click On My Profile Icon in TouchX");

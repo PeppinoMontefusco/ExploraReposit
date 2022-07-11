@@ -147,6 +147,7 @@ public class WebWrapper extends setupDriver {
    driver.close();
    driver.switchTo().window(tabs1.get(1));
 }	 
+   
 }
 	 
 

@@ -52,9 +52,9 @@ public class setupDriver {
 
 		
         
-		empdata.add(new OutputLine ( ApachePoiStyles.HEADER,List.of("FirstName", "LastName", "Email", "Date Of Birth"),ExcelName.BOOKING));
+		empdata.add(new OutputLine ( ApachePoiStyles.HEADER,List.of("FirstName", "LastName", "Email", "Date Of Birth" , "Guest Type"),ExcelName.BOOKING));
 		empdata.add(new OutputLine ( ApachePoiStyles.HEADER,ExcelName.BOOKING));
-		empdata.add(new OutputLine ( ApachePoiStyles.HEADER,List.of("Username", "Password"),ExcelName.USERS));
+		empdata.add(new OutputLine ( ApachePoiStyles.HEADER,List.of("Username", "Password", "Request"),ExcelName.USERS));
 		empdata.add(new OutputLine ( ApachePoiStyles.HEADER,ExcelName.USERS));
 	}
 		

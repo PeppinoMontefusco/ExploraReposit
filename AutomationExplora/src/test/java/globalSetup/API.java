@@ -122,6 +122,17 @@ public class API extends setupDriver {
 				return new ReadResponse (soapDatainJsonObject);
 		
 	}
+	
+	public static ReadResponse getReadResponseProd(String bookingNumber) throws UnirestException {
+		HttpResponse<String> response = Unirest.post("http://MSC-RES-PROD-LB-490799e98c944a09.elb.eu-central-1.amazonaws.com:8097/ota/rest/OTA_ReadRQ")
+				  .header("Content-Type", "application/xml")
+				  .body("<OTA_ReadRQ EchoToken=\"1439812729310.795520\" PrimaryLangID=\"ENG\" Version=\"1\" xmlns=\"http://www.opentravel.org/OTA/2003/05\" >\r\n  <POS>\r\n    <Source><RequestorID Type=\"5\" ID_Context=\"SEAWARE\" ID=\"201\" /><BookingChannel Type=\"1\"></BookingChannel></Source>\r\n  </POS>\r\n   <ReadRequests>\r\n      <ReadRequest HistoryRequestedInd=\"false\">\r\n         <UniqueID ID=\""+bookingNumber+"\"  Type=\"14\" ID_Context=\"SEAWARE\"/>\r\n      </ReadRequest>\r\n   </ReadRequests>\r\n</OTA_ReadRQ>")
+				  .asString();
+				String a =response.getBody();
+				JSONObject soapDatainJsonObject = XML.toJSONObject(a);
+				return new ReadResponse (soapDatainJsonObject);
+		
+	}
 	public static ArrayList<String> destinationB2B() throws UnirestException{
 		HttpResponse<JsonNode> response = Unirest.post("http://10.0.1.155:3000/graphql")
 				  .header("Accept-Encoding", "gzip, deflate, br")

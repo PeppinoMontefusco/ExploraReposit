@@ -39,7 +39,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , Email , "1990-01-01"),ExcelName.BOOKING) );
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , Email , "1990-01-01" , "Adult"),ExcelName.BOOKING) );
 		
 		Thread.sleep(1000);
 		}
@@ -65,7 +65,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2015-01-01"),ExcelName.BOOKING) );
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2015-01-01" , "Child"),ExcelName.BOOKING) );
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -90,7 +90,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2022-01-01"),ExcelName.BOOKING) );
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2022-01-01" , "Infant"),ExcelName.BOOKING) );
 		Thread.sleep(1000);
 		}
 		return dati;
@@ -102,7 +102,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		a.add("monte");
 		a.add("1970-01-01");
 		a.add("testnexsoftita@yopmail.com");
-		empdata.add(new OutputLine( ApachePoiStyles.RESULTS,List.of("Peppe" ,"Monte" , "testnexsoftita@yopmail.com" , "1942-01-01"),ExcelName.BOOKING) );
+		empdata.add(new OutputLine( ApachePoiStyles.RESULTS,List.of("Peppe" ,"Monte" , "testnexsoftita@yopmail.com" , "1942-01-01" , "Adult"),ExcelName.BOOKING) );
 		return a;
 		
 	}
@@ -137,6 +137,17 @@ public class TestCasesVersonixMethods extends setupDriver {
 		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("70"), "Amount Due");
 		return bookingNumber;
 	}
-	
+	public static String checkCabinStatusAmountProd() throws InterruptedException, UnirestException {
+		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
+		String invoiceInfo=VersonixMethodsB2C.getSummaryInformation("Invoice").replace(",","");
+		String bookingNumber =reservationInfo.substring(10, 14);
+		ReadResponse response =API.getReadResponseProd(bookingNumber);
+		
+		WebWrapper.verifyValue(reservationInfo, response.getCabinNumber(), "Cabin number");
+		WebWrapper.verifyValue(reservationInfo, response.getStatusBooking(), "Status");
+		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("80"), "Amount Total");
+		WebWrapper.verifyValue(invoiceInfo, response.getAmountBooking("70"), "Amount Due");
+		return bookingNumber;
+	}
 
 }

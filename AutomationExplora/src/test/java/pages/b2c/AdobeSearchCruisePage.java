@@ -53,6 +53,7 @@ public class AdobeSearchCruisePage extends setupDriver {
 		}
 	public static WebElement getSearchCruiseButton() {
 		return driver.findElements(By.className("quickBooking__guestBtn")).get(0);
+		
 		}
     
 	

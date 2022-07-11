@@ -3,6 +3,7 @@ package actions.b2b;
 import globalSetup.Configuration;
 import globalSetup.setupDriver;
 import pages.b2b.AdobeLoginTravelAdvisorsPage;
+import wrappers.Report;
 import wrappers.WebWrapper;
 
 public class AdobeLoginTravelAdvisorsAction extends setupDriver {
@@ -25,5 +26,16 @@ public class AdobeLoginTravelAdvisorsAction extends setupDriver {
 	
 	public static void clickOnRegisterAsNewAdvisor() {
 		WebWrapper.clickOn(AdobeLoginTravelAdvisorsPage.getRegisterButton());
+	}
+	
+	public static void loginBaseB2B() throws InterruptedException {
+		AdobeLoginTravelAdvisorsAction.insertLoginUsernameB2B();
+		Report.passStep("Insert Username");
+	    AdobeLoginTravelAdvisorsAction.insertLoginPassowrdB2B();
+	    Report.passStep("Insert Password");
+	    AdobeLoginTravelAdvisorsAction.clickOnSignInButtonB2B();
+	    Report.passStep("Click On Sign In Button");
+	    AdobeHomePageB2BAction.clickOnClosePopUp();
+	    Report.passStep("Click On Close Pop Up");
 	}
 }

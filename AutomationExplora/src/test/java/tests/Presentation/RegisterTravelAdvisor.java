@@ -1,4 +1,4 @@
-package tests.b2b;
+package tests.Presentation;
 
 import java.awt.AWTException;
 import java.util.ArrayList;

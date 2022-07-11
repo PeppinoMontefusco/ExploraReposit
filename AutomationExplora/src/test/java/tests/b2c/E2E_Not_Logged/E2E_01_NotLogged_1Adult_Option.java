@@ -54,7 +54,9 @@ public class E2E_01_NotLogged_1Adult_Option extends setupDriver {
 		Report.passStep("Click On Guest");
 		AdobeSearchCruiseAction.decreaseAdult();
 		Report.passStep("Set 1 Adult");
+		Thread.sleep(3000);
 		AdobeSearchCruiseAction.clickSearchCruise();
+		
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
 		Thread.sleep(3000);

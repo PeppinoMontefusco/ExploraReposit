@@ -1,4 +1,4 @@
-package tests.b2c.PROD;
+package tests.Presentation;
 
 import java.awt.AWTException;
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ import actions.b2c.AdobeHomePageAction;
 import actions.b2c.AdobeSearchCruiseAction;
 import globalSetup.API;
 import globalSetup.ExternalFunction;
+import globalSetup.ReadResponse;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import globalSetup.startPageProd;
@@ -57,12 +58,6 @@ public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 		VersonixMethodsB2C.clickOnLabelRandom("Book");
 	    Report.passStep("Click On Cabin Subcategory");
 		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-		WebWrapper.waitForJavascript();
-		VersonixMethodsB2C.searchTagAndClick("height: 48px", "flt-clip");
-		Report.passStep("Click On Continue");
-	    WebWrapper.waitForJavascript();
 		Thread.sleep(1500);
 		ArrayList<String> dati=TestCasesVersonixMethods.addAdult(2);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("width: 111.8px","flt-clip");
@@ -71,8 +66,9 @@ public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 		TestCasesVersonixMethods.confirmPopup("FREE");
 		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Close Confirm Option Pop Up");
-		String reservationInfo=VersonixMethodsB2C.getSummaryInformation("Booking");
-        String bookingNumber =reservationInfo.substring(10, 14);
-        ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
+		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmountProd();
+		ReadResponse response =API.getReadResponseProd(bookingNumber);
+        WebWrapper.compareArrayList(dati, response.getAllPaxData(), "The checks of Passengers data");
+		ApachePoiMethods.writeBookingNumberInExcel(bookingNumber);
 		}
 	}

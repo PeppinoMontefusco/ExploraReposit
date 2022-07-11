@@ -1,4 +1,4 @@
-package tests.b2c;
+package tests.Presentation;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -53,7 +53,8 @@ public class FORM_03_RequestAQuote extends setupDriver  {
 		Report.passStep("Click on Submit");
 		AdobeRequestAQuoteAction.clickOnCloseButton();
 		Report.passStep("Click on Close");
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, ""),ExcelName.USERS));
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "" , "Request Brochure"),ExcelName.USERS));
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
 		
 	}
 	

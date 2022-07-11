@@ -1,4 +1,4 @@
-package tests.b2c;
+package tests.Presentation;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -82,7 +82,8 @@ public class MYACC_CreateUser extends setupDriver {
 		Report.passStep("Click on Sign In ");
 		
 		AdobeLoginAction.logOutBase();
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Nicolino2017!!!"),ExcelName.USERS));
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Nicolino2017!!!" , "Create User"),ExcelName.USERS));
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
 		
 		}
 	

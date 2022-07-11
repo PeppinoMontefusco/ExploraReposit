@@ -26,7 +26,7 @@ public class TouchBizSummaryAction extends setupDriver{
 		WebWrapper.clickOn(TouchBizSummaryPage.getStoreButton());
 		}
 	
-	public static void clickOnNoButton() {
+	public static void clickOnSiButton() {
 		WebWrapper.clickOn(TouchBizSummaryPage.getNoButton());
 		}
 

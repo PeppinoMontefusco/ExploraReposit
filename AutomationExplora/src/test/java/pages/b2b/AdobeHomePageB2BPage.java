@@ -31,11 +31,11 @@ public class AdobeHomePageB2BPage extends setupDriver {
 		}
 	
 	public static WebElement getContactUsButton() {
-		return driver.findElement(By.xpath("//*[text()='Contact Us']"));
+		return driver.findElement(By.xpath("//*[text()='Contact us']"));
 		
 		}
 	
 	public static WebElement getLogoutButton() {
-		return driver.findElement(By.xpath("//*[title()='Log out']"));
+		return driver.findElement(By.xpath("//*[text()='Log out']"));
 	}
 }

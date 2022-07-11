@@ -19,4 +19,7 @@ public class AdobeHomePageB2BAction extends setupDriver {
 	public static void clickOnContactUs() {
 		WebWrapper.clickOn(AdobeHomePageB2BPage.getContactUsButton());
 		}
+	public static void clickOnLogOut() {
+		WebWrapper.clickOn(AdobeHomePageB2BPage.getLogoutButton());
+		}
 }
