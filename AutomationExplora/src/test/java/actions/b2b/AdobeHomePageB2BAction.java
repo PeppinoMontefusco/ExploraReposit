@@ -16,7 +16,7 @@ public class AdobeHomePageB2BAction extends setupDriver {
 	public static void clickOnBookNowButton() {
 		WebWrapper.clickOn(AdobeHomePageB2BPage.getBookNowButton());
 		}
-	public static void s() {
+	public static void clickOnContactUs() {
 		WebWrapper.clickOn(AdobeHomePageB2BPage.getContactUsButton());
 		}
 }
