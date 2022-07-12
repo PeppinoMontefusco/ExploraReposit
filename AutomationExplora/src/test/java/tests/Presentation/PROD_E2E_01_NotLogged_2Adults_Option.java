@@ -64,6 +64,7 @@ public class PROD_E2E_01_NotLogged_2Adults_Option extends setupDriver{
 		Report.passStep("Click On Confirm");
 		WebWrapper.waitForJavascript();
 		TestCasesVersonixMethods.confirmPopup("FREE");
+		Thread.sleep(1000);
 		VersonixMethodsB2C.clickOnLabel("Close");
 		Report.passStep("Close Confirm Option Pop Up");
 		String bookingNumber=TestCasesVersonixMethods.checkCabinStatusAmountProd();

@@ -96,6 +96,7 @@ public class E2E_01_2Adults_Option extends setupDriver {
 	   TouchBizGuestSectionPage.getListOfGuestInfoSelect();
 	   TouchBizGuestSectionAction.clickOnResidency();
 	   Report.passStep("Click On Residency");
+	   Thread.sleep(1000);
 	   TouchBizGuestSectionAction.selectResidencyFirstPax();
 	   Report.passStep("Adult1: Insert Residency");
 	   TouchBizGuestSectionAction.clickOnNext();
@@ -111,6 +112,7 @@ public class E2E_01_2Adults_Option extends setupDriver {
 	   TouchBizGuestSectionPage.getListOfGuestInfoSelect();
 	   TouchBizGuestSectionAction.clickOnResidency();
 	   Report.passStep("Click On Residency");
+	   Thread.sleep(1000);
 	   TouchBizGuestSectionAction.selectResidencySecondPax();
 	   Report.passStep("Adult2: Insert Residency");
 	   TouchBizGuestSectionAction.clickOnSaveAndContinue();
