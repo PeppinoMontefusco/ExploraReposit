@@ -48,7 +48,7 @@ public class AdobeSearchCruiseAction extends setupDriver {
 		
 	}
 
-	public static void clickSearchCruise() {
+	public static void clickSearchCruise() throws InterruptedException {
     	WebWrapper.clickOn(AdobeSearchCruisePage.getSearchCruiseButton());
     }
 	
