@@ -41,7 +41,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		WebWrapper.waitForJavascript();
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , Email , "1990-01-01" , "Adult"),ExcelName.BOOKING) );
 		
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		}
 		return dati;
 	}
@@ -66,7 +66,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2015-01-01" , "Child"),ExcelName.BOOKING) );
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		}
 		return dati;
 	}
@@ -91,7 +91,7 @@ public class TestCasesVersonixMethods extends setupDriver {
 		Report.passStep("Click On Continue");
 		WebWrapper.waitForJavascript();
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(FirstName ,LastName , ""  , "2022-01-01" , "Infant"),ExcelName.BOOKING) );
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		}
 		return dati;
 	}
