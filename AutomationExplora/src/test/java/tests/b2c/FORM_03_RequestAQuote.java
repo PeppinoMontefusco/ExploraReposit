@@ -1,4 +1,4 @@
-package tests.b2c.PROD;
+package tests.b2c;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -20,11 +20,11 @@ import wrappers.TestListener;
 import wrappers.TestManager;
 
 @Listeners(TestListener.class)
-public class PROD_FORM_RequestAQuote extends setupDriver  {
+public class FORM_03_RequestAQuote extends setupDriver  {
 
 	@Test
 	public static void quote() throws AWTException, InterruptedException{
-		test=TestManager.startTest("Form_Request_A_Quote", "Request a Quote", "Form");
+		test=TestManager.startTest("Form_03", "Request a Quote", "Form");
 		startPage.startPage();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnTalkToUs();
@@ -53,7 +53,8 @@ public class PROD_FORM_RequestAQuote extends setupDriver  {
 		Report.passStep("Click on Submit");
 		AdobeRequestAQuoteAction.clickOnCloseButton();
 		Report.passStep("Click on Close");
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_Request_A_Quote"),ExcelName.USERS));
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "" , "Request Quote"),ExcelName.USERS));
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of("" , "" ,"" ),ExcelName.USERS) );
 		
 	}
 	

@@ -1,4 +1,4 @@
-package tests.Presentation;
+package tests.b2c;
 
 import java.awt.AWTException;
 

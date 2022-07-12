@@ -1,4 +1,4 @@
-package tests.b2c.PROD;
+package tests.Presentation;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -46,7 +46,8 @@ public class PROD_FORM_Brochure extends setupDriver  {
 		Report.passStep("Click on Submit Button");
 		AdobeBrochureRequestAction.clickOnCloseButton();
 		Report.passStep("Click on Close Button");
-		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_Brochure"),ExcelName.USERS));
+		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "", "Request Brochure"),ExcelName.USERS));
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
 	}
 	
 }

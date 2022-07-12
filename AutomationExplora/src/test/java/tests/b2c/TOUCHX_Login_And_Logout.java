@@ -15,6 +15,7 @@ import actions.b2c.AdobeSearchCruiseAction;
 import actions.b2c.TouchXLoginAction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
+import globalSetup.startPageProd;
 import wrappers.Report;
 import wrappers.TestListener;
 import wrappers.TestManager;
@@ -29,7 +30,7 @@ public class TOUCHX_Login_And_Logout extends setupDriver {
 	@Test
 	public static void loginAndLogout() throws InterruptedException, AWTException {
 		test=TestManager.startTest("TOUCHX_01",  "Login and Logout", "TouchX - My Account");
-		startPage.startPage();
+		startPageProd.startPageProd();
 		Report.passStep("Open Homepage");
 		AdobeHomePageAction.clickOnBookAJourney();
 		Report.passStep("Click On Book a Journey");
@@ -40,7 +41,7 @@ public class TOUCHX_Login_And_Logout extends setupDriver {
 		AdobeSearchCruiseAction.clickSearchCruise();
 		Report.passStep("Click On Search Cruise");
 		WebWrapper.waitForJavascript();
-		TouchXLoginAction.loginBaseTouchX("test");
+		TouchXLoginAction.loginBaseTouchX("prod");
 		Thread.sleep(3000);
 		VersonixMethodsB2C.searchTagNotClickableAndClick("VersonixIcons","span");
 		Report.passStep("Click On My Profile Icon");

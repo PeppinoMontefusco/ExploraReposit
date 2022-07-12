@@ -1,4 +1,4 @@
-package tests.Presentation;
+package tests.b2c;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -47,9 +47,8 @@ public class FORM_01_NewsLetter extends setupDriver  {
 		Report.passStep("Click on Register Button");
 		AdobeNewsLetterAction.clickOnPopup();
 		Report.passStep("Click on Confirmation Popup");
-		
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "" , "NewsLetter"),ExcelName.USERS));
-		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of("" , "" ,"" ),ExcelName.USERS) );
 		}
 
 }

@@ -83,7 +83,7 @@ public class MYACC_CreateUser extends setupDriver {
 		
 		AdobeLoginAction.logOutBase();
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Nicolino2017!!!" , "Create User"),ExcelName.USERS));
-		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of("" , "" ,"" ),ExcelName.USERS) );
 		
 		}
 	

@@ -117,7 +117,7 @@ public class E2E_01_2Adults_Option extends setupDriver {
 	   Report.passStep("Click On Save And Continue");
 	   TouchBizSummaryAction.clickOnStoreButton();
 	   Report.passStep("Click On Store");
-	   TouchBizSummaryAction.clickOnSiButton();
+	   TouchBizSummaryAction.clickOnYesButton();
 	   Report.passStep("Click On Yes");
 	  
 	   

@@ -52,7 +52,7 @@ public class B2B_Contact_US extends setupDriver {
 	    AdobeContactUsAction.clickOnBack();
 	    Report.passStep("Click On Back Button");
 	    empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "",  "Contact Us"),ExcelName.USERS));
-		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
+	    empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of("" , "" ,"" ),ExcelName.USERS) );
 
 		
 	}

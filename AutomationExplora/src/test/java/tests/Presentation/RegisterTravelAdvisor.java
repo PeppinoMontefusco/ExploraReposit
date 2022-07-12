@@ -82,6 +82,7 @@ public class RegisterTravelAdvisor extends setupDriver {
 	    Report.passStep("Click On Submit");
 	    AdobeRegistrationTravelAdvisorsAction.clickOnPopupBackButton();
 	    Report.passStep("Click On Back Popup Button");
-	    empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Form_TravelAdvisor"),ExcelName.USERS));
+	    empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Nicolino2017!!!" , "Registration Agency"),ExcelName.USERS));
+	    empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of("" , "" ,"" ),ExcelName.USERS) );
 }
 }
