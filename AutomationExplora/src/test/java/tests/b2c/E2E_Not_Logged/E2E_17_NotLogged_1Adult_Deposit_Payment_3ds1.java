@@ -73,7 +73,7 @@ public class E2E_17_NotLogged_1Adult_Deposit_Payment_3ds1 extends setupDriver {
 		TestCasesVersonixMethods.confirmPopup("PAY DEPOSIT");
 		TouchXAdyenAction.payment3ds1Card();
 		//driver.switchTo().defaultContent();
-		//Thread.sleep(5000);
+		//Thread.sleep(15000);
 		//WebWrapper.waitForJavascript();
 		//VersonixMethodsB2C.searchTagNotClickableAndClick("width: 429px","flt-clip");
 		//report.passStep("Click On Confirmation Pop Up");

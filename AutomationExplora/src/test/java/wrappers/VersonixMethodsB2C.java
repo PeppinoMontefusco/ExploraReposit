@@ -260,6 +260,10 @@ public class VersonixMethodsB2C extends setupDriver {
 		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('[aria-label="+label+"]').click();");
 	}
 	
+	public static void clickOnContainsLabel(String label) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String text=(String) js.executeScript("return document.querySelector('flt-glass-pane').shadowRoot.querySelector('[aria-label*="+label+"]').click();");
+	}
 	public static String getSummaryInformation(String label) throws InterruptedException {
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;

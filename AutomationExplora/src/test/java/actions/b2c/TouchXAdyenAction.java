@@ -53,7 +53,7 @@ public class TouchXAdyenAction extends setupDriver {
    	  }
    	  public static void clickOnSubmitButton3DS1(){
    		WebWrapper.clickOn(TouchXAdyenPage.getPayButton3DS1());
-   		driver.switchTo().defaultContent();
+   		//driver.switchTo().defaultContent();
    	  }
    	public static void setPassword3DS2(String password) {
    		  driver.switchTo().frame(1);
