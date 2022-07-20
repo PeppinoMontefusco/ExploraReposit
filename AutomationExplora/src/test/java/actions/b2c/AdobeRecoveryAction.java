@@ -4,6 +4,7 @@ package actions.b2c;
 import globalSetup.Configuration;
 import globalSetup.ExternalFunction;
 import globalSetup.setupDriver;
+import pages.b2c.AdobeLoginPage;
 import pages.b2c.AdobeRecoveryPage;
 import wrappers.WebWrapper;
 
@@ -14,9 +15,16 @@ public class AdobeRecoveryAction extends setupDriver {
 		WebWrapper.clickOn(AdobeRecoveryPage.getRecoveryPasswordLink());
 	}
 	
-   public static void insertRecoveryPasswordEmail() {
-		
-	   WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordEmail(), new Configuration().emailRecovery());
+   public static void insertRecoveryPasswordEmail(String env) {
+	   if (env.equalsIgnoreCase("test")) {
+	    	
+		   WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordEmail(), new Configuration().emailRecovery());
+	    	} else if(env.equalsIgnoreCase("prod")) {
+	    		WebWrapper.typeInField(AdobeRecoveryPage.getRecoveryPasswordEmail(), new Configuration().emailRecoveryProd());
+	    	}else
+	    	{
+	    		throw new RuntimeException("Wrong Environment");
+	    	}
 	}
    
 	public static void clickOnRecoveryPasswordResetButton() throws InterruptedException {

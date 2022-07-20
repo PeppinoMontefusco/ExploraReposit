@@ -42,9 +42,9 @@ public class E2E_01_2Adults_Option extends setupDriver {
 	   AdobeHomePageAction.clickOnTravelAdvisors();
 	   Report.passStep("Click On Travel Advisors");
 	   WebWrapper.closeAndSwitchTab();
-	   AdobeLoginTravelAdvisorsAction.insertLoginUsernameB2B();
+	   AdobeLoginTravelAdvisorsAction.insertLoginUsernameB2B("test");
 	   Report.passStep("Insert Username");
-	   AdobeLoginTravelAdvisorsAction.insertLoginPassowrdB2B();
+	   AdobeLoginTravelAdvisorsAction.insertLoginPassowrdB2B("test");
 	   Report.passStep("Insert Password");
 	   AdobeLoginTravelAdvisorsAction.clickOnSignInButtonB2B();
 	   Report.passStep("Click On Sign In Button");

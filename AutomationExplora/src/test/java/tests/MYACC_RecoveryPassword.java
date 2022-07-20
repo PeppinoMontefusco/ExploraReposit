@@ -1,4 +1,4 @@
-package tests.Presentation;
+package tests;
 
 import java.awt.AWTException;
 
@@ -34,7 +34,7 @@ public class MYACC_RecoveryPassword extends setupDriver {
 		Report.passStep("Click On MyAccount");
 		AdobeRecoveryAction.clickOnRecoveryPasswordLink();
 		Report.passStep("Click On Recovery Password link");
-		AdobeRecoveryAction.insertRecoveryPasswordEmail();
+		AdobeRecoveryAction.insertRecoveryPasswordEmail("test");
 		Report.passStep("Insert Email");
 		AdobeRecoveryAction.clickOnRecoveryPasswordResetButton();
 		Report.passStep("Click on Recovery Password Button");

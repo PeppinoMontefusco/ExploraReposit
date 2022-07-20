@@ -22,6 +22,9 @@ public class Configuration {
 	String URLB2B;
 	String UsernameProd;
 	String PasswordProd;
+	String EmailRecoveryProd;
+	String UsernameB2BProd;
+	String PasswordB2BProd;
 
 	public String URLGeneric;
 	public String URLGenericProd;
@@ -49,6 +52,17 @@ public class Configuration {
 		URLB2B = configuration.getString("URLB2B");
 		UsernameProd = configuration.getString("UsernameProd");
 		PasswordProd = configuration.getString("PasswordProd");
+		EmailRecoveryProd= configuration.getString("EmailRecoveryProd");
+		UsernameB2BProd= configuration.getString("UsernameB2BProd");
+		PasswordB2BProd= configuration.getString("PasswordB2BProd");
+	}
+
+	public String getUsernameB2BProd() {
+		return UsernameB2BProd;
+	}
+
+	public String getPasswordB2BProd() {
+		return PasswordB2BProd;
 	}
 
 	public String username() {
@@ -126,5 +140,7 @@ public class Configuration {
 	public String passwordProd() {
 		return PasswordProd;
 	}
-
+	public String emailRecoveryProd() {
+		return EmailRecoveryProd;
+	}
 }

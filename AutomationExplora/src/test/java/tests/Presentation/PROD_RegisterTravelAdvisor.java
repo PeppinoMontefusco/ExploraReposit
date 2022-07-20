@@ -24,6 +24,7 @@ import actions.b2c.AdobeHomePageAction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
 import globalSetup.startPageB2B;
+import globalSetup.startPageProd;
 import pages.b2b.TouchBizGuestSectionPage;
 import wrappers.ApachePoiStyles;
 import wrappers.ExcelName;
@@ -35,12 +36,12 @@ import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 
-public class RegisterTravelAdvisor extends setupDriver {
+public class PROD_RegisterTravelAdvisor extends setupDriver {
 
 	@Test
 	public static void loginTravelAdvisors() throws AWTException, InterruptedException, UnirestException {
 		test=TestManager.startTest("Form_TravelAdvisor", "Register Travel Advisor", "Form");
-		startPage.startPage();
+		startPageProd.startPageProd();
 		AdobeHomePageAction.clickOnTravelAdvisors();
 		Report.passStep("Click On Travel Advisor");
 		WebWrapper.closeAndSwitchTab();

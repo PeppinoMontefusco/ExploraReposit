@@ -58,7 +58,10 @@ public class API extends setupDriver {
 	            .max(Comparator.comparing(ExternalFunction.Email::getTimestamp)).orElse(null);
 		
 		
-		var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/stage\\.mscnextgenlux\\.com\\/it\\/en\\/reset-password.*?)\\1");
+		//var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/stage\\.mscnextgenlux\\.com\\/it\\/en\\/reset-password.*?)\\1");
+		
+		var pattern = Pattern.compile("<a\\s+(?:[^>]*?\\s+)?href=([\"'])(https:\\/\\/explorajourneys\\.com\\/it\\/en\\/reset-password.*?)\\1");
+
 		
 		var match = pattern.matcher(email.body);
 		if (match.find()) {

@@ -76,6 +76,7 @@ public class TOUCHX_Create_User extends setupDriver {
 		Thread.sleep(5000);
 		String md5=ExternalFunction.getMd5Hash(email);
 		System.out.println(md5);
+		System.out.println(email);
 		API.getRegistrationEmails(md5);
 		
 		Report.passStep("Click on Registration link in email");

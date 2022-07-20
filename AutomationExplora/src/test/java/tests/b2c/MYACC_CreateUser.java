@@ -1,4 +1,4 @@
-package tests.b2c.PROD;
+package tests.b2c;
 
 import java.awt.AWTException;
 import java.util.List;
@@ -27,13 +27,13 @@ import wrappers.TestManager;
 import wrappers.WebWrapper;
 
 @Listeners(TestListener.class) 
-public class PROD_MYACC_CreateUser extends setupDriver {
+public class MYACC_CreateUser extends setupDriver {
 	
 	
 	@Test
 	public static void createUser() throws InterruptedException, UnirestException, AWTException{
 		test=TestManager.startTest("MYACC_01", "Registration User", "MyAccount");
-		startPageProd.startPageProd();
+		startPage.startPage();
 		AdobeHomePageAction.clickOnMyAccount();
 		Report.passStep("Click On MyAccount");
 		AdobeRegistrationAction.clickOnCreateAccountButton();
@@ -62,7 +62,10 @@ public class PROD_MYACC_CreateUser extends setupDriver {
 		Report.passStep("Click on Close Button");
 		Thread.sleep(3000);
 		String md5=ExternalFunction.getMd5Hash(email);
+		System.out.println(md5);
+		System.out.println(email);
 		API.getRegistrationEmails(md5);
+		
 		Report.passStep("Click on Registration link in email");
 		Thread.sleep(3000);
 		AdobeRegistrationAction.clickCreateAccountSuccessClose();
@@ -74,14 +77,14 @@ public class PROD_MYACC_CreateUser extends setupDriver {
 		Report.passStep("Click On MyAccount");
 		WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), email);
 		Report.passStep("Insert Email");
-		AdobeLoginAction.insertLoginPassword("prod");
+		AdobeLoginAction.insertLoginPassword("test");
 		Report.passStep("Insert Password");
 		AdobeLoginAction.clickOnSignInButton();
 		Report.passStep("Click on Sign In ");
 		
 		AdobeLoginAction.logOutBase();
 		empdata.add(new OutputLine ( ApachePoiStyles.RESULTS,List.of(email, "Nicolino2017!!!" , "Create User"),ExcelName.USERS));
-		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of(),ExcelName.USERS) );
+		empdata.add(new OutputLine (ApachePoiStyles.EMPTYROW ,List.of("" , "" ,"" ),ExcelName.USERS) );
 		
 		}
 	

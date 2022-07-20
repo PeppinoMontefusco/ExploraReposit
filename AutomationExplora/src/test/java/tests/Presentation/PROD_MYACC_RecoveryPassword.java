@@ -1,4 +1,4 @@
-package tests.b2c.PROD;
+package tests.Presentation;
 
 import java.awt.AWTException;
 
@@ -35,11 +35,13 @@ public class PROD_MYACC_RecoveryPassword extends setupDriver {
 		Report.passStep("Click On MyAccount");
 		AdobeRecoveryAction.clickOnRecoveryPasswordLink();
 		Report.passStep("Click On Recovery Password link");
-		AdobeRecoveryAction.insertRecoveryPasswordEmail();
+		AdobeRecoveryAction.insertRecoveryPasswordEmail("prod");
 		Report.passStep("Insert Email");
 		AdobeRecoveryAction.clickOnRecoveryPasswordResetButton();
 		Report.passStep("Click on Recovery Password Button");
-		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecovery());
+		Thread.sleep(5000);
+		String md5 = ExternalFunction.getMd5Hash(new Configuration().emailRecoveryProd());
+		System.out.println(md5);
 		API.getRecoveryEmails(md5);
 		Report.passStep("Click on Recovery link in Email");
 		String pass=AdobeRecoveryAction.insertRecoveryPasswordNewPassword();
@@ -51,7 +53,7 @@ public class PROD_MYACC_RecoveryPassword extends setupDriver {
 		AdobeRecoveryAction.clickOnRecoveryPasswordUpdateSignInButton();
 		Report.passStep("Login After Recovery");
 		Report.passStep("Click on Sign In Button");
-	    WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), new Configuration().emailRecovery());
+	    WebWrapper.typeInField(AdobeLoginPage.getLoginUsername(), new Configuration().emailRecoveryProd());
 		Report.passStep("Insert Username");
 		WebWrapper.typeInField(AdobeLoginPage.getLoginPassword(), pass);
 		Report.passStep("Insert Password");

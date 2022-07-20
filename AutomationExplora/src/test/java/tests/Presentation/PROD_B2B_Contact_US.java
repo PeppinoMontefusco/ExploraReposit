@@ -11,6 +11,7 @@ import actions.b2b.AdobeLoginTravelAdvisorsAction;
 import actions.b2c.AdobeHomePageAction;
 import globalSetup.setupDriver;
 import globalSetup.startPage;
+import globalSetup.startPageProd;
 import wrappers.ApachePoiStyles;
 import wrappers.ExcelName;
 import wrappers.OutputLine;
@@ -21,16 +22,16 @@ import wrappers.WebWrapper;
 
 @Listeners(TestListener.class)
 
-public class B2B_Contact_US extends setupDriver {
+public class PROD_B2B_Contact_US extends setupDriver {
 
 	@Test
 	public static void loginTravelAdvisors() throws AWTException, InterruptedException, UnirestException {
 		test=TestManager.startTest("Contact Us", "Contact Us", "Form");
-		startPage.startPage();
+		startPageProd.startPageProd();
 		AdobeHomePageAction.clickOnTravelAdvisors();
 		Report.passStep("Click On Travel Advisors");
 		WebWrapper.closeAndSwitchTab();
-		AdobeLoginTravelAdvisorsAction.loginBaseB2B();
+		AdobeLoginTravelAdvisorsAction.loginBaseB2B("prod");
 	    AdobeHomePageB2BAction.clickOnContactUs();
 	    Report.passStep("Click On Contact Us");
 	    AdobeContactUsAction.setFirstName();
